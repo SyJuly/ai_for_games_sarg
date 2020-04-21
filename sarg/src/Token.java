@@ -12,4 +12,8 @@ public class Token {
     public int getTeamCode(){
         return teamCode;
     }
+
+    public String toString() {
+        return "(" + teamCode + "|" + x + "," + y + ")";
+    }
 }
