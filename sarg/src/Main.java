@@ -24,8 +24,8 @@ public class Main {
         while (true) {
             Move receiveMove = nc.receiveMove();
             if (receiveMove == null) {
-                int[] piece = board.chooseRandomPiece();
-                Move move = new Move(piece[0], piece[1]);
+                Token token = board.chooseRandomPiece();
+                Move move = new Move(token.x, token.y);
                 nc.sendMove(move);
             } else {
                 board.update(receiveMove);
