@@ -28,7 +28,7 @@ public class Main {
                 Move move = new Move(piece[0], piece[1]);
                 nc.sendMove(move);
             } else {
-                // integriereZugInSpielbrett(move);
+                board.update(receiveMove);
             }
         }
     }
