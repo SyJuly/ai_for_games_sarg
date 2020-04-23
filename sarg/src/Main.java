@@ -24,7 +24,7 @@ public class Main {
         while (true) {
             Move receiveMove = nc.receiveMove();
             if (receiveMove == null) {
-                Token token = board.chooseRandomPiece();
+                Token token = board.getBestToken();
                 Move move = new Move(token.x, token.y);
                 System.out.println(teamName + " made Move: " + move.x + "," + move.y);
                 nc.sendMove(move);
