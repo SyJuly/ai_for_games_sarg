@@ -32,6 +32,7 @@ public class Main {
                 if(receiveMove.x < 0 || receiveMove.y < 0){
                     return;
                 }
+                System.out.println("Updating with Move: " + receiveMove.x + "," + receiveMove.y);
                 board.update(receiveMove);
             }
         }

@@ -1,4 +1,5 @@
 import lenz.htw.sarg.Move;
+import org.lwjgl.Sys;
 
 import java.util.List;
 import java.util.Random;
@@ -17,7 +18,7 @@ public class BoardManager {
     private BoardBoundary boardBoundary;
     private BoardKonfiguration boardConfig;
     private Team[] teams;
-    private Token[][] board = new Token[BOARD_SIZE][BOARD_SIZE];
+    //private Token[][] board = new Token[BOARD_SIZE][BOARD_SIZE];
     private Team own_team;
 
     public BoardManager(){
@@ -29,6 +30,7 @@ public class BoardManager {
         teams[TeamCode.GREEN.getCode()] = new Team(TeamCode.GREEN, new int[]{1,0}, new int[]{0,-1});
         teams[TeamCode.BLUE.getCode()] = new Team(TeamCode.BLUE, new int[]{-1,-1}, new int[]{-1,0});
 
+        Token[][] board = new Token[BOARD_SIZE][BOARD_SIZE];
         boardConfig = new BoardKonfiguration(teams, board, NUMBER_OF_PIECES_PER_PLAYER);
     }
 
@@ -45,6 +47,9 @@ public class BoardManager {
 
         Token[][] board = nextBoardConfig.board;
         Token token = board[x][y];
+        if(token == null){
+            System.out.println("An error occured, Token " + token + " is missing.");
+        }
         int moved_team_code = token.getTeamCode();
 
         int[] movingDirection_Left = nextBoardConfig.teams[moved_team_code].getmovingDirection_Left();
@@ -100,7 +105,7 @@ public class BoardManager {
     }
 
     public Token getBestToken(){
-        int depth = 4;
+        int depth = 1;
         int ownTeamCode = own_team.getTeamCode().getCode();
         AlphaBetaResult result = alphaBeta(ownTeamCode, boardConfig, depth, null);
         return result.token;
@@ -108,39 +113,41 @@ public class BoardManager {
 
     private AlphaBetaResult alphaBeta(int teamCode, BoardKonfiguration boardConfig, int depth, Token choosenToken) {
         if(depth == 0 || boardConfig.areMoreTurnsPossible(own_team.getTeamCode().getCode()) /*should be when player has 5 points*/) {
-            return evaluate(boardConfig, choosenToken);
+            return evaluate(boardConfig);
         }
         if(teamCode == own_team.getTeamCode().getCode()){
-            AlphaBetaResult maxEval = new AlphaBetaResult(choosenToken,Integer.MIN_VALUE);
+            AlphaBetaResult maxEval = new AlphaBetaResult(Integer.MIN_VALUE);
             List<Token> tokensToChooseFrom = boardConfig.getCurrentTokensOfTeam(teamCode);
             for(int i = 0; i < tokensToChooseFrom.size(); i++){
                 Token token = tokensToChooseFrom.get(i);
                 BoardKonfiguration newBoardConfig = chooseToken(boardConfig,token.x, token.y);
                 AlphaBetaResult evaluation = alphaBeta(getNextTeam(teamCode), newBoardConfig, depth - 1, token);
+                evaluation.token = token;
                 maxEval = AlphaBetaResult.getMaxAlphaBetaResult(maxEval, evaluation);
             }
             return maxEval;
         } else {
-            AlphaBetaResult minEval =  new AlphaBetaResult(choosenToken,Integer.MAX_VALUE);
+            AlphaBetaResult minEval =  new AlphaBetaResult(Integer.MAX_VALUE);
             List<Token> tokensToChooseFrom = boardConfig.getCurrentTokensOfTeam(teamCode);
             for(int i = 0; i < tokensToChooseFrom.size(); i++){
                 Token token = tokensToChooseFrom.get(i);
                 BoardKonfiguration newBoardConfig = chooseToken(boardConfig,token.x, token.y);
                 AlphaBetaResult evaluation = alphaBeta(getNextTeam(teamCode), newBoardConfig, depth - 1, token);
+                evaluation.token = token;
                 minEval = AlphaBetaResult.getMinAlphaBetaResult(minEval, evaluation);
             }
             return minEval;
         }
     }
 
-    private AlphaBetaResult evaluate(BoardKonfiguration boardConfig, Token choosenToken) {
+    private AlphaBetaResult evaluate(BoardKonfiguration boardConfig) {
         int evaluatedValue = 0;
         for (Token token: boardConfig.getCurrentTokensOfTeam(own_team.getTeamCode().getCode())) {
             if(!isValid(token.x, token.y)){
                 evaluatedValue++;
             }
         }
-        return new AlphaBetaResult(choosenToken,evaluatedValue);
+        return new AlphaBetaResult(evaluatedValue);
     }
 
     private int getNextTeam(int lastTeamCode){

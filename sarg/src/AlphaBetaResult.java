@@ -2,8 +2,7 @@ public class AlphaBetaResult {
     public Token token;
     public int value;
 
-    public AlphaBetaResult(Token token, int value){
-        this.token = token;
+    public AlphaBetaResult(int value){
         this.value = value;
     }
 
