@@ -36,7 +36,7 @@ public class BoardKonfiguration {
         if(token == null){
             return;
         }
-        teams[token.teamCode].belongingTokens.remove(token);
+        boolean worked = teams[token.teamCode].belongingTokens.remove(token);
     }
 
     private void setUpTokens(Token[][] board, int initialNumOfTokensPerPlayer){
@@ -82,7 +82,7 @@ public class BoardKonfiguration {
                 }
                 Token copiedToken = new Token(token.x, token.y, token.teamCode);
                 copiedBoard[i][j] = copiedToken;
-                copiedTeams[token.teamCode].belongingTokens.add(token);
+                copiedTeams[token.teamCode].belongingTokens.add(copiedToken);
             }
         }
         return new BoardKonfiguration(copiedTeams, copiedBoard);
