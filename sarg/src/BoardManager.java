@@ -39,13 +39,17 @@ public class BoardManager {
     }
 
     public void update(Move receiveMove) {
-        Token token = board[receiveMove.x][receiveMove.y];
+        chooseToken(board, receiveMove.x, receiveMove.y);
+    }
+
+    private void chooseToken(Token[][] currBoard, int x, int y){
+        Token token = board[x][y];
         int moved_team_code = token.getTeamCode();
 
         int[] movingDirection_Left = teams[moved_team_code].getmovingDirection_Left();
         int[] movingDirection_Right = teams[moved_team_code].getmovingDirection_Right();
 
-        Token tokenLeft = new Token(receiveMove.x , receiveMove.y , moved_team_code);
+        Token tokenLeft = new Token(x , y , moved_team_code);
 
         token = moveToken(token, movingDirection_Right);
         tokenLeft = moveToken(tokenLeft, movingDirection_Left);
@@ -56,8 +60,9 @@ public class BoardManager {
             }
             //System.out.println(Arrays.toString(own_tokens.toArray()));
         }
-        updateBoard(receiveMove, token, tokenLeft);
+        updateBoard(currBoard, x,y, token, tokenLeft);
     }
+
     private Token moveToken(Token token, int[] movingDirection) {
         boolean startRemovingJumpedByTokens = false;
         while(board[token.x][token.y] != null){
@@ -84,19 +89,56 @@ public class BoardManager {
         board[token.x][token.y] = null;
     }
 
-    private void updateBoard(Move receiveMove, Token tokenRight, Token tokenLeft) {
+    private void updateBoard(Token[][] currBoard, int x, int y, Token tokenRight, Token tokenLeft) {
         if(tokenRight != null){
-            board[tokenRight.x][tokenRight.y] = tokenRight;
+            currBoard[tokenRight.x][tokenRight.y] = tokenRight;
         }
         if(tokenLeft != null){
-            board[tokenLeft.x][tokenLeft.y] = tokenLeft;
+            currBoard[tokenLeft.x][tokenLeft.y] = tokenLeft;
         }
-        board[receiveMove.x][receiveMove.y] = null;
+        currBoard[x][y] = null;
     }
 
     public Token chooseRandomPiece(){
         Random rand = new Random();
         return own_tokens.get(rand.nextInt(own_tokens.size()));
+    }
+
+    public Token getBestToken(){
+        int depth = 4;
+        alphaBeta(own_tokens, depth, true);
+    }
+
+    private int alphaBeta(List<Token> tokensToChooseFrom, int depth, boolean maximizingPlayer) {
+        if(depth == 0 && tokensToChooseFrom.isEmpty() /*should be when player has 5 points*/) {
+            return evaluate(tokensToChooseFrom);
+        }
+        if(maximizingPlayer){
+            int maxEval = Integer.MIN_VALUE;
+            for(int i = 0; i < tokensToChooseFrom.size(); i++){
+                List<Token> nextTokensToChooseFrom = chooseToken();
+                int evaluation = alphaBeta(tokensToChooseFrom, depth - 1, false);
+                maxEval = Math.max(maxEval, evaluation);
+            }
+            return maxEval;
+        } else {
+            int minEval = Integer.MAX_VALUE;
+            for(int i = 0; i < tokensToChooseFrom.size(); i++){
+                int evaluation = alphaBeta(tokensToChooseFrom, depth - 1, false);
+                minEval = Math.min(minEval, evaluation);
+            }
+            return minEval;
+        }
+    }
+
+    private int evaluate(List<Token> tokensToChooseFrom) {
+        int evaluatedValue = 0;
+        for (Token token: tokensToChooseFrom) {
+            if(!isValid(token.x, token.y)){
+                evaluatedValue++;
+            }
+        }
+        return evaluatedValue;
     }
 
     public int[][] getCurrentNeighbors(int[] position){
