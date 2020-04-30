@@ -43,9 +43,7 @@ public class MoveFinder {
             List<Token> tokensToChooseFrom = boardConfig.getCurrentTokensOfTeam(teamCode);
             for(int i = 0; i < tokensToChooseFrom.size(); i++){
                 Token token = tokensToChooseFrom.get(i);
-                BoardConfiguration newBoardConfig = boardManager.chooseToken(boardConfig,token.x, token.y);
-                AlphaBetaResult evaluation = alphaBeta(boardManager.getNextTeam(teamCode), newBoardConfig, depth - 1, alpha, beta);
-                evaluation.token = token;
+                AlphaBetaResult evaluation = getAlphaBetaResultFromNextTraverse(teamCode, boardConfig, depth, alpha, beta, token);
                 maxEval = AlphaBetaResult.getMaxAlphaBetaResult(maxEval, evaluation);
                 alpha = Math.max(alpha, evaluation.value);
                 if(beta <= alpha){
@@ -58,9 +56,7 @@ public class MoveFinder {
             List<Token> tokensToChooseFrom = boardConfig.getCurrentTokensOfTeam(teamCode);
             for(int i = 0; i < tokensToChooseFrom.size(); i++){
                 Token token = tokensToChooseFrom.get(i);
-                BoardConfiguration newBoardConfig = boardManager.chooseToken(boardConfig,token.x, token.y);
-                AlphaBetaResult evaluation = alphaBeta(boardManager.getNextTeam(teamCode), newBoardConfig, depth - 1, alpha, beta);
-                evaluation.token = token;
+                AlphaBetaResult evaluation = getAlphaBetaResultFromNextTraverse(teamCode, boardConfig, depth, alpha, beta, token);
                 minEval = AlphaBetaResult.getMinAlphaBetaResult(minEval, evaluation);
                 beta = Math.min(beta, evaluation.value);
                 if(beta <= alpha){
@@ -69,6 +65,13 @@ public class MoveFinder {
             }
             return minEval;
         }
+    }
+
+    private AlphaBetaResult getAlphaBetaResultFromNextTraverse(int teamCode, BoardConfiguration boardConfig, int depth, int alpha, int beta, Token token) {
+        BoardConfiguration newBoardConfig = boardManager.chooseToken(boardConfig, token.x, token.y);
+        AlphaBetaResult evaluation = alphaBeta(boardManager.getNextTeam(teamCode), newBoardConfig, depth - 1, alpha, beta);
+        evaluation.token = token;
+        return evaluation;
     }
 
     private AlphaBetaResult evaluate(BoardConfiguration boardConfig) {
