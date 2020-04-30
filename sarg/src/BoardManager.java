@@ -10,12 +10,6 @@ public class BoardManager {
     private int NUMBER_OF_PIECES_PER_PLAYER = 5;
     private int BOARD_SIZE = 9;
 
-    private int[][] directions = {
-            {+1,  0}, { 0, -1}, {-1, -1},
-            {-1,  0}, {0, +1}, { 1, 1},
-
-    };
-
     private BoardBoundary boardBoundary;
     private BoardKonfiguration boardConfig;
     private Team[] teams;
@@ -42,7 +36,7 @@ public class BoardManager {
         boardConfig = chooseToken(boardConfig, receiveMove.x, receiveMove.y);
     }
 
-    private BoardKonfiguration chooseToken(BoardKonfiguration currBoardConfig, int x, int y){
+    public BoardKonfiguration chooseToken(BoardKonfiguration currBoardConfig, int x, int y){
         BoardKonfiguration nextBoardConfig = currBoardConfig.copyConfig();
 
         Token[][] board = nextBoardConfig.board;
@@ -97,72 +91,8 @@ public class BoardManager {
         currBoardConfig.board[x][y] = null;
     }
 
-    public Token chooseRandomPiece(){
-        Random rand = new Random();
-        return own_team.belongingTokens.get(rand.nextInt(own_team.belongingTokens.size()));
-    }
 
-    public Token getBestToken(){
-        System.out.println("Choosing next token");
-        int depth = 1;
-        int ownTeamCode = own_team.getTeamCode().getCode();
-        AlphaBetaResult result = alphaBeta(ownTeamCode, boardConfig, depth, Integer.MIN_VALUE, Integer.MAX_VALUE,null);
-        return result.token;
-    }
-
-    private AlphaBetaResult alphaBeta(int teamCode,
-                                      BoardKonfiguration boardConfig,
-                                      int depth,
-                                      int alpha,
-                                      int beta,
-                                      Token choosenToken) {
-        if(depth == 0 || boardConfig.areMoreTurnsPossible(own_team.getTeamCode().getCode()) /*should be when player has 5 points*/) {
-            return evaluate(boardConfig);
-        }
-        if(teamCode == own_team.getTeamCode().getCode()){
-            AlphaBetaResult maxEval = new AlphaBetaResult(Integer.MIN_VALUE);
-            List<Token> tokensToChooseFrom = boardConfig.getCurrentTokensOfTeam(teamCode);
-            for(int i = 0; i < tokensToChooseFrom.size(); i++){
-                Token token = tokensToChooseFrom.get(i);
-                BoardKonfiguration newBoardConfig = chooseToken(boardConfig,token.x, token.y);
-                AlphaBetaResult evaluation = alphaBeta(getNextTeam(teamCode), newBoardConfig, depth - 1, alpha, beta, token);
-                evaluation.token = token;
-                maxEval = AlphaBetaResult.getMaxAlphaBetaResult(maxEval, evaluation);
-                alpha = Math.max(alpha, evaluation.value);
-                if(beta <= alpha){
-                    break;
-                }
-            }
-            return maxEval;
-        } else {
-            AlphaBetaResult minEval =  new AlphaBetaResult(Integer.MAX_VALUE);
-            List<Token> tokensToChooseFrom = boardConfig.getCurrentTokensOfTeam(teamCode);
-            for(int i = 0; i < tokensToChooseFrom.size(); i++){
-                Token token = tokensToChooseFrom.get(i);
-                BoardKonfiguration newBoardConfig = chooseToken(boardConfig,token.x, token.y);
-                AlphaBetaResult evaluation = alphaBeta(getNextTeam(teamCode), newBoardConfig, depth - 1, alpha, beta, token);
-                evaluation.token = token;
-                minEval = AlphaBetaResult.getMinAlphaBetaResult(minEval, evaluation);
-                beta = Math.min(beta, evaluation.value);
-                if(beta <= alpha){
-                    break;
-                }
-            }
-            return minEval;
-        }
-    }
-
-    private AlphaBetaResult evaluate(BoardKonfiguration boardConfig) {
-        int evaluatedValue = 0;
-        for (Token token: boardConfig.getCurrentTokensOfTeam(own_team.getTeamCode().getCode())) {
-            if(!isValid(token.x, token.y)){
-                evaluatedValue++;
-            }
-        }
-        return new AlphaBetaResult(evaluatedValue);
-    }
-
-    private int getNextTeam(int lastTeamCode){
+    public int getNextTeam(int lastTeamCode){
         lastTeamCode++;
         if(lastTeamCode > teams.length -1){
             return 0;
@@ -170,15 +100,15 @@ public class BoardManager {
         return lastTeamCode;
     }
 
-    public int[][] getCurrentNeighbors(int[] position){
-        int[][] neighbors = new int[6][2];
-        for(int i = 0; i < directions.length; i++){
-            neighbors[i] = new int[]{position[0] + directions[i][0], position[1] + directions[i][1]};
-        }
-        return neighbors;
+    public boolean isValid(int x, int y){
+        return boardBoundary.contains(x,y);
     }
 
-    private boolean isValid(int x, int y){
-        return boardBoundary.contains(x,y);
+    public Team getOwnTeam() {
+        return own_team;
+    }
+
+    public BoardKonfiguration getCurrentBoardConfig() {
+        return boardConfig;
     }
 }
