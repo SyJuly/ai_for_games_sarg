@@ -1,9 +1,4 @@
 import lenz.htw.sarg.Move;
-import org.lwjgl.Sys;
-
-import java.util.Arrays;
-import java.util.List;
-import java.util.Random;
 
 public class BoardManager {
 
@@ -11,7 +6,7 @@ public class BoardManager {
     private int BOARD_SIZE = 9;
 
     private BoardBoundary boardBoundary;
-    private BoardKonfiguration boardConfig;
+    private BoardConfiguration boardConfig;
     private Team[] teams;
     private Team own_team;
 
@@ -25,7 +20,7 @@ public class BoardManager {
         teams[TeamCode.BLUE.getCode()] = new Team(TeamCode.BLUE, new int[]{-1,-1}, new int[]{-1,0});
 
         Token[][] board = new Token[BOARD_SIZE][BOARD_SIZE];
-        boardConfig = new BoardKonfiguration(teams, board, NUMBER_OF_PIECES_PER_PLAYER);
+        boardConfig = new BoardConfiguration(teams, board, NUMBER_OF_PIECES_PER_PLAYER);
     }
 
     public void setTeamCode(int code){
@@ -36,8 +31,8 @@ public class BoardManager {
         boardConfig = chooseToken(boardConfig, receiveMove.x, receiveMove.y);
     }
 
-    public BoardKonfiguration chooseToken(BoardKonfiguration currBoardConfig, int x, int y){
-        BoardKonfiguration nextBoardConfig = currBoardConfig.copyConfig();
+    public BoardConfiguration chooseToken(BoardConfiguration currBoardConfig, int x, int y){
+        BoardConfiguration nextBoardConfig = currBoardConfig.copyConfig();
 
         Token[][] board = nextBoardConfig.board;
         Token token = board[x][y];
@@ -57,7 +52,7 @@ public class BoardManager {
         return nextBoardConfig;
     }
 
-    private Token moveToken(BoardKonfiguration currBoardConfig, Token token, int[] movingDirection) {
+    private Token moveToken(BoardConfiguration currBoardConfig, Token token, int[] movingDirection) {
         boolean startRemovingJumpedByTokens = false;
         while(currBoardConfig.board[token.x][token.y] != null){
             if(startRemovingJumpedByTokens){
@@ -75,13 +70,13 @@ public class BoardManager {
         return token;
     }
 
-    private void cleanUpToken(BoardKonfiguration currBoardConfig, int x, int y) {
+    private void cleanUpToken(BoardConfiguration currBoardConfig, int x, int y) {
         Token token = currBoardConfig.board[x][y];
         currBoardConfig.removeTokenFromTeamList(token);
         currBoardConfig.board[token.x][token.y] = null;
     }
 
-    private void updateBoard(BoardKonfiguration currBoardConfig, int x, int y, Token tokenRight, Token tokenLeft) {
+    private void updateBoard(BoardConfiguration currBoardConfig, int x, int y, Token tokenRight, Token tokenLeft) {
         if(tokenRight != null){
             currBoardConfig.board[tokenRight.x][tokenRight.y] = tokenRight;
         }
@@ -108,7 +103,7 @@ public class BoardManager {
         return own_team;
     }
 
-    public BoardKonfiguration getCurrentBoardConfig() {
+    public BoardConfiguration getCurrentBoardConfig() {
         return boardConfig;
     }
 }

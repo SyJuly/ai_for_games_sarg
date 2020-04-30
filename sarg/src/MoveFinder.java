@@ -31,7 +31,7 @@ public class MoveFinder {
     }
 
     private AlphaBetaResult alphaBeta(int teamCode,
-                                      BoardKonfiguration boardConfig,
+                                      BoardConfiguration boardConfig,
                                       int depth,
                                       int alpha,
                                       int beta) {
@@ -43,7 +43,7 @@ public class MoveFinder {
             List<Token> tokensToChooseFrom = boardConfig.getCurrentTokensOfTeam(teamCode);
             for(int i = 0; i < tokensToChooseFrom.size(); i++){
                 Token token = tokensToChooseFrom.get(i);
-                BoardKonfiguration newBoardConfig = boardManager.chooseToken(boardConfig,token.x, token.y);
+                BoardConfiguration newBoardConfig = boardManager.chooseToken(boardConfig,token.x, token.y);
                 AlphaBetaResult evaluation = alphaBeta(boardManager.getNextTeam(teamCode), newBoardConfig, depth - 1, alpha, beta);
                 evaluation.token = token;
                 maxEval = AlphaBetaResult.getMaxAlphaBetaResult(maxEval, evaluation);
@@ -58,7 +58,7 @@ public class MoveFinder {
             List<Token> tokensToChooseFrom = boardConfig.getCurrentTokensOfTeam(teamCode);
             for(int i = 0; i < tokensToChooseFrom.size(); i++){
                 Token token = tokensToChooseFrom.get(i);
-                BoardKonfiguration newBoardConfig = boardManager.chooseToken(boardConfig,token.x, token.y);
+                BoardConfiguration newBoardConfig = boardManager.chooseToken(boardConfig,token.x, token.y);
                 AlphaBetaResult evaluation = alphaBeta(boardManager.getNextTeam(teamCode), newBoardConfig, depth - 1, alpha, beta);
                 evaluation.token = token;
                 minEval = AlphaBetaResult.getMinAlphaBetaResult(minEval, evaluation);
@@ -71,7 +71,7 @@ public class MoveFinder {
         }
     }
 
-    private AlphaBetaResult evaluate(BoardKonfiguration boardConfig) {
+    private AlphaBetaResult evaluate(BoardConfiguration boardConfig) {
         int evaluatedValue = 0;
         for (Token token: boardConfig.getCurrentTokensOfTeam(ownTeam.getTeamCode().getCode())) {
             if(!boardManager.isValid(token.x, token.y)){

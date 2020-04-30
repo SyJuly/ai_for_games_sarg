@@ -1,10 +1,10 @@
 import java.util.List;
 
-public class BoardKonfiguration {
+public class BoardConfiguration {
     public Team[] teams;
     public Token[][] board;
 
-    public BoardKonfiguration(Team[] teams, Token[][] board, int initialNumOfTokensPerPlayer){
+    public BoardConfiguration(Team[] teams, Token[][] board, int initialNumOfTokensPerPlayer){
         this.teams = teams;
         this.board = board;
         //setup start konfiguration
@@ -12,7 +12,7 @@ public class BoardKonfiguration {
         setUpTeamTokens(board);
     }
 
-    public BoardKonfiguration(Team[] teams, Token[][] board){
+    public BoardConfiguration(Team[] teams, Token[][] board){
         this.teams = teams;
         this.board = board;
     }
@@ -66,7 +66,7 @@ public class BoardKonfiguration {
         }
     }
 
-    public BoardKonfiguration copyConfig() {
+    public BoardConfiguration copyConfig() {
         Token[][] copiedBoard = new Token[board.length][board[0].length];
         Team[] copiedTeams = new Team[teams.length];
         for (int j = 0; j < teams.length; j++) {
@@ -85,6 +85,6 @@ public class BoardKonfiguration {
                 copiedTeams[token.teamCode].belongingTokens.add(copiedToken);
             }
         }
-        return new BoardKonfiguration(copiedTeams, copiedBoard);
+        return new BoardConfiguration(copiedTeams, copiedBoard);
     }
 }
