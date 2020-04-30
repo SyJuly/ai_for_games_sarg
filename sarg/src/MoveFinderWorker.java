@@ -1,29 +1,32 @@
-import org.lwjgl.Sys;
-
 import java.util.List;
+import java.util.concurrent.Callable;
 
-public class MoveFinderWorker implements Runnable {
-    private final int DEFAULT_DEPTH = 10;
-
+public class MoveFinderWorker implements Callable {
+    private int depth;
     public int id;
     private Team ownTeam;
     private BoardManager boardManager;
-    private MoveFinder moveFinder;
+    private AlphaBetaResult[] results;
+    private boolean isCancelled = false;
 
-    public AlphaBetaResult bestResult;
-
-    public MoveFinderWorker(int id, MoveFinder moveFinder, BoardManager boardManager){
-        this.moveFinder = moveFinder;
+    public MoveFinderWorker(int id, AlphaBetaResult[] results, BoardManager boardManager, int depth){
         this.id = id;
+        this.results = results;
         this.boardManager = boardManager;
+        this.depth = depth;
     }
 
+    public void cancelTask() {
+        isCancelled = true;
+    }
 
     @Override
-    public void run() {
+    public AlphaBetaResult call() {
+        isCancelled = false;
         System.out.println("Starting to find best token in worker.");
         int ownTeamCode = ownTeam.getTeamCode().getCode();
-        bestResult = alphaBeta(ownTeamCode, boardManager.getCurrentBoardConfig(), DEFAULT_DEPTH, Integer.MIN_VALUE, Integer.MAX_VALUE);
+        results[id] = alphaBeta(ownTeamCode, boardManager.getCurrentBoardConfig(), depth, Integer.MIN_VALUE, Integer.MAX_VALUE);
+        return results[id];
     }
 
     private AlphaBetaResult alphaBeta(int teamCode,
@@ -31,6 +34,10 @@ public class MoveFinderWorker implements Runnable {
                                       int depth,
                                       int alpha,
                                       int beta) {
+
+        if(isCancelled){
+            return null;
+        }
         if(depth == 0 || boardConfig.areMoreTurnsPossible(ownTeam.getTeamCode().getCode())) {
             return evaluate(boardConfig);
         }

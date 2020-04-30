@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
 public class MoveFinder {
     private int[][] directions = {
@@ -19,19 +20,21 @@ public class MoveFinder {
     private long timeStartedFindingMove;
     private ExecutorService executor;
     private MoveFinderWorker[] workers;
-    private int numOfWorkers = 1;
+    private AlphaBetaResult[] results;
+    private int[] depths = new int[]{10, 11, 14};
     private long timeLimitThreshold = 500;
 
     public MoveFinder(BoardManager boardManager, long timeLimit){
         this.timeLimit = timeLimit;
         this.boardManager = boardManager;
 
+        int numOfWorkers = depths.length;
         executor = Executors.newFixedThreadPool(numOfWorkers);
         workers = new MoveFinderWorker[numOfWorkers];
+        results = new AlphaBetaResult[numOfWorkers];
         for (int i = 0; i < numOfWorkers; i++) {
-            workers[i] = new MoveFinderWorker(i, this, boardManager);
+            workers[i] = new MoveFinderWorker(i, results, boardManager, depths[i]);
         }
-        //executor.shutdown();
     }
 
     public Token chooseRandomPiece(){
@@ -41,14 +44,32 @@ public class MoveFinder {
 
     public Token getBestToken(){
         timeStartedFindingMove = System.currentTimeMillis();
-        for (int i = 0; i < numOfWorkers; i++) {
-            executor.execute(workers[i]);
+        Future<AlphaBetaResult>[] results = new Future[depths.length];
+        for (int i = 0; i < depths.length; i++) {
+            results[i] = executor.submit(workers[i]);
         }
         while((System.currentTimeMillis() - timeStartedFindingMove) < timeLimit - timeLimitThreshold){
             //wait
         }
-        System.out.println("Choose best token after " + (System.currentTimeMillis() - timeStartedFindingMove) * 1.0/1000.0 + " seconds.");
-        return workers[0].bestResult.token;
+        return chooseBestToken(results);
+    }
+
+    private Token chooseBestToken(Future<AlphaBetaResult>[] results) {
+        for (int i = depths.length -1; i >= 0; i--) {
+            if(results[i].isDone()){
+                stopFindingBestToken();
+                System.out.println("Choose best token after " + (System.currentTimeMillis() - timeStartedFindingMove) * 1.0/1000.0 + " seconds with depth: " + depths[i]);
+                return this.results[i].token;
+            }
+        }
+        System.out.println("WARNING: Chose random token as fall back.");
+        return chooseRandomPiece();
+    }
+
+    private void stopFindingBestToken(){
+        for (int i = 0; i < depths.length; i++) {
+            workers[i].cancelTask();
+        }
     }
 
 
@@ -61,7 +82,8 @@ public class MoveFinder {
     }
 
     public void setTeam(){
-        for (int i = 0; i < numOfWorkers; i++) {
+        ownTeam = boardManager.getOwnTeam();
+        for (int i = 0; i < depths.length; i++) {
             workers[i].setOwnTeam(boardManager.getOwnTeam());
         }
     }
