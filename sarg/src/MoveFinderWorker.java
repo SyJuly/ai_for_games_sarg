@@ -6,6 +6,7 @@ public class MoveFinderWorker implements Callable {
     public int id;
     private Team ownTeam;
     private BoardManager boardManager;
+    private Evaluator evaluator;
     private AlphaBetaResult[] results;
     private boolean isCancelled = false;
 
@@ -39,7 +40,7 @@ public class MoveFinderWorker implements Callable {
             return null;
         }
         if(depth == 0 || boardConfig.areMoreTurnsPossible(ownTeam.getTeamCode().getCode())) {
-            return evaluate(boardConfig);
+            return evaluator.evaluate(boardConfig);
         }
         if(teamCode == ownTeam.getTeamCode().getCode()){
             AlphaBetaResult maxEval = new AlphaBetaResult(Integer.MIN_VALUE);
@@ -77,17 +78,10 @@ public class MoveFinderWorker implements Callable {
         return evaluation;
     }
 
-    private AlphaBetaResult evaluate(BoardConfiguration boardConfig) {
-        int evaluatedValue = 0;
-        for (Token token: boardConfig.getCurrentTokensOfTeam(ownTeam.getTeamCode().getCode())) {
-            if(!boardManager.isValid(token.x, token.y)){
-                evaluatedValue++;
-            }
-        }
-        return new AlphaBetaResult(evaluatedValue);
-    }
+
 
     public void setOwnTeam(Team ownTeam) {
         this.ownTeam = ownTeam;
+        this.evaluator = new Evaluator(ownTeam.getTeamCode().getCode(), boardManager);
     }
 }
