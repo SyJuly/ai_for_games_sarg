@@ -15,9 +15,9 @@ public class BoardManager {
                 {0,0}, {0,4}, {4,8}, {8,8}, {8,4}, {4,0}
         });
         teams = new Team[3];
-        teams[TeamCode.RED.getCode()] = new Team(TeamCode.RED, new int[]{0,1}, new int[]{1,1});
-        teams[TeamCode.GREEN.getCode()] = new Team(TeamCode.GREEN, new int[]{1,0}, new int[]{0,-1});
-        teams[TeamCode.BLUE.getCode()] = new Team(TeamCode.BLUE, new int[]{-1,-1}, new int[]{-1,0});
+        teams[TeamCode.RED.getCode()] = new TeamRed();
+        teams[TeamCode.GREEN.getCode()] = new TeamGreen();
+        teams[TeamCode.BLUE.getCode()] = new TeamBlue();
 
         Token[][] board = new Token[BOARD_SIZE][BOARD_SIZE];
         boardConfig = new BoardConfiguration(teams, board, NUMBER_OF_PIECES_PER_PLAYER);
