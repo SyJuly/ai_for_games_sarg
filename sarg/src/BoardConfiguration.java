@@ -71,7 +71,7 @@ public class BoardConfiguration {
         Team[] copiedTeams = new Team[teams.length];
         for (int j = 0; j < teams.length; j++) {
             Team team = teams[j];
-            Team copiedTeam = new Team(team.getTeamCode(), team.getmovingDirection_Left(), team.getmovingDirection_Right());
+            Team copiedTeam = getCopiedTeam(team);
             copiedTeams[j] = copiedTeam;
         }
         for(int i=0; i<board.length; i++) {
@@ -86,5 +86,14 @@ public class BoardConfiguration {
             }
         }
         return new BoardConfiguration(copiedTeams, copiedBoard);
+    }
+
+    private Team getCopiedTeam(Team teamToCopy){
+        switch (teamToCopy.getTeamCode()){
+            case RED: return new TeamRed();
+            case BLUE: return new TeamBlue();
+            case GREEN: return new TeamGreen();
+        }
+        return null;
     }
 }
