@@ -51,14 +51,11 @@ public class MoveFinder {
         Random rand = new Random();
         return ownTeam.belongingTokens.get(rand.nextInt(ownTeam.belongingTokens.size()));
     }
-    public Token chooseNextPiece(){
-        return ownTeam.belongingTokens.get(0);
-    }
 
 
     public Token getBestToken(){
         if(isDumpPlayer){
-            chooseNextPiece();
+            return chooseRandomPiece();
         }
         timeStartedFindingMove = System.currentTimeMillis();
         Future<AlphaBetaResult>[] results = new Future[depths.length];
@@ -100,6 +97,9 @@ public class MoveFinder {
 
     public void setTeam(){
         ownTeam = boardManager.getOwnTeam();
+        if (isDumpPlayer){
+            return;
+        }
         for (int i = 0; i < depths.length; i++) {
             workers[i].setOwnTeam(boardManager.getOwnTeam());
         }
