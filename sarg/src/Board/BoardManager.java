@@ -1,3 +1,10 @@
+package Board;
+
+import Team.Team;
+import Team.TeamRed;
+import Team.TeamGreen;
+import Team.TeamBlue;
+import Team.TeamCode;
 import lenz.htw.sarg.Move;
 
 public class BoardManager {

@@ -1,3 +1,10 @@
+package AI;
+
+import Board.BoardConfiguration;
+import Board.BoardManager;
+import Board.Token;
+import Team.Team;
+
 import java.util.List;
 import java.util.concurrent.Callable;
 

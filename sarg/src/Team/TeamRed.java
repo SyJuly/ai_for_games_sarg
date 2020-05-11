@@ -1,20 +1,22 @@
-public class TeamBlue extends Team {
+package Team;
 
-    protected static TeamCode code = TeamCode.BLUE;
+public class TeamRed extends Team {
 
-    public TeamBlue() {
+    protected static TeamCode code = TeamCode.RED;
+
+    public TeamRed() {
         super();
-        this.movingDirection_Left = new int[]{-1,-1};
-        this.movingDirection_Right = new int[]{-1,0};
-        this.lineBorder = new int[][]{{4,0}, {8,4}};
+        this.movingDirection_Left =  new int[]{0,1};
+        this.movingDirection_Right = new int[]{1,1};
+        this.lineBorder =  new int[][]{{4,0}, {8,4}};
     }
 
     @Override
     public double calculateDistanceToClosestWinningBorder(int x, int y) {
         double[] distances = new double[3];
 
-        distances[0] = x;
-        distances[1] = y;
+        distances[0] = Math.abs(8 - y);
+        distances[1] = Math.abs(8 - x);
         distances[2] = getDistanceFromPointToLine(x, y, lineBorder);
 
         return Math.min(distances[0], Math.min(distances[1], distances[2]));

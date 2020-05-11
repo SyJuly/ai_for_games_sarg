@@ -1,10 +1,14 @@
+package Team;
+
+import Board.Token;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Team {
     protected int[] movingDirection_Left;
     protected int[] movingDirection_Right;
-    protected int[][] lineBorder;
+    public int[][] lineBorder;
     public List<Token> belongingTokens;
 
     public Team(){

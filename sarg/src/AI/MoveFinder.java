@@ -1,7 +1,9 @@
-import lenz.htw.sarg.Move;
-import org.lwjgl.Sys;
+package AI;
 
-import java.util.List;
+import Board.BoardManager;
+import Board.Token;
+import Team.Team;
+
 import java.util.Random;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -49,10 +51,14 @@ public class MoveFinder {
         Random rand = new Random();
         return ownTeam.belongingTokens.get(rand.nextInt(ownTeam.belongingTokens.size()));
     }
+    public Token chooseNextPiece(){
+        return ownTeam.belongingTokens.get(0);
+    }
+
 
     public Token getBestToken(){
         if(isDumpPlayer){
-            chooseRandomPiece();
+            chooseNextPiece();
         }
         timeStartedFindingMove = System.currentTimeMillis();
         Future<AlphaBetaResult>[] results = new Future[depths.length];

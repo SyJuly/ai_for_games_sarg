@@ -1,3 +1,9 @@
+package AI;
+
+import Board.BoardConfiguration;
+import Board.BoardManager;
+import Board.Token;
+
 public class Evaluator {
 
     int teamCode;
@@ -34,7 +40,7 @@ public class Evaluator {
 
         if(counter < 10){
             counter++;
-            System.out.println("ActiveTokens: " + a + "*" + activeTokens + " | TokensOutSideBoard: " + b + "*" + tokensOutsideBoard + " | TokenDistanceToBorder: " + c + "*" + tokenDistanceToBorder + " =====> " + evaluatedValue + " = rounded: " + Math.round(evaluatedValue));
+            //System.out.println("ActiveTokens: " + a + "*" + activeTokens + " | TokensOutSideBoard: " + b + "*" + tokensOutsideBoard + " | TokenDistanceToBorder: " + c + "*" + tokenDistanceToBorder + " =====> " + evaluatedValue + " = rounded: " + Math.round(evaluatedValue));
         }
         return new AlphaBetaResult(evaluatedValue);
     }

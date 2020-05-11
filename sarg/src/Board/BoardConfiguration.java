@@ -1,3 +1,11 @@
+package Board;
+
+import Team.TeamCode;
+import Team.TeamRed;
+import Team.TeamGreen;
+import Team.TeamBlue;
+import Team.Team;
+
 import java.util.List;
 
 public class BoardConfiguration {

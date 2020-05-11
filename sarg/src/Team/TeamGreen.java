@@ -1,3 +1,5 @@
+package Team;
+
 public class TeamGreen extends Team {
 
     protected static TeamCode code = TeamCode.GREEN;

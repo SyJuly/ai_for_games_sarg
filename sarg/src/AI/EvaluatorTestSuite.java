@@ -1,5 +1,9 @@
+package AI;
 
-
+import Team.TeamRed;
+import Team.TeamGreen;
+import Team.TeamBlue;
+import Team.Team;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

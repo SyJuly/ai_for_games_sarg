@@ -1,3 +1,7 @@
+package AI;
+
+import Board.Token;
+
 public class AlphaBetaResult {
     public Token token;
     public int value;

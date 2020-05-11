@@ -1,3 +1,5 @@
+package Board;
+
 public class Token {
     public int x;
     public int y;

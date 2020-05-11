@@ -3,6 +3,9 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+import AI.MoveFinder;
+import Board.BoardManager;
+import Board.Token;
 import lenz.htw.sarg.Move;
 import lenz.htw.sarg.net.NetworkClient;
 
