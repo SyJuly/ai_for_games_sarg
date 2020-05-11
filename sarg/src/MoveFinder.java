@@ -14,6 +14,7 @@ public class MoveFinder {
 
     };
 
+    private boolean isDumpPlayer;
     private Team ownTeam;
     private BoardManager boardManager;
     private long timeLimit;
@@ -24,10 +25,17 @@ public class MoveFinder {
     private int[] depths = new int[]{7, 9, 10};
     private long timeLimitThreshold = 500;
 
-    public MoveFinder(BoardManager boardManager, long timeLimit){
+    public MoveFinder(BoardManager boardManager, long timeLimit, boolean createDumpPlayer){
         this.timeLimit = timeLimit;
         this.boardManager = boardManager;
+        this.isDumpPlayer = createDumpPlayer;
 
+        if(!isDumpPlayer){
+            setUpMoveFinderWorker();
+        }
+    }
+
+    private void setUpMoveFinderWorker() {
         int numOfWorkers = depths.length;
         executor = Executors.newFixedThreadPool(numOfWorkers);
         workers = new MoveFinderWorker[numOfWorkers];
@@ -43,6 +51,9 @@ public class MoveFinder {
     }
 
     public Token getBestToken(){
+        if(isDumpPlayer){
+            chooseRandomPiece();
+        }
         timeStartedFindingMove = System.currentTimeMillis();
         Future<AlphaBetaResult>[] results = new Future[depths.length];
         for (int i = 0; i < depths.length; i++) {
