@@ -4,6 +4,7 @@ import Board.BoardManager;
 import Board.Token;
 import Team.Team;
 
+import java.util.List;
 import java.util.Random;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -49,11 +50,15 @@ public class MoveFinder {
 
     public Token chooseRandomPiece(){
         Random rand = new Random();
-        return ownTeam.belongingTokens.get(rand.nextInt(ownTeam.belongingTokens.size()));
+        List<Token> activeTokens = boardManager.getCurrentBoardConfig().getCurrentTokensOfTeam(ownTeam.getTeamCode().getCode());
+        return activeTokens.get(rand.nextInt(activeTokens.size()));
     }
 
 
     public Token getBestToken(){
+        if(boardManager.getCurrentBoardConfig().getCurrentTokensOfTeam(ownTeam.getTeamCode().getCode()).size() < 1){
+            return new Token(-1,-1, ownTeam.getTeamCode().getCode());
+        }
         if(isDumpPlayer){
             return chooseRandomPiece();
         }

@@ -5,6 +5,7 @@ import Board.BoardManager;
 import Board.Token;
 import lenz.htw.sarg.Move;
 import lenz.htw.sarg.net.NetworkClient;
+import org.lwjgl.Sys;
 
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
@@ -12,7 +13,8 @@ import java.util.Arrays;
 
 public class Player implements Runnable {
 
-    private final long WAIT_UNTIL_STARTING = 10000;
+    private final long WAIT_UNTIL_STARTING = 5000;
+    private String name;
     private BoardManager boardManager;
     private MoveFinder moveFinder;
     private NetworkClient client;
@@ -20,14 +22,16 @@ public class Player implements Runnable {
     private boolean isStopped = false;
     private long timeStartedRunning;
 
-    public Player(long timeLimit, boolean createDumpPlayer, BufferedImage image){
+    public Player(long timeLimit, boolean createDumpPlayer, BufferedImage image, String name){
         this.image = image;
+        this.name = name;
         boardManager = new BoardManager();
         moveFinder = new MoveFinder(boardManager, timeLimit * 1000, createDumpPlayer);
     }
 
     public void stop(){
         isStopped = true;
+        System.out.println("Stopping player.");
     }
 
     @Override
@@ -37,13 +41,15 @@ public class Player implements Runnable {
         while(System.currentTimeMillis() - timeStartedRunning < WAIT_UNTIL_STARTING){
             // wait
         }
-        NetworkClient client = new NetworkClient("127.0.0.1", "NC", image);
+        NetworkClient client = new NetworkClient("127.0.0.1", name, image);
         boardManager.setTeamCode(client.getMyPlayerNumber());
         moveFinder.setTeam();
         Move lastMove = null;
         try {
             while (!isStopped) {
-                System.out.println("Started playing.");
+                if(isStopped){
+                    System.out.println("should be running the last time");
+                }
                 Move receiveMove = client.receiveMove();
                 if (receiveMove == null) {
                     Token token = moveFinder.getBestToken();
@@ -55,14 +61,30 @@ public class Player implements Runnable {
                         return;
                     }
                     boardManager.update(receiveMove);
+                    /*if(name.equals("C") && lastMove != null && receiveMove.x == lastMove.x && receiveMove.y == lastMove.y) {
+                        System.out.println("");
+                        System.out.println("");
+                        System.out.println("");
+                        System.out.println("Team " + client.getMyPlayerNumber() + " chose VALID Move: " + lastMove.x + "," + lastMove.y);
+                        System.out.println("Own list of tokens: " + Arrays.toString(boardManager.getCurrentBoardConfig().getCurrentTokensOfTeam(client.getMyPlayerNumber()).toArray()));
+                        System.out.println("Board:");
+                        Token[][] board = boardManager.getCurrentBoardConfig().board;
+                        for (int i = 0; i < board.length; i++) {
+                            System.out.println(Arrays.toString(board[i]));
+                        }
+
+                        System.out.println("");
+                        System.out.println("");
+                        System.out.println("");
+                    }*/
                 }
             }
         } catch(RuntimeException e){
             System.out.println("");
             System.out.println("");
             System.out.println("");
-            System.out.println("Invalid Move was: " + lastMove.x + "," + lastMove.y);
-            System.out.println("Own list of tokens: " + Arrays.toString(boardManager.getOwnTeam().belongingTokens.toArray()));
+            System.out.println("Player " + name + "/ Team " + client.getMyPlayerNumber()+ " chose invalid Move: " + lastMove.x + "," + lastMove.y);
+            System.out.println("Own list of tokens: " + Arrays.toString(boardManager.getCurrentBoardConfig().getCurrentTokensOfTeam(client.getMyPlayerNumber()).toArray()));
             System.out.println("Board:");
             Token[][] board = boardManager.getCurrentBoardConfig().board;
             for(int i = 0; i < board.length; i++){
@@ -72,6 +94,8 @@ public class Player implements Runnable {
             System.out.println("");
             System.out.println("");
             System.out.println("");
+            throw e;
         }
+        System.out.println("Player performed mic drop.");
     }
 }

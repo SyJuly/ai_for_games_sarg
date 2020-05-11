@@ -1,8 +1,6 @@
 package Optimization;
 
 import lenz.htw.sarg.Server;
-import lenz.htw.sarg.net.NetworkClient;
-import org.lwjgl.Sys;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -18,6 +16,7 @@ public class EvolutionaryOptimization {
 
         Player[] players = new Player[3];
         Thread[] playerThreads = new Thread[3];
+        String[] names = new String[]{"A", "B", "C"};
 
         long timeStartedRunning = System.currentTimeMillis();
         while(System.currentTimeMillis() - timeStartedRunning < 10000){
@@ -25,14 +24,16 @@ public class EvolutionaryOptimization {
         }
 
         for(int i = 0; i < players.length; i++){
-            boolean createDumpPlayer = i > 0;
-            players[i] = new Player(3, createDumpPlayer, image);
+            boolean createDumpPlayer = i < 1;
+            players[i] = new Player(3, createDumpPlayer, image, names[i]);
             playerThreads[i] = new Thread(players[i]);
             playerThreads[i].start();
         }
 
         int winner = server.runOnceAndReturnTheWinner(3);
         System.out.println("WINNER IS " + winner);
+        int winner2 = server.runOnceAndReturnTheWinner(3);
+        System.out.println("WINNER IS " + winner2);
 
         for(int i = 0; i < players.length; i++){
             players[i].stop();
