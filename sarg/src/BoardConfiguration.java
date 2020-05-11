@@ -9,7 +9,6 @@ public class BoardConfiguration {
         this.board = board;
         //setup start konfiguration
         setUpTokens(board, initialNumOfTokensPerPlayer);
-        setUpTeamTokens(board);
     }
 
     public BoardConfiguration(Team[] teams, Token[][] board){
@@ -43,26 +42,18 @@ public class BoardConfiguration {
         for (int red = 0; red < initialNumOfTokensPerPlayer; red++){
             Token token = new Token(red, 0, TeamCode.RED.getCode());
             board[token.x][token.y] = token;
+            teams[TeamCode.RED.getCode()].belongingTokens.add(token);
+
         }
         for (int green = 0; green < initialNumOfTokensPerPlayer; green++){
             Token token = new Token(green, green + 4, TeamCode.GREEN.getCode());
             board[token.x][token.y] = token;
+            teams[TeamCode.GREEN.getCode()].belongingTokens.add(token);
         }
         for (int blue = 0; blue < initialNumOfTokensPerPlayer; blue++){
             Token token = new Token(8, blue + 4, TeamCode.BLUE.getCode());
             board[token.x][token.y] = token;
-        }
-    }
-
-    private void setUpTeamTokens(Token[][] board){
-        for (int x = 0; x < board.length; x++) {
-            Token[] boardRow = board[x];
-            for (int y = 0; y < boardRow.length; y++) {
-                if (boardRow[y] != null) {
-                    Token token = boardRow[y];
-                    teams[token.teamCode].belongingTokens.add(token);
-                }
-            }
+            teams[TeamCode.BLUE.getCode()].belongingTokens.add(token);
         }
     }
 
@@ -96,4 +87,5 @@ public class BoardConfiguration {
         }
         return null;
     }
+
 }

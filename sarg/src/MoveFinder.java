@@ -21,7 +21,7 @@ public class MoveFinder {
     private ExecutorService executor;
     private MoveFinderWorker[] workers;
     private AlphaBetaResult[] results;
-    private int[] depths = new int[]{10, 11, 14};
+    private int[] depths = new int[]{7, 9, 10};
     private long timeLimitThreshold = 500;
 
     public MoveFinder(BoardManager boardManager, long timeLimit){

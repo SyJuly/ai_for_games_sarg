@@ -24,7 +24,6 @@ public class MoveFinderWorker implements Callable {
     @Override
     public AlphaBetaResult call() {
         isCancelled = false;
-        System.out.println("Starting to find best token in worker.");
         int ownTeamCode = ownTeam.getTeamCode().getCode();
         results[id] = alphaBeta(ownTeamCode, boardManager.getCurrentBoardConfig(), depth, Integer.MIN_VALUE, Integer.MAX_VALUE);
         return results[id];
