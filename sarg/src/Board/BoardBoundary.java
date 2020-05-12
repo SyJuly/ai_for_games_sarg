@@ -1,9 +1,9 @@
 package Board;
 
 public class BoardBoundary {
-    private int[][] points;
+    private double[][] points;
 
-    public BoardBoundary(int[][] boundaryPoints){
+    public BoardBoundary(double[][] boundaryPoints){
         this.points = boundaryPoints;
     }
 

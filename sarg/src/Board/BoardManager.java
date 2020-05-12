@@ -12,8 +12,8 @@ public class BoardManager {
     private boolean isGameOver = false;
 
     public BoardManager(){
-        boardBoundary = new BoardBoundary(new int[][]{
-                {0,0}, {0,4}, {4,8}, {8,8}, {8,4}, {4,0}
+        boardBoundary = new BoardBoundary(new double[][]{
+                {-0.1,-0.1}, {-0.1,4.1}, {4.1,8.1}, {8.1,8.1}, {8.1,4.1}, {4.1,-0.1}
         });
 
 
@@ -57,9 +57,9 @@ public class BoardManager {
             if(!isValid(token.x, token.y)){
                 if(!addToTeamList){
                     currBoardConfig.removeTokenFromTeamList(token);
-                    currBoardConfig.addSuccessfulTokenToTeam(token);
-                }
 
+                }
+                currBoardConfig.addSuccessfulTokenToTeam(token);
                 return null;
             }
             startRemovingJumpedByTokens = true;

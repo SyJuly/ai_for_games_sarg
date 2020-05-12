@@ -53,13 +53,18 @@ public class MoveFinder {
         return activeTokens.get(rand.nextInt(activeTokens.size()));
     }
 
+    public Token chooseFirstPiece(){
+        List<Token> activeTokens = boardManager.getCurrentBoardConfig().getCurrentTokensOfTeam(ownTeamCode);
+        return activeTokens.get(0);
+    }
+
 
     public Token getBestToken(){
         if(boardManager.getCurrentBoardConfig().getCurrentTokensOfTeam(ownTeamCode).size() < 1){
             return new Token(-1,-1, ownTeamCode);
         }
         if(isDumpPlayer){
-            return chooseRandomPiece();
+            return chooseFirstPiece();
         }
         timeStartedFindingMove = System.currentTimeMillis();
         Future<AlphaBetaResult>[] results = new Future[depths.length];
