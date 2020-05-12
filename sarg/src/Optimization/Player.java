@@ -42,8 +42,7 @@ public class Player implements Runnable {
             // wait
         }
         NetworkClient client = new NetworkClient("127.0.0.1", name, image);
-        boardManager.setTeamCode(client.getMyPlayerNumber());
-        moveFinder.setTeam();
+        moveFinder.setTeam(client.getMyPlayerNumber());
         Move lastMove = null;
         try {
             do {
@@ -97,5 +96,6 @@ public class Player implements Runnable {
             throw e;
         }
         System.out.println("Player performed mic drop.");
+        System.exit(0);
     }
 }

@@ -25,8 +25,7 @@ public class Main {
 
         nc.getExpectedNetworkLatencyInMilliseconds();
 
-        boardManager.setTeamCode(nc.getMyPlayerNumber()); // 0 = rot, 1 = grün, 2 = blau
-        moveFinder.setTeam();
+        moveFinder.setTeam(nc.getMyPlayerNumber()); // 0 = rot, 1 = grün, 2 = blau
 
         do {
             Move receiveMove = nc.receiveMove();
@@ -44,5 +43,6 @@ public class Main {
             }
         } while (!boardManager.isGameOver());
         System.out.println("GAME OVER. Player disconnected.");
+        System.exit(0);
     }
 }

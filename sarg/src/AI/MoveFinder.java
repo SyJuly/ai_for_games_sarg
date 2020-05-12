@@ -2,7 +2,6 @@ package AI;
 
 import Board.BoardManager;
 import Board.Token;
-import Team.Team;
 
 import java.util.List;
 import java.util.Random;
@@ -18,7 +17,7 @@ public class MoveFinder {
     };
 
     private boolean isDumpPlayer;
-    private Team ownTeam;
+    private int ownTeamCode;
     private BoardManager boardManager;
     private long timeLimit;
     private long timeStartedFindingMove;
@@ -50,14 +49,14 @@ public class MoveFinder {
 
     public Token chooseRandomPiece(){
         Random rand = new Random();
-        List<Token> activeTokens = boardManager.getCurrentBoardConfig().getCurrentTokensOfTeam(ownTeam.getTeamCode().getCode());
+        List<Token> activeTokens = boardManager.getCurrentBoardConfig().getCurrentTokensOfTeam(ownTeamCode);
         return activeTokens.get(rand.nextInt(activeTokens.size()));
     }
 
 
     public Token getBestToken(){
-        if(boardManager.getCurrentBoardConfig().getCurrentTokensOfTeam(ownTeam.getTeamCode().getCode()).size() < 1){
-            return new Token(-1,-1, ownTeam.getTeamCode().getCode());
+        if(boardManager.getCurrentBoardConfig().getCurrentTokensOfTeam(ownTeamCode).size() < 1){
+            return new Token(-1,-1, ownTeamCode);
         }
         if(isDumpPlayer){
             return chooseRandomPiece();
@@ -77,7 +76,7 @@ public class MoveFinder {
         for (int i = depths.length -1; i >= 0; i--) {
             if(results[i].isDone()){
                 stopFindingBestToken();
-                System.out.println("Choose best token after " + (System.currentTimeMillis() - timeStartedFindingMove) * 1.0/1000.0 + " seconds with depth: " + depths[i]);
+                //System.out.println("Choose best token after " + (System.currentTimeMillis() - timeStartedFindingMove) * 1.0/1000.0 + " seconds with depth: " + depths[i]);
                 return this.results[i].token;
             }
         }
@@ -100,13 +99,13 @@ public class MoveFinder {
         return neighbors;
     }
 
-    public void setTeam(){
-        ownTeam = boardManager.getOwnTeam();
+    public void setTeam(int teamCode){
+        ownTeamCode = teamCode;
         if (isDumpPlayer){
             return;
         }
         for (int i = 0; i < depths.length; i++) {
-            workers[i].setOwnTeam(boardManager.getOwnTeam());
+            workers[i].setOwnTeam(teamCode);
         }
     }
 }

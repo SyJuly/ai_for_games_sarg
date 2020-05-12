@@ -14,10 +14,15 @@ public class BoardConfiguration {
     public Team[] teams;
     public Token[][] board;
 
-    public BoardConfiguration(Team[] teams, Token[][] board, int initialNumOfTokensPerPlayer){
-        this.teams = teams;
+    public BoardConfiguration(Token[][] board, int initialNumOfTokensPerPlayer){
         this.board = board;
-        //setup start konfiguration
+        //setup start configuration
+
+        teams = new Team[3];
+        teams[TeamCode.RED.getCode()] = new TeamRed();
+        teams[TeamCode.GREEN.getCode()] = new TeamGreen();
+        teams[TeamCode.BLUE.getCode()] = new TeamBlue();
+
         setUpTokens(board, initialNumOfTokensPerPlayer);
     }
 
@@ -99,6 +104,15 @@ public class BoardConfiguration {
         return null;
     }
 
+    public int getNextTeam(int lastTeamCode){
+        lastTeamCode++;
+        if(lastTeamCode > teams.length -1){
+            return 0;
+        }
+        return lastTeamCode;
+    }
+
+
     public void addSuccessfulTokenToTeam(Token token) {
         teams[token.teamCode].totalNumOfSuccessfulTokens++;
     }
@@ -114,5 +128,11 @@ public class BoardConfiguration {
             }
         }
         return false;
+    }
+
+    public void printScore() {
+        for(int i = 0; i < teams.length; i++){
+           System.out.println("Team " + teams[i].getTeamCode() + ": " + teams[i].totalNumOfSuccessfulTokens);
+        }
     }
 }

@@ -1,12 +1,6 @@
 package Board;
 
-import Team.Team;
-import Team.TeamRed;
-import Team.TeamGreen;
-import Team.TeamBlue;
-import Team.TeamCode;
 import lenz.htw.sarg.Move;
-import org.lwjgl.Sys;
 
 public class BoardManager {
 
@@ -15,29 +9,22 @@ public class BoardManager {
 
     private BoardBoundary boardBoundary;
     private BoardConfiguration boardConfig;
-    private Team[] teams;
-    private Team own_team;
     private boolean isGameOver = false;
 
     public BoardManager(){
         boardBoundary = new BoardBoundary(new int[][]{
                 {0,0}, {0,4}, {4,8}, {8,8}, {8,4}, {4,0}
         });
-        teams = new Team[3];
-        teams[TeamCode.RED.getCode()] = new TeamRed();
-        teams[TeamCode.GREEN.getCode()] = new TeamGreen();
-        teams[TeamCode.BLUE.getCode()] = new TeamBlue();
+
 
         Token[][] board = new Token[BOARD_SIZE][BOARD_SIZE];
-        boardConfig = new BoardConfiguration(teams, board, NUMBER_OF_PIECES_PER_PLAYER);
-    }
-
-    public void setTeamCode(int code){
-        own_team = teams[code];
+        boardConfig = new BoardConfiguration(board, NUMBER_OF_PIECES_PER_PLAYER);
     }
 
     public void update(Move receiveMove) {
         boardConfig = chooseToken(boardConfig, receiveMove.x, receiveMove.y);
+        isGameOver = boardConfig.isGameOver();
+        boardConfig.printScore();
     }
 
     public BoardConfiguration chooseToken(BoardConfiguration currBoardConfig, int x, int y){
@@ -52,17 +39,14 @@ public class BoardManager {
 
         Token tokenLeft = new Token(x , y , moved_team_code);
 
-        token = moveToken(nextBoardConfig, token, movingDirection_Right);
-        tokenLeft = moveToken(nextBoardConfig, tokenLeft, movingDirection_Left);
-
-        nextBoardConfig.addTokenToTeamList(tokenLeft);
+        token = moveToken(nextBoardConfig, token, movingDirection_Right, false);
+        tokenLeft = moveToken(nextBoardConfig, tokenLeft, movingDirection_Left, true);
 
         updateBoard(nextBoardConfig, x,y, token, tokenLeft);
-        isGameOver = nextBoardConfig.isGameOver();
         return nextBoardConfig;
     }
 
-    private Token moveToken(BoardConfiguration currBoardConfig, Token token, int[] movingDirection) {
+    private Token moveToken(BoardConfiguration currBoardConfig, Token token, int[] movingDirection, boolean addToTeamList) {
         boolean startRemovingJumpedByTokens = false;
         while(currBoardConfig.board[token.x][token.y] != null){
             if(startRemovingJumpedByTokens){
@@ -71,8 +55,8 @@ public class BoardManager {
             token.x = token.x + movingDirection[0];
             token.y = token.y + movingDirection[1];
             if(!isValid(token.x, token.y)){
-                boolean wasInList = currBoardConfig.removeTokenFromTeamList(token);
-                if(wasInList){
+                if(!addToTeamList){
+                    currBoardConfig.removeTokenFromTeamList(token);
                     currBoardConfig.addSuccessfulTokenToTeam(token);
                 }
 
@@ -80,7 +64,7 @@ public class BoardManager {
             }
             startRemovingJumpedByTokens = true;
         }
-
+        currBoardConfig.addTokenToTeamList(token);
         return token;
     }
 
@@ -100,21 +84,8 @@ public class BoardManager {
         currBoardConfig.board[x][y] = null;
     }
 
-
-    public int getNextTeam(int lastTeamCode){
-        lastTeamCode++;
-        if(lastTeamCode > teams.length -1){
-            return 0;
-        }
-        return lastTeamCode;
-    }
-
     public boolean isValid(int x, int y){
         return boardBoundary.contains(x,y);
-    }
-
-    public Team getOwnTeam() {
-        return own_team;
     }
 
     public BoardConfiguration getCurrentBoardConfig() {

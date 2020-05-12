@@ -11,7 +11,7 @@ import java.util.concurrent.Callable;
 public class MoveFinderWorker implements Callable {
     private int depth;
     public int id;
-    private Team ownTeam;
+    private int ownTeamCode;
     private BoardManager boardManager;
     private Evaluator evaluator;
     private AlphaBetaResult[] results;
@@ -31,7 +31,6 @@ public class MoveFinderWorker implements Callable {
     @Override
     public AlphaBetaResult call() {
         isCancelled = false;
-        int ownTeamCode = ownTeam.getTeamCode().getCode();
         results[id] = alphaBeta(ownTeamCode, boardManager.getCurrentBoardConfig(), depth, Integer.MIN_VALUE, Integer.MAX_VALUE);
         return results[id];
     }
@@ -45,10 +44,10 @@ public class MoveFinderWorker implements Callable {
         if(isCancelled){
             return null;
         }
-        if(depth == 0 || boardConfig.areMoreTurnsPossible(ownTeam.getTeamCode().getCode())) {
+        if(depth == 0 || boardConfig.areMoreTurnsPossible(teamCode)) {
             return evaluator.evaluate(boardConfig);
         }
-        if(teamCode == ownTeam.getTeamCode().getCode()){
+        if(teamCode == ownTeamCode){
             AlphaBetaResult maxEval = new AlphaBetaResult(Integer.MIN_VALUE);
             List<Token> tokensToChooseFrom = boardConfig.getCurrentTokensOfTeam(teamCode);
             for(int i = 0; i < tokensToChooseFrom.size(); i++){
@@ -79,15 +78,15 @@ public class MoveFinderWorker implements Callable {
 
     private AlphaBetaResult getAlphaBetaResultFromNextTraverse(int teamCode, BoardConfiguration boardConfig, int depth, int alpha, int beta, Token token) {
         BoardConfiguration newBoardConfig = boardManager.chooseToken(boardConfig, token.x, token.y);
-        AlphaBetaResult evaluation = alphaBeta(boardManager.getNextTeam(teamCode), newBoardConfig, depth - 1, alpha, beta);
+        AlphaBetaResult evaluation = alphaBeta(newBoardConfig.getNextTeam(teamCode), newBoardConfig, depth - 1, alpha, beta);
         evaluation.token = token;
         return evaluation;
     }
 
 
 
-    public void setOwnTeam(Team ownTeam) {
-        this.ownTeam = ownTeam;
-        this.evaluator = new Evaluator(ownTeam.getTeamCode().getCode(), boardManager);
+    public void setOwnTeam(int ownTeamCode) {
+        this.ownTeamCode = ownTeamCode;
+        this.evaluator = new Evaluator(ownTeamCode, boardManager);
     }
 }
