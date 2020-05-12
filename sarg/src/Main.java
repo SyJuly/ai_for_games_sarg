@@ -28,7 +28,7 @@ public class Main {
         boardManager.setTeamCode(nc.getMyPlayerNumber()); // 0 = rot, 1 = grün, 2 = blau
         moveFinder.setTeam();
 
-        while (true) {
+        do {
             Move receiveMove = nc.receiveMove();
             if (receiveMove == null) {
                 Token token = moveFinder.getBestToken();
@@ -42,6 +42,7 @@ public class Main {
                 System.out.println("Updating with Move: " + receiveMove.x + "," + receiveMove.y);
                 boardManager.update(receiveMove);
             }
-        }
+        } while (!boardManager.isGameOver());
+        System.out.println("GAME OVER. Player disconnected.");
     }
 }

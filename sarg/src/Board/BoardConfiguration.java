@@ -1,10 +1,12 @@
 package Board;
 
+import AI.Evaluator;
 import Team.TeamCode;
 import Team.TeamRed;
 import Team.TeamGreen;
 import Team.TeamBlue;
 import Team.Team;
+import org.lwjgl.Sys;
 
 import java.util.List;
 
@@ -39,11 +41,11 @@ public class BoardConfiguration {
         teams[token.teamCode].belongingTokens.add(token);
     }
 
-    public void removeTokenFromTeamList(Token token){
+    public boolean removeTokenFromTeamList(Token token){
         if(token == null){
-            return;
+            return false;
         }
-        boolean worked = teams[token.teamCode].belongingTokens.remove(token);
+        return teams[token.teamCode].belongingTokens.remove(token);
     }
 
     private void setUpTokens(Token[][] board, int initialNumOfTokensPerPlayer){
@@ -71,6 +73,7 @@ public class BoardConfiguration {
         for (int j = 0; j < teams.length; j++) {
             Team team = teams[j];
             Team copiedTeam = getCopiedTeam(team);
+            copiedTeam.totalNumOfSuccessfulTokens = team.totalNumOfSuccessfulTokens;
             copiedTeams[j] = copiedTeam;
         }
         for(int i=0; i<board.length; i++) {
@@ -96,4 +99,20 @@ public class BoardConfiguration {
         return null;
     }
 
+    public void addSuccessfulTokenToTeam(Token token) {
+        teams[token.teamCode].totalNumOfSuccessfulTokens++;
+    }
+
+    public int getSuccessfulTokensOfTeam(int teamCode) {
+        return teams[teamCode].totalNumOfSuccessfulTokens;
+    }
+
+    public boolean isGameOver() {
+        for(int i = 0; i < teams.length; i++){
+            if(teams[i].totalNumOfSuccessfulTokens >= Evaluator.NUM_OF_SUCCESSFUL_TOKENS_TO_WIN){
+                return true;
+            }
+        }
+        return false;
+    }
 }

@@ -10,6 +10,7 @@ public abstract class Team {
     protected int[] movingDirection_Right;
     public int[][] lineBorder;
     public List<Token> belongingTokens;
+    public int totalNumOfSuccessfulTokens = 0;
 
     public Team(){
         belongingTokens = new ArrayList<>();

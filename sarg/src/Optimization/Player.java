@@ -46,7 +46,7 @@ public class Player implements Runnable {
         moveFinder.setTeam();
         Move lastMove = null;
         try {
-            while (!isStopped) {
+            do {
                 if(isStopped){
                     System.out.println("should be running the last time");
                 }
@@ -78,7 +78,7 @@ public class Player implements Runnable {
                         System.out.println("");
                     }*/
                 }
-            }
+            } while (!boardManager.isGameOver());
         } catch(RuntimeException e){
             System.out.println("");
             System.out.println("");

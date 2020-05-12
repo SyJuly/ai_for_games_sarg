@@ -4,11 +4,14 @@ import Board.BoardConfiguration;
 import Board.BoardManager;
 import Board.Token;
 
+import java.util.List;
+
 public class Evaluator {
 
-    int teamCode;
-    BoardManager boardManager;
-    int counter = 0;
+    public static final int NUM_OF_SUCCESSFUL_TOKENS_TO_WIN = 5;
+    private int teamCode;
+    private BoardManager boardManager;
+    private int counter = 0;
 
     public Evaluator(int teamCode, BoardManager boardManager){
         this.teamCode = teamCode;
@@ -16,27 +19,27 @@ public class Evaluator {
     }
 
     public AlphaBetaResult evaluate(BoardConfiguration boardConfig) {
+        if(boardConfig.getSuccessfulTokensOfTeam(teamCode) >= NUM_OF_SUCCESSFUL_TOKENS_TO_WIN){
+            return new AlphaBetaResult(Integer.MAX_VALUE);
+
+        }
+        List<Token> activeTeamTokensOnBoard = boardConfig.getCurrentTokensOfTeam(teamCode);
+
         int evaluatedValue;
 
         int a = 2;
         int b = 6;
         int c = 2;
 
-        int activeTokens = 0;
-        int tokensOutsideBoard = 0;
+        int activeTokens = activeTeamTokensOnBoard.size();
+        int successfulTokens = boardConfig.getSuccessfulTokensOfTeam(teamCode);
         int tokenDistanceToBorder = 0;
 
-        for (Token token: boardConfig.getCurrentTokensOfTeam(teamCode)) {
-            activeTokens++;
-
-            if(!boardManager.isValid(token.x, token.y)){
-                tokensOutsideBoard++;
-            } else {
-                tokenDistanceToBorder-=boardConfig.teams[token.teamCode].calculateDistanceToClosestWinningBorder(token.x, token.y);
-            }
+        for (Token token: activeTeamTokensOnBoard) {
+            tokenDistanceToBorder-=boardConfig.teams[token.teamCode].calculateDistanceToClosestWinningBorder(token.x, token.y);
         }
 
-        evaluatedValue = a * activeTokens + b * tokensOutsideBoard + c * tokenDistanceToBorder;
+        evaluatedValue = a * activeTokens + b * successfulTokens + c * tokenDistanceToBorder;
 
         if(counter < 10){
             counter++;

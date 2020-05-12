@@ -6,6 +6,7 @@ import Team.TeamGreen;
 import Team.TeamBlue;
 import Team.TeamCode;
 import lenz.htw.sarg.Move;
+import org.lwjgl.Sys;
 
 public class BoardManager {
 
@@ -16,6 +17,7 @@ public class BoardManager {
     private BoardConfiguration boardConfig;
     private Team[] teams;
     private Team own_team;
+    private boolean isGameOver = false;
 
     public BoardManager(){
         boardBoundary = new BoardBoundary(new int[][]{
@@ -56,6 +58,7 @@ public class BoardManager {
         nextBoardConfig.addTokenToTeamList(tokenLeft);
 
         updateBoard(nextBoardConfig, x,y, token, tokenLeft);
+        isGameOver = nextBoardConfig.isGameOver();
         return nextBoardConfig;
     }
 
@@ -68,7 +71,11 @@ public class BoardManager {
             token.x = token.x + movingDirection[0];
             token.y = token.y + movingDirection[1];
             if(!isValid(token.x, token.y)){
-                currBoardConfig.removeTokenFromTeamList(token);
+                boolean wasInList = currBoardConfig.removeTokenFromTeamList(token);
+                if(wasInList){
+                    currBoardConfig.addSuccessfulTokenToTeam(token);
+                }
+
                 return null;
             }
             startRemovingJumpedByTokens = true;
@@ -112,5 +119,9 @@ public class BoardManager {
 
     public BoardConfiguration getCurrentBoardConfig() {
         return boardConfig;
+    }
+
+    public boolean isGameOver() {
+        return isGameOver;
     }
 }
