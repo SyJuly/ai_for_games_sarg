@@ -14,6 +14,6 @@ public class EvaluationParameter {
     }
 
     public String toString() {
-        return "Q = " + activeTokensPercentage + " * activeTokens + " + successfulTokensPercentage + " * successfulTokens + " + tokenDistanceToBorderPercentage + " * tokenDistanceToBorder";
+        return "Q = " + activeTokensPercentage + " * activeTokens + " + successfulTokensPercentage + " * successfulTokens + " + tokenDistanceToBorderPercentage + " * tokenDistanceToBorder (EV: " + evaluationValue + ")";
     }
 }

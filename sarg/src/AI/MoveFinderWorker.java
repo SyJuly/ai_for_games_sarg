@@ -87,6 +87,7 @@ public class MoveFinderWorker implements Callable {
 
     public void setupMoveFinderWorker(int ownTeamCode, EvaluationParameter params) {
         this.ownTeamCode = ownTeamCode;
+        params.teamCode = ownTeamCode;
         this.evaluator = new Evaluator(ownTeamCode, boardManager, params);
     }
 }

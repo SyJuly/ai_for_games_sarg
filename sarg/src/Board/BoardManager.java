@@ -21,10 +21,11 @@ public class BoardManager {
         boardConfig = new BoardConfiguration(board, NUMBER_OF_PIECES_PER_PLAYER);
     }
 
-    public void update(Move receiveMove) {
+    public int[] update(Move receiveMove) {
         boardConfig = chooseToken(boardConfig, receiveMove.x, receiveMove.y);
         isGameOver = boardConfig.isGameOver();
         //boardConfig.printScore();
+        return boardConfig.getScore();
     }
 
     public BoardConfiguration chooseToken(BoardConfiguration currBoardConfig, int x, int y){

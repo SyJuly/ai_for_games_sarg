@@ -130,6 +130,15 @@ public class BoardConfiguration {
         return false;
     }
 
+    public int[] getScore() {
+        int[] currentScore = new int[teams.length];
+        for(int i = 0; i < teams.length; i++){
+            currentScore[teams[i].getTeamCode().getCode()] =  teams[i].totalNumOfSuccessfulTokens;
+        }
+        return currentScore;
+    }
+
+
     public void printScore() {
         for(int i = 0; i < teams.length; i++){
            System.out.println("Team " + teams[i].getTeamCode() + ": " + teams[i].totalNumOfSuccessfulTokens);

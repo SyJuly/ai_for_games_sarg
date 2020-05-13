@@ -21,6 +21,7 @@ public class Player implements Runnable {
     private NetworkClient client;
     private BufferedImage image;
     private long timeStartedRunning;
+    private int[] currentScore;
 
     public Player(long timeLimit, boolean createDumpPlayer, BufferedImage image, String name, EvaluationParameter params){
         this.image = image;
@@ -51,23 +52,7 @@ public class Player implements Runnable {
                     if (receiveMove.x < 0 || receiveMove.y < 0) {
                         return;
                     }
-                    boardManager.update(receiveMove);
-                    /*if(name.equals("C") && lastMove != null && receiveMove.x == lastMove.x && receiveMove.y == lastMove.y) {
-                        System.out.println("");
-                        System.out.println("");
-                        System.out.println("");
-                        System.out.println("Team " + client.getMyPlayerNumber() + " chose VALID Move: " + lastMove.x + "," + lastMove.y);
-                        System.out.println("Own list of tokens: " + Arrays.toString(boardManager.getCurrentBoardConfig().getCurrentTokensOfTeam(client.getMyPlayerNumber()).toArray()));
-                        System.out.println("Board:");
-                        Token[][] board = boardManager.getCurrentBoardConfig().board;
-                        for (int i = 0; i < board.length; i++) {
-                            System.out.println(Arrays.toString(board[i]));
-                        }
-
-                        System.out.println("");
-                        System.out.println("");
-                        System.out.println("");
-                    }*/
+                    currentScore = boardManager.update(receiveMove);
                 }
             } while (!boardManager.isGameOver());
         } catch(RuntimeException e){
@@ -89,5 +74,9 @@ public class Player implements Runnable {
         }
         System.out.println("Player performed mic drop.");
         //System.exit(0);
+    }
+
+    public int[] getCurrentScore(){
+        return currentScore;
     }
 }
