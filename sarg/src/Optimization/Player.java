@@ -1,5 +1,6 @@
 package Optimization;
 
+import AI.EvaluationParameter;
 import AI.MoveFinder;
 import Board.BoardManager;
 import Board.Token;
@@ -19,19 +20,13 @@ public class Player implements Runnable {
     private MoveFinder moveFinder;
     private NetworkClient client;
     private BufferedImage image;
-    private boolean isStopped = false;
     private long timeStartedRunning;
 
-    public Player(long timeLimit, boolean createDumpPlayer, BufferedImage image, String name){
+    public Player(long timeLimit, boolean createDumpPlayer, BufferedImage image, String name, EvaluationParameter params){
         this.image = image;
         this.name = name;
         boardManager = new BoardManager();
-        moveFinder = new MoveFinder(boardManager, timeLimit * 1000, createDumpPlayer);
-    }
-
-    public void stop(){
-        isStopped = true;
-        System.out.println("Stopping player.");
+        moveFinder = new MoveFinder(boardManager, timeLimit * 1000, createDumpPlayer, params);
     }
 
     @Override
@@ -46,9 +41,6 @@ public class Player implements Runnable {
         Move lastMove = null;
         try {
             do {
-                if(isStopped){
-                    System.out.println("should be running the last time");
-                }
                 Move receiveMove = client.receiveMove();
                 if (receiveMove == null) {
                     Token token = moveFinder.getBestToken();
@@ -96,6 +88,6 @@ public class Player implements Runnable {
             throw e;
         }
         System.out.println("Player performed mic drop.");
-        System.exit(0);
+        //System.exit(0);
     }
 }

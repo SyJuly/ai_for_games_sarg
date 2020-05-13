@@ -19,6 +19,7 @@ public class MoveFinder {
     private boolean isDumpPlayer;
     private int ownTeamCode;
     private BoardManager boardManager;
+    private EvaluationParameter params;
     private long timeLimit;
     private long timeStartedFindingMove;
     private ExecutorService executor;
@@ -27,10 +28,11 @@ public class MoveFinder {
     private int[] depths = new int[]{7, 9, 10};
     private long timeLimitThreshold = 500;
 
-    public MoveFinder(BoardManager boardManager, long timeLimit, boolean createDumpPlayer){
+    public MoveFinder(BoardManager boardManager, long timeLimit, boolean createDumpPlayer, EvaluationParameter params){
         this.timeLimit = timeLimit;
         this.boardManager = boardManager;
         this.isDumpPlayer = createDumpPlayer;
+        this.params = params;
 
         if(!isDumpPlayer){
             setUpMoveFinderWorker();
@@ -110,7 +112,7 @@ public class MoveFinder {
             return;
         }
         for (int i = 0; i < depths.length; i++) {
-            workers[i].setOwnTeam(teamCode);
+            workers[i].setupMoveFinderWorker(teamCode, params);
         }
     }
 }

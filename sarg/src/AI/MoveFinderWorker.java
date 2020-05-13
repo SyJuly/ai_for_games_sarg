@@ -31,15 +31,15 @@ public class MoveFinderWorker implements Callable {
     @Override
     public AlphaBetaResult call() {
         isCancelled = false;
-        results[id] = alphaBeta(ownTeamCode, boardManager.getCurrentBoardConfig(), depth, Integer.MIN_VALUE, Integer.MAX_VALUE);
+        results[id] = alphaBeta(ownTeamCode, boardManager.getCurrentBoardConfig(), depth, Double.NEGATIVE_INFINITY, Double.POSITIVE_INFINITY);
         return results[id];
     }
 
     private AlphaBetaResult alphaBeta(int teamCode,
                                       BoardConfiguration boardConfig,
                                       int depth,
-                                      int alpha,
-                                      int beta) {
+                                      double alpha,
+                                      double beta) {
 
         if(isCancelled){
             return null;
@@ -48,7 +48,7 @@ public class MoveFinderWorker implements Callable {
             return evaluator.evaluate(boardConfig);
         }
         if(teamCode == ownTeamCode){
-            AlphaBetaResult maxEval = new AlphaBetaResult(Integer.MIN_VALUE);
+            AlphaBetaResult maxEval = new AlphaBetaResult(Double.NEGATIVE_INFINITY);
             List<Token> tokensToChooseFrom = boardConfig.getCurrentTokensOfTeam(teamCode);
             for(int i = 0; i < tokensToChooseFrom.size(); i++){
                 Token token = tokensToChooseFrom.get(i);
@@ -61,7 +61,7 @@ public class MoveFinderWorker implements Callable {
             }
             return maxEval;
         } else {
-            AlphaBetaResult minEval =  new AlphaBetaResult(Integer.MAX_VALUE);
+            AlphaBetaResult minEval =  new AlphaBetaResult(Double.POSITIVE_INFINITY);
             List<Token> tokensToChooseFrom = boardConfig.getCurrentTokensOfTeam(teamCode);
             for(int i = 0; i < tokensToChooseFrom.size(); i++){
                 Token token = tokensToChooseFrom.get(i);
@@ -76,7 +76,7 @@ public class MoveFinderWorker implements Callable {
         }
     }
 
-    private AlphaBetaResult getAlphaBetaResultFromNextTraverse(int teamCode, BoardConfiguration boardConfig, int depth, int alpha, int beta, Token token) {
+    private AlphaBetaResult getAlphaBetaResultFromNextTraverse(int teamCode, BoardConfiguration boardConfig, int depth, double alpha, double beta, Token token) {
         BoardConfiguration newBoardConfig = boardManager.chooseToken(boardConfig, token.x, token.y);
         AlphaBetaResult evaluation = alphaBeta(newBoardConfig.getNextTeam(teamCode), newBoardConfig, depth - 1, alpha, beta);
         evaluation.token = token;
@@ -85,8 +85,8 @@ public class MoveFinderWorker implements Callable {
 
 
 
-    public void setOwnTeam(int ownTeamCode) {
+    public void setupMoveFinderWorker(int ownTeamCode, EvaluationParameter params) {
         this.ownTeamCode = ownTeamCode;
-        this.evaluator = new Evaluator(ownTeamCode, boardManager);
+        this.evaluator = new Evaluator(ownTeamCode, boardManager, params);
     }
 }

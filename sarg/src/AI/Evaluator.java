@@ -12,10 +12,12 @@ public class Evaluator {
     private int teamCode;
     private BoardManager boardManager;
     private int counter = 0;
+    private EvaluationParameter params;
 
-    public Evaluator(int teamCode, BoardManager boardManager){
+    public Evaluator(int teamCode, BoardManager boardManager, EvaluationParameter params){
         this.teamCode = teamCode;
         this.boardManager = boardManager;
+        this.params = params;
     }
 
     public AlphaBetaResult evaluate(BoardConfiguration boardConfig) {
@@ -25,11 +27,11 @@ public class Evaluator {
         }
         List<Token> activeTeamTokensOnBoard = boardConfig.getCurrentTokensOfTeam(teamCode);
 
-        int evaluatedValue;
+        double evaluatedValue;
 
-        int a = 2;
-        int b = 6;
-        int c = 2;
+        double a = 0.2;
+        double b = 0.6;
+        double c = 0.2;
 
         int activeTokens = activeTeamTokensOnBoard.size();
         int successfulTokens = boardConfig.getSuccessfulTokensOfTeam(teamCode);
@@ -39,7 +41,7 @@ public class Evaluator {
             tokenDistanceToBorder-=boardConfig.teams[token.teamCode].calculateDistanceToClosestWinningBorder(token.x, token.y);
         }
 
-        evaluatedValue = a * activeTokens + b * successfulTokens + c * tokenDistanceToBorder;
+        evaluatedValue = params.activeTokensPercentage * activeTokens + params.successfulTokensPercentage * successfulTokens + params.tokenDistanceToBorderPercentage * tokenDistanceToBorder;
 
         if(counter < 10){
             counter++;

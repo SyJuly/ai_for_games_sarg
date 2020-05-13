@@ -4,9 +4,9 @@ import Board.Token;
 
 public class AlphaBetaResult {
     public Token token;
-    public int value;
+    public double value;
 
-    public AlphaBetaResult(int value){
+    public AlphaBetaResult(double value){
         this.value = value;
     }
 

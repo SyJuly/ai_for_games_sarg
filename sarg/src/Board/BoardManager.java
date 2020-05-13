@@ -24,7 +24,7 @@ public class BoardManager {
     public void update(Move receiveMove) {
         boardConfig = chooseToken(boardConfig, receiveMove.x, receiveMove.y);
         isGameOver = boardConfig.isGameOver();
-        boardConfig.printScore();
+        //boardConfig.printScore();
     }
 
     public BoardConfiguration chooseToken(BoardConfiguration currBoardConfig, int x, int y){
