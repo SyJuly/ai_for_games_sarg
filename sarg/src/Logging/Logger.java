@@ -6,6 +6,7 @@ import Optimization.Player;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Date;
 
 public class Logger {
@@ -66,4 +67,20 @@ public class Logger {
     public void stop() {
         out.close();
     }
+
+    public void logMedium(double[][] evaluatedValues, EvaluationParameter[] evaluationParameters) {
+        String log = "Calculating medium parameter evaluation from "+ evaluatedValues[0].length +" games played. \n";
+        for(int i = 0; i < evaluationParameters.length; i++){
+            log += Arrays.toString(evaluatedValues[i]) + " ----> Writing medium:" + evaluationParameters[i] + "\n";
+        }
+        writeToLogFile(log);
+    }
+
+    public void logMutation(double[] high_mutations, double[] low_mutations) {
+        String log = "Creating mutations. \n";
+        log += "High Mutations: " + Arrays.toString(high_mutations) + "\n";
+        log += "Low_Mutations: " + Arrays.toString(low_mutations) + "\n";
+        writeToLogFile(log);
+    }
+
 }

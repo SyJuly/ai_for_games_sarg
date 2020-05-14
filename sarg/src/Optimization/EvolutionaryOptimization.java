@@ -11,6 +11,8 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Random;
+import java.util.stream.DoubleStream;
 
 public class EvolutionaryOptimization {
 
@@ -21,7 +23,10 @@ public class EvolutionaryOptimization {
     private final double MAX_TIME_BONUS = 4;
     private final double MIN_TIME_BONUS = 0;
     private final double MAX_TURNS_TO_TIME_BONUS = 15;
+    private final int HIGH_MUTATION_MAX = 1000;
+    private final int LOW_MUTATION_MAX = 5000;
     private Logger logger;
+    private Random random;
 
     private EvaluationParameter[] initialParamParents = new EvaluationParameter[]{
         new EvaluationParameter(0.2,0.6,0.2),
@@ -32,9 +37,13 @@ public class EvolutionaryOptimization {
     private EvaluationParameter[][] currParamGen;
     private EvaluationParameter[][] prevParamGen;
 
-    private void recombineSelectedParamsToNewGen(EvaluationParameter[] selectedParams){
+    private void recombineAndMutateSelectedParamsToNewGen(EvaluationParameter[] selectedParams){
         Arrays.sort(selectedParams);
         int totalEvaluatedValuesForGen = 0;
+        double[] high_Mutation = getMutation(HIGH_MUTATION_MAX);
+        double[] low_Mutation = getMutation(LOW_MUTATION_MAX);
+        logger.logMutation(high_Mutation, low_Mutation);
+
         EvaluationParameter[][] newParamGen = new EvaluationParameter[NUM_INDIVIUUMS_PER_GEN/NUM_OF_PLAYERS][NUM_OF_PLAYERS]; // 9 values per generation
         for(int i = 0; i < selectedParams.length; i++){
             totalEvaluatedValuesForGen += selectedParams[i].evaluationValue;
@@ -56,12 +65,23 @@ public class EvolutionaryOptimization {
         for(int i = 0; i < newParamGen.length; i++){
             newParamGen[i][0] = selectedParams[i];
             for(int j = 1; j < newParamGen.length; j++){
-                newParamGen[i][j] = new EvaluationParameter(activeTokensPercentage, successfulTokensPercentage, tokenDistanceToBorderPercentage);
+                double[] mutations = j == newParamGen.length -1 ? high_Mutation : low_Mutation;
+                newParamGen[i][j] = new EvaluationParameter(
+                        activeTokensPercentage + mutations[0],
+                        successfulTokensPercentage + mutations[1],
+                        tokenDistanceToBorderPercentage + + mutations[2]);
             }
         }
         prevParamGen = currParamGen; //TODO: needed?
         currParamGen = newParamGen;
         logger.logRecombination(currParamGen);
+    }
+
+    private double[] getMutation(int max){
+        int activeTokensModifier = random.nextInt(max*2) - max;
+        int successfulTokensModifier = random.nextInt(max*2) - max;
+        int tokenDistanceToBorderModifier = - activeTokensModifier - successfulTokensModifier;
+        return new double[]{activeTokensModifier/(10.0 * max), successfulTokensModifier/(10.0 * max), tokenDistanceToBorderModifier/(10.0 * max)};
     }
 
     private void evaluateCurrentParamGen(EvaluationParameter[] gameParams, int[] gameResult, int numberOfTurnsToVictory){
@@ -123,23 +143,8 @@ public class EvolutionaryOptimization {
         }
         return lastTeamCode;
     }
-
-    public void runEvolutionaryOptimization() throws IOException {
-        BufferedImage image = ImageIO.read(new File("/home/july/Projects/AI/logos/earth_bending_emblem_fill_by_mr_droy-d6xo95p.png"));
-        logger = new Logger();
-
-        runEvaluationMatch(image, initialParamParents);
-        recombineSelectedParamsToNewGen(initialParamParents);
-
-        logger.logNewGeneration(0);
-        for(int g = 0; g < currParamGen.length; g++) {
-            runEvaluationMatch(image, currParamGen[g]);
-        }
-        logger.stop();
-        System.exit(0);
-    }
-
     private void runEvaluationMatch(BufferedImage image, EvaluationParameter[] evaluationParameters) {
+        double[][] evaluatedValues = new double[evaluationParameters.length][GAMEPLAY_ITERATION_PER_GEN];
         for (int n = 0; n < GAMEPLAY_ITERATION_PER_GEN; n++) {
             Server server = new Server();
 
@@ -162,11 +167,42 @@ public class EvolutionaryOptimization {
             int winnerIndex = server.runOnceAndReturnTheWinner(TIME_LIMIT) - 1;
             int[] score = players[0].getCurrentScore();
             int numberOfTurnsToVictory = players[winnerIndex].getTurnNumber();
+
             evaluateCurrentParamGen(evaluationParameters, score, numberOfTurnsToVictory);
+            for(int i = 0; i < evaluationParameters.length; i++){
+                evaluatedValues[i][n] = evaluationParameters[i].evaluationValue;
+            }
             logger.logGameOver(score, winnerIndex, players, names, numberOfTurnsToVictory);
             logger.logEvaluation(players, evaluationParameters);
 
         }
+
+        //calculate medium
+        for(int i = 0; i < evaluationParameters.length; i++){
+            double sumEvaluatedValues = 0;
+            for (int n = 0; n < GAMEPLAY_ITERATION_PER_GEN; n++) {
+                sumEvaluatedValues += evaluatedValues[i][n];
+            }
+            evaluationParameters[i].evaluationValue = sumEvaluatedValues/GAMEPLAY_ITERATION_PER_GEN;
+
+        }
+        logger.logMedium(evaluatedValues, evaluationParameters);
+    }
+
+    public void runEvolutionaryOptimization() throws IOException {
+        BufferedImage image = ImageIO.read(new File("/home/july/Projects/AI/logos/earth_bending_emblem_fill_by_mr_droy-d6xo95p.png"));
+        logger = new Logger();
+        random = new Random(1);
+
+        runEvaluationMatch(image, initialParamParents);
+        recombineAndMutateSelectedParamsToNewGen(initialParamParents);
+
+        logger.logNewGeneration(0);
+        for(int g = 0; g < currParamGen.length; g++) {
+            runEvaluationMatch(image, currParamGen[g]);
+        }
+        logger.stop();
+        System.exit(0);
     }
 
     public static void main(String[] args) throws IOException {
