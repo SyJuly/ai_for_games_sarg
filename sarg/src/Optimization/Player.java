@@ -18,7 +18,7 @@ public class Player implements Runnable {
     private String name;
     private BoardManager boardManager;
     private MoveFinder moveFinder;
-    private NetworkClient client;
+    private int teamCode;
     private BufferedImage image;
     private long timeStartedRunning;
     private int[] currentScore;
@@ -39,7 +39,8 @@ public class Player implements Runnable {
             // wait
         }
         NetworkClient client = new NetworkClient("127.0.0.1", name, image);
-        moveFinder.setTeam(client.getMyPlayerNumber());
+        teamCode = client.getMyPlayerNumber();
+        moveFinder.setTeam(teamCode);
         Move lastMove = null;
         try {
             do {
@@ -84,5 +85,9 @@ public class Player implements Runnable {
 
     public int getTurnNumber(){
         return turnNumber;
+    }
+
+    public int getTeamCode(){
+        return teamCode;
     }
 }

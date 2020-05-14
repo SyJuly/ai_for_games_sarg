@@ -1,6 +1,6 @@
 package AI;
 
-public class EvaluationParameter {
+public class EvaluationParameter implements Comparable<EvaluationParameter>{
     public double activeTokensPercentage;
     public double successfulTokensPercentage;
     public double tokenDistanceToBorderPercentage;
@@ -13,7 +13,19 @@ public class EvaluationParameter {
         this.tokenDistanceToBorderPercentage = tokenDistanceToBorderPercentage;
     }
 
+    public EvaluationParameter(double activeTokensPercentage, double successfulTokensPercentage, double tokenDistanceToBorderPercentage, double evaluationValue){
+        this.activeTokensPercentage = activeTokensPercentage;
+        this.successfulTokensPercentage = successfulTokensPercentage;
+        this.tokenDistanceToBorderPercentage = tokenDistanceToBorderPercentage;
+        this.evaluationValue = evaluationValue;
+    }
+
     public String toString() {
         return "Q = " + activeTokensPercentage + " * activeTokens + " + successfulTokensPercentage + " * successfulTokens + " + tokenDistanceToBorderPercentage + " * tokenDistanceToBorder (EV: " + evaluationValue + ")";
+    }
+
+    @Override
+    public int compareTo(EvaluationParameter o) {
+        return evaluationValue > o.evaluationValue ? 1 : -1;
     }
 }
