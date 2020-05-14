@@ -32,6 +32,9 @@ public class MoveFinderWorker implements Callable {
     public AlphaBetaResult call() {
         isCancelled = false;
         results[id] = alphaBeta(ownTeamCode, boardManager.getCurrentBoardConfig(), depth, Double.NEGATIVE_INFINITY, Double.POSITIVE_INFINITY);
+        /*if(ownTeamCode == 0){
+            boardManager.getCurrentBoardConfig().printScore();
+        }*/
         return results[id];
     }
 

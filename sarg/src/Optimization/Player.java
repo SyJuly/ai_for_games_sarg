@@ -22,6 +22,7 @@ public class Player implements Runnable {
     private BufferedImage image;
     private long timeStartedRunning;
     private int[] currentScore;
+    private int turnNumber = 0;
 
     public Player(long timeLimit, boolean createDumpPlayer, BufferedImage image, String name, EvaluationParameter params){
         this.image = image;
@@ -48,6 +49,7 @@ public class Player implements Runnable {
                     Move move = new Move(token.x, token.y);
                     lastMove = move;
                     client.sendMove(move);
+                    turnNumber++;
                 } else {
                     if (receiveMove.x < 0 || receiveMove.y < 0) {
                         return;
@@ -78,5 +80,9 @@ public class Player implements Runnable {
 
     public int[] getCurrentScore(){
         return currentScore;
+    }
+
+    public int getTurnNumber(){
+        return turnNumber;
     }
 }
