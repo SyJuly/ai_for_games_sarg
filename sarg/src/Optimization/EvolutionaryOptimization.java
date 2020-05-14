@@ -1,6 +1,7 @@
 package Optimization;
 
 import AI.EvaluationParameter;
+import Logging.Logger;
 import lenz.htw.sarg.Server;
 
 import javax.imageio.ImageIO;
@@ -20,6 +21,7 @@ public class EvolutionaryOptimization {
     private final double MAX_TIME_BONUS = 4;
     private final double MIN_TIME_BONUS = 0;
     private final double MAX_TURNS_TO_TIME_BONUS = 15;
+    private Logger logger;
 
     private EvaluationParameter[] initialParamParents = new EvaluationParameter[]{
         new EvaluationParameter(0.2,0.6,0.2),
@@ -59,6 +61,7 @@ public class EvolutionaryOptimization {
         }
         prevParamGen = currParamGen; //TODO: needed?
         currParamGen = newParamGen;
+        logger.logRecombination(currParamGen);
     }
 
     private void evaluateCurrentParamGen(EvaluationParameter[] gameParams, int[] gameResult, int numberOfTurnsToVictory){
@@ -123,13 +126,16 @@ public class EvolutionaryOptimization {
 
     public void runEvolutionaryOptimization() throws IOException {
         BufferedImage image = ImageIO.read(new File("/home/july/Projects/AI/logos/earth_bending_emblem_fill_by_mr_droy-d6xo95p.png"));
+        logger = new Logger();
 
         runEvaluationMatch(image, initialParamParents);
         recombineSelectedParamsToNewGen(initialParamParents);
 
+        logger.logNewGeneration(0);
         for(int g = 0; g < currParamGen.length; g++) {
             runEvaluationMatch(image, currParamGen[g]);
         }
+        logger.stop();
         System.exit(0);
     }
 
@@ -157,15 +163,8 @@ public class EvolutionaryOptimization {
             int[] score = players[0].getCurrentScore();
             int numberOfTurnsToVictory = players[winnerIndex].getTurnNumber();
             evaluateCurrentParamGen(evaluationParameters, score, numberOfTurnsToVictory);
-            System.out.println("WINNER IS " + names[winnerIndex] + " - Team " + players[winnerIndex].getTeamCode() + " within " + numberOfTurnsToVictory  + " turns.");
-            for (int i = 0; i < evaluationParameters.length; i++) {
-                System.out.println(evaluationParameters[i]);
-            }
-        }
-    }
-
-    private void writeGen(){
-        for(int g = 0; g < currParamGen.length; g++) {
+            logger.logGameOver(score, winnerIndex, players, names, numberOfTurnsToVictory);
+            logger.logEvaluation(players, evaluationParameters);
 
         }
     }

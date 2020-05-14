@@ -15,7 +15,7 @@ import java.util.Arrays;
 public class Player implements Runnable {
 
     private final long WAIT_UNTIL_STARTING = 5000;
-    private String name;
+    public String name;
     private BoardManager boardManager;
     private MoveFinder moveFinder;
     private int teamCode;
