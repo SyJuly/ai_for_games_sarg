@@ -46,11 +46,11 @@ public class EvolutionaryOptimization {
         }
         double successfulTokensPercentage = 0;
         for(int p = 0; p < selectedParams.length; p++){
-            activeTokensPercentage += selectedParams[p].successfulTokensPercentage * (selectedParams[p].successfulTokensPercentage/totalEvaluatedValuesForGen);
+            activeTokensPercentage += selectedParams[p].successfulTokensPercentage * (selectedParams[p].evaluationValue/totalEvaluatedValuesForGen);
         }
         double tokenDistanceToBorderPercentage = 0;
         for(int p = 0; p < selectedParams.length; p++){
-            activeTokensPercentage += selectedParams[p].tokenDistanceToBorderPercentage * (selectedParams[p].tokenDistanceToBorderPercentage/totalEvaluatedValuesForGen);
+            activeTokensPercentage += selectedParams[p].tokenDistanceToBorderPercentage * (selectedParams[p].evaluationValue/totalEvaluatedValuesForGen);
         }
 
         for(int i = 0; i < newParamGen.length; i++){

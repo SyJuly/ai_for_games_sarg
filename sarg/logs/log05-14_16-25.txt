@@ -1,0 +1,111 @@
+
+ 
+Game over. 
+Player A/ Team Optimization.Player@3b192d32: 3
+Player B/ Team Optimization.Player@14899482: 2
+Player C/ Team Optimization.Player@21588809: 5 <--WINNER ON SERVER within 12 turns
+
+ 
+Evaluation. 
+Player A| Q = 0.2 * activeTokens + 0.6 * successfulTokens + 0.2 * tokenDistanceToBorder (EV: 5.0)
+Player B| Q = 0.15 * activeTokens + 0.8 * successfulTokens + 0.5 * tokenDistanceToBorder (EV: 3.0)
+Player C| Q = 0.3 * activeTokens + 0.4 * successfulTokens + 0.3 * tokenDistanceToBorder (EV: 39.8)
+
+ 
+Game over. 
+Player A/ Team Optimization.Player@64b8f8f4: 3
+Player B/ Team Optimization.Player@2db0f6b2: 2
+Player C/ Team Optimization.Player@3cd1f1c8: 5 <--WINNER ON SERVER within 12 turns
+
+ 
+Evaluation. 
+Player A| Q = 0.2 * activeTokens + 0.6 * successfulTokens + 0.2 * tokenDistanceToBorder (EV: 5.0)
+Player B| Q = 0.15 * activeTokens + 0.8 * successfulTokens + 0.5 * tokenDistanceToBorder (EV: 3.0)
+Player C| Q = 0.3 * activeTokens + 0.4 * successfulTokens + 0.3 * tokenDistanceToBorder (EV: 39.8)
+
+ 
+Recombination. 
+Parent: Q = 0.15 * activeTokens + 0.8 * successfulTokens + 0.5 * tokenDistanceToBorder (EV: 3.0)
+Parent: Q = 0.3176595744680851 * activeTokens + 0.0 * successfulTokens + 0.0 * tokenDistanceToBorder (EV: 0.0)
+Parent: Q = 0.3176595744680851 * activeTokens + 0.0 * successfulTokens + 0.0 * tokenDistanceToBorder (EV: 0.0)
+Child: Q = 0.2 * activeTokens + 0.6 * successfulTokens + 0.2 * tokenDistanceToBorder (EV: 5.0)
+Child: Q = 0.3176595744680851 * activeTokens + 0.0 * successfulTokens + 0.0 * tokenDistanceToBorder (EV: 0.0)
+Child: Q = 0.3176595744680851 * activeTokens + 0.0 * successfulTokens + 0.0 * tokenDistanceToBorder (EV: 0.0)
+Child: Q = 0.3 * activeTokens + 0.4 * successfulTokens + 0.3 * tokenDistanceToBorder (EV: 39.8)
+Child: Q = 0.3176595744680851 * activeTokens + 0.0 * successfulTokens + 0.0 * tokenDistanceToBorder (EV: 0.0)
+Child: Q = 0.3176595744680851 * activeTokens + 0.0 * successfulTokens + 0.0 * tokenDistanceToBorder (EV: 0.0)
+
+ 
+----------------------------------------------------------------------
+ Starting Generation (Number: 0).
+ 
+Game over. 
+Player A/ Team Optimization.Player@424c0bc4: 4
+Player B/ Team Optimization.Player@3c679bde: 1
+Player C/ Team Optimization.Player@16b4a017: 5 <--WINNER ON SERVER within 10 turns
+
+ 
+Evaluation. 
+Player A| Q = 0.15 * activeTokens + 0.8 * successfulTokens + 0.5 * tokenDistanceToBorder (EV: 1.0)
+Player B| Q = 0.3176595744680851 * activeTokens + 0.0 * successfulTokens + 0.0 * tokenDistanceToBorder (EV: 1.0)
+Player C| Q = 0.3176595744680851 * activeTokens + 0.0 * successfulTokens + 0.0 * tokenDistanceToBorder (EV: 40.33333333333333)
+
+ 
+Game over. 
+Player A/ Team Optimization.Player@8807e25: 5 <--WINNER ON SERVER within 12 turns
+Player B/ Team Optimization.Player@2a3046da: 3
+Player C/ Team Optimization.Player@2a098129: 2
+
+ 
+Evaluation. 
+Player A| Q = 0.15 * activeTokens + 0.8 * successfulTokens + 0.5 * tokenDistanceToBorder (EV: 3.0)
+Player B| Q = 0.3176595744680851 * activeTokens + 0.0 * successfulTokens + 0.0 * tokenDistanceToBorder (EV: 5.0)
+Player C| Q = 0.3176595744680851 * activeTokens + 0.0 * successfulTokens + 0.0 * tokenDistanceToBorder (EV: 3.0)
+
+ 
+Game over. 
+Player A/ Team Optimization.Player@198e2867: 3 <--WINNER ON SERVER within 14 turns
+Player B/ Team Optimization.Player@12f40c25: 2
+Player C/ Team Optimization.Player@3ada9e37: 5
+
+ 
+Evaluation. 
+Player A| Q = 0.2 * activeTokens + 0.6 * successfulTokens + 0.2 * tokenDistanceToBorder (EV: 39.266666666666666)
+Player B| Q = 0.3176595744680851 * activeTokens + 0.0 * successfulTokens + 0.0 * tokenDistanceToBorder (EV: 3.0)
+Player C| Q = 0.3176595744680851 * activeTokens + 0.0 * successfulTokens + 0.0 * tokenDistanceToBorder (EV: 39.266666666666666)
+
+ 
+Game over. 
+Player A/ Team Optimization.Player@5cbc508c: 5
+Player B/ Team Optimization.Player@3419866c: 4 <--WINNER ON SERVER within 12 turns
+Player C/ Team Optimization.Player@63e31ee: 4
+
+ 
+Evaluation. 
+Player A| Q = 0.2 * activeTokens + 0.6 * successfulTokens + 0.2 * tokenDistanceToBorder (EV: 4.0)
+Player B| Q = 0.3176595744680851 * activeTokens + 0.0 * successfulTokens + 0.0 * tokenDistanceToBorder (EV: 4.0)
+Player C| Q = 0.3176595744680851 * activeTokens + 0.0 * successfulTokens + 0.0 * tokenDistanceToBorder (EV: 4.0)
+
+ 
+Game over. 
+Player A/ Team Optimization.Player@68fb2c38: 3 <--WINNER ON SERVER within 14 turns
+Player B/ Team Optimization.Player@567d299b: 5
+Player C/ Team Optimization.Player@2eafffde: 2
+
+ 
+Evaluation. 
+Player A| Q = 0.3 * activeTokens + 0.4 * successfulTokens + 0.3 * tokenDistanceToBorder (EV: 5.0)
+Player B| Q = 0.3176595744680851 * activeTokens + 0.0 * successfulTokens + 0.0 * tokenDistanceToBorder (EV: 39.266666666666666)
+Player C| Q = 0.3176595744680851 * activeTokens + 0.0 * successfulTokens + 0.0 * tokenDistanceToBorder (EV: 3.0)
+
+ 
+Game over. 
+Player A/ Team Optimization.Player@59690aa4: 3
+Player B/ Team Optimization.Player@6842775d: 4
+Player C/ Team Optimization.Player@574caa3f: 5 <--WINNER ON SERVER within 11 turns
+
+ 
+Evaluation. 
+Player A| Q = 0.3 * activeTokens + 0.4 * successfulTokens + 0.3 * tokenDistanceToBorder (EV: 38.06666666666666)
+Player B| Q = 0.3176595744680851 * activeTokens + 0.0 * successfulTokens + 0.0 * tokenDistanceToBorder (EV: 5.0)
+Player C| Q = 0.3176595744680851 * activeTokens + 0.0 * successfulTokens + 0.0 * tokenDistanceToBorder (EV: 38.06666666666666)
