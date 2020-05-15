@@ -122,9 +122,15 @@ public class EvolutionaryOptimization {
         return lastTeamCode;
     }
     private void runMatchWithEvaluation(BufferedImage image, EvaluationParameter[] evaluationParameters) {
-        double[][] evaluatedValues = new double[evaluationParameters.length][GAMEPLAY_ITERATION_PER_GEN];
+        Double[][] evaluatedValues = new Double[evaluationParameters.length][GAMEPLAY_ITERATION_PER_GEN];
         for (int n = 0; n < GAMEPLAY_ITERATION_PER_GEN; n++) {
             GameResult gameResult = runGame(image, evaluationParameters);
+            if(gameResult == null){
+                for(int i = 0; i < evaluationParameters.length; i++){
+                    evaluatedValues[i][n] = null;
+                }
+                continue;
+            }
             evaluateParams(evaluationParameters, gameResult.scoreOfTeams, gameResult.numOfTurnsToGameOver);
             for(int i = 0; i < evaluationParameters.length; i++){
                 evaluatedValues[i][n] = evaluationParameters[i].evaluationValue;
@@ -135,10 +141,15 @@ public class EvolutionaryOptimization {
         //calculate medium
         for(int i = 0; i < evaluationParameters.length; i++){
             double sumEvaluatedValues = 0;
+            int draws = 0;
             for (int n = 0; n < GAMEPLAY_ITERATION_PER_GEN; n++) {
+                if(evaluatedValues[i][n] == null){
+                    draws++;
+                    continue;
+                }
                 sumEvaluatedValues += evaluatedValues[i][n];
             }
-            evaluationParameters[i].evaluationValue = sumEvaluatedValues/GAMEPLAY_ITERATION_PER_GEN;
+            evaluationParameters[i].evaluationValue = sumEvaluatedValues/ (GAMEPLAY_ITERATION_PER_GEN - draws);
 
         }
         logger.logMediumEvaluation(evaluatedValues, evaluationParameters);
@@ -165,9 +176,14 @@ public class EvolutionaryOptimization {
         }
 
         int winner = server.runOnceAndReturnTheWinner(TIME_LIMIT);
+
         int[] score = players[0].getCurrentScore();
         int numberOfTurnsToVictory = players[0].getTurnNumber();
         logger.logGameOver(score, winner, players, numberOfTurnsToVictory);
+        if(winner == -1){
+            logger.logDraw();
+            return null;
+        }
         return new GameResult(players, score, numberOfTurnsToVictory, winner);
     }
 

@@ -79,7 +79,7 @@ public class Logger {
         out.close();
     }
 
-    public void logMediumEvaluation(double[][] evaluatedValues, EvaluationParameter[] evaluationParameters) {
+    public void logMediumEvaluation(Double[][] evaluatedValues, EvaluationParameter[] evaluationParameters) {
         String log = "Calculating medium parameter evaluation from "+ evaluatedValues[0].length +" games played. \n";
         for(int i = 0; i < evaluationParameters.length; i++){
             log += Arrays.toString(evaluatedValues[i]) + " ----> Writing medium:" + evaluationParameters[i] + "\n";
@@ -98,6 +98,11 @@ public class Logger {
         String log = "CORRECTED mutations to be in range 0 to 1. \n";
         log += "Invalid Parameters: " + Arrays.toString(mutatedParams) + "\n";
         log += "Valid Parameters: " + Arrays.toString(validatedMutatedParams) + "\n";
+        writeToLogFile(log);
+    }
+
+    public void logDraw() {
+        String log = "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! \n DRAW DETECTED. Skipping game. \n";
         writeToLogFile(log);
     }
 }
