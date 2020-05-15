@@ -48,9 +48,9 @@ public class Logger {
     }
 
     public void logEvaluation(Player[] players, EvaluationParameter[] evaluationParameters) {
-        String log = "          Evaluation. \n";
+        String log = "                  Evaluation. \n";
         for (int i = 0; i < evaluationParameters.length; i++) {
-            log+= "         Player " + players[i].name + "| " + evaluationParameters[i] + "\n";
+            log+= "                 Player " + players[i].name + "| " + evaluationParameters[i] + "\n";
         }
         writeToLogFile(log);
     }

@@ -17,6 +17,8 @@ public class EvolutionaryOptimization {
     private final int TIME_LIMIT = 3;
     private final int NUM_INDIVIUUMS_PER_GEN = 9;
     private final int GAMEPLAY_ITERATION_PER_GEN = 2;
+    private final int MAX_GAMEPOINTS = 5;
+    private final int VICTORY_MODIFIER = 4;
     private final double MAX_TIME_BONUS = 4;
     private final double MIN_TIME_BONUS = 0;
     private final double MAX_TURNS_TO_TIME_BONUS = 15;
@@ -46,32 +48,29 @@ public class EvolutionaryOptimization {
             totalEvaluatedValuesForGen += parentParams[i].evaluationValue;
         }
 
+
         double activeTokensPercentage = 0;
-        for(int p = 0; p < parentParams.length; p++){
-            activeTokensPercentage += parentParams[p].activeTokensPercentage * (parentParams[p].evaluationValue/totalEvaluatedValuesForGen);
-        }
         double successfulTokensPercentage = 0;
-        for(int p = 0; p < parentParams.length; p++){
-            activeTokensPercentage += parentParams[p].successfulTokensPercentage * (parentParams[p].evaluationValue/totalEvaluatedValuesForGen);
-        }
         double tokenDistanceToBorderPercentage = 0;
         for(int p = 0; p < parentParams.length; p++){
-            activeTokensPercentage += parentParams[p].tokenDistanceToBorderPercentage * (parentParams[p].evaluationValue/totalEvaluatedValuesForGen);
+            double base = parentParams[p].evaluationValue/totalEvaluatedValuesForGen;
+            activeTokensPercentage += parentParams[p].activeTokensPercentage * base;
+            successfulTokensPercentage += parentParams[p].successfulTokensPercentage * base;
+            tokenDistanceToBorderPercentage += parentParams[p].tokenDistanceToBorderPercentage * base;
         }
 
         for(int i = 0; i < newParamGen.length; i++){
-            newParamGen[i][0] = parentParams[i];
+            newParamGen[i][0] = parentParams[i]; // first has no mutation
             for(int j = 1; j < newParamGen.length; j++){
                 double[] mutations = j == newParamGen.length -1 ? high_Mutation : low_Mutation;
-                newParamGen[i][j] = new EvaluationParameter(
-                        activeTokensPercentage + mutations[0],
-                        successfulTokensPercentage + mutations[1],
-                        tokenDistanceToBorderPercentage + + mutations[2]);
+                newParamGen[i][j] = EvaluationParamValidator.getValidatedMutatedParams(activeTokensPercentage, successfulTokensPercentage, tokenDistanceToBorderPercentage, mutations);
             }
         }
         currParamGen = newParamGen;
         logger.logRecombination(currParamGen);
     }
+
+
 
     private double[] getMutation(int max){
         int activeTokensModifier = random.nextInt(max*2) - max;
@@ -85,8 +84,8 @@ public class EvolutionaryOptimization {
         int[] summands = new int[gameResult.length];
         for(int i = 0; i < gameResult.length; i++){
             int gamepoints = gameResult[i];
-            if(gamepoints == 5){
-                summands[i] = gamepoints * 4;
+            if(gamepoints >= MAX_GAMEPOINTS){
+                summands[i] = MAX_GAMEPOINTS * VICTORY_MODIFIER;
             } else{
                 summands[i] = gamepoints;
             }
@@ -113,23 +112,6 @@ public class EvolutionaryOptimization {
 
     private double getNormedValue(double xToNorm, double xMinValue, double xMaxValue, double rangeStart, double rangeEnd){
         return ((rangeEnd - rangeStart) * (xToNorm - xMinValue) / (xMaxValue - xMinValue)) + rangeStart;
-    }
-
-    private void selectParamsForNewGen(){
-        /*EvaluationParameter[] nextParamGen = currentParamGen;
-        double lowestOfBestParams = Double.NEGATIVE_INFINITY;
-        int lowestOfBestParamIndex = 0;
-        for (int i = 0; i < currentParamGen.length; i++) {
-
-        }
-        for (int i = 0; i < prevParamGen.length; i++) {
-            if(prevParamGen[i].evaluationValue > lowestOfBestParams){
-                nextParamGen[lowestOfBestParamIndex] = currentParamGen[i];
-
-            }
-        }*/
-
-
     }
 
     public int getNextTeam(int lastTeamCode){

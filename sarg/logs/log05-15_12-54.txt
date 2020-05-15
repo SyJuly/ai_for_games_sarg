@@ -1,0 +1,282 @@
+
+ 
+          Game over. 
+         Player A/ Team 1: 4
+         Player B/ Team 2: 5 <--WINNER ON SERVER within 9 turns
+         Player C/ Team 0: 2
+
+ 
+                  Evaluation. 
+                 Player A| Q = 0.2 * activeTokens + 0.6 * successfulTokens + 0.2 * tokenDistanceToBorder (EV: 2.0)
+                 Player B| Q = 0.15 * activeTokens + 0.8 * successfulTokens + 0.5 * tokenDistanceToBorder (EV: 39.6)
+                 Player C| Q = 0.3 * activeTokens + 0.4 * successfulTokens + 0.3 * tokenDistanceToBorder (EV: 2.0)
+
+ 
+          Game over. 
+         Player A/ Team 0: 5 <--WINNER ON SERVER within 8 turns
+         Player B/ Team 2: 4
+         Player C/ Team 1: 1
+
+ 
+                  Evaluation. 
+                 Player A| Q = 0.2 * activeTokens + 0.6 * successfulTokens + 0.2 * tokenDistanceToBorder (EV: 40.86666666666667)
+                 Player B| Q = 0.15 * activeTokens + 0.8 * successfulTokens + 0.5 * tokenDistanceToBorder (EV: 7.0)
+                 Player C| Q = 0.3 * activeTokens + 0.4 * successfulTokens + 0.3 * tokenDistanceToBorder (EV: 1.0)
+
+ 
+Calculating medium parameter evaluation from 2 games played. 
+[2.0, 40.86666666666667] ----> Writing medium:Q = 0.2 * activeTokens + 0.6 * successfulTokens + 0.2 * tokenDistanceToBorder (EV: 21.433333333333334)
+[39.6, 7.0] ----> Writing medium:Q = 0.15 * activeTokens + 0.8 * successfulTokens + 0.5 * tokenDistanceToBorder (EV: 23.3)
+[2.0, 1.0] ----> Writing medium:Q = 0.3 * activeTokens + 0.4 * successfulTokens + 0.3 * tokenDistanceToBorder (EV: 1.5)
+
+ 
+Creating mutations. 
+High Mutations: [-0.0015, -0.0412, 0.0427]
+Low_Mutations: [-0.06306, -0.09374, 0.1568]
+
+ 
+Recombination. 
+Parent: Q = 0.3 * activeTokens + 0.4 * successfulTokens + 0.3 * tokenDistanceToBorder (EV: 1.5)
+Child: Q = 0.11986592592592593 * activeTokens + 0.6195933333333333 * successfulTokens + 0.5209481481481482 * tokenDistanceToBorder (EV: 0.0)
+Child: Q = 0.18142592592592593 * activeTokens + 0.6721333333333334 * successfulTokens + 0.4068481481481482 * tokenDistanceToBorder (EV: 0.0)
+Parent: Q = 0.2 * activeTokens + 0.6 * successfulTokens + 0.2 * tokenDistanceToBorder (EV: 21.433333333333334)
+Child: Q = 0.11986592592592593 * activeTokens + 0.6195933333333333 * successfulTokens + 0.5209481481481482 * tokenDistanceToBorder (EV: 0.0)
+Child: Q = 0.18142592592592593 * activeTokens + 0.6721333333333334 * successfulTokens + 0.4068481481481482 * tokenDistanceToBorder (EV: 0.0)
+Parent: Q = 0.15 * activeTokens + 0.8 * successfulTokens + 0.5 * tokenDistanceToBorder (EV: 23.3)
+Child: Q = 0.11986592592592593 * activeTokens + 0.6195933333333333 * successfulTokens + 0.5209481481481482 * tokenDistanceToBorder (EV: 0.0)
+Child: Q = 0.18142592592592593 * activeTokens + 0.6721333333333334 * successfulTokens + 0.4068481481481482 * tokenDistanceToBorder (EV: 0.0)
+
+ 
+----------------------------------------------------------------------
+ Starting Generation (Number: 0).
+ 
+          Game over. 
+         Player A/ Team 1: 2
+         Player B/ Team 0: 1
+         Player C/ Team 2: 5 <--WINNER ON SERVER within 7 turns
+
+ 
+                  Evaluation. 
+                 Player A| Q = 0.3 * activeTokens + 0.4 * successfulTokens + 0.3 * tokenDistanceToBorder (EV: 5.0)
+                 Player B| Q = 0.11986592592592593 * activeTokens + 0.6195933333333333 * successfulTokens + 0.5209481481481482 * tokenDistanceToBorder (EV: 3.0)
+                 Player C| Q = 0.18142592592592593 * activeTokens + 0.6721333333333334 * successfulTokens + 0.4068481481481482 * tokenDistanceToBorder (EV: 43.13333333333333)
+
+ 
+          Game over. 
+         Player A/ Team 1: 2
+         Player B/ Team 2: 5 <--WINNER ON SERVER within 7 turns
+         Player C/ Team 0: 1
+
+ 
+                  Evaluation. 
+                 Player A| Q = 0.3 * activeTokens + 0.4 * successfulTokens + 0.3 * tokenDistanceToBorder (EV: 5.0)
+                 Player B| Q = 0.11986592592592593 * activeTokens + 0.6195933333333333 * successfulTokens + 0.5209481481481482 * tokenDistanceToBorder (EV: 43.13333333333333)
+                 Player C| Q = 0.18142592592592593 * activeTokens + 0.6721333333333334 * successfulTokens + 0.4068481481481482 * tokenDistanceToBorder (EV: 3.0)
+
+ 
+Calculating medium parameter evaluation from 2 games played. 
+[5.0, 5.0] ----> Writing medium:Q = 0.3 * activeTokens + 0.4 * successfulTokens + 0.3 * tokenDistanceToBorder (EV: 5.0)
+[3.0, 43.13333333333333] ----> Writing medium:Q = 0.11986592592592593 * activeTokens + 0.6195933333333333 * successfulTokens + 0.5209481481481482 * tokenDistanceToBorder (EV: 23.066666666666666)
+[43.13333333333333, 3.0] ----> Writing medium:Q = 0.18142592592592593 * activeTokens + 0.6721333333333334 * successfulTokens + 0.4068481481481482 * tokenDistanceToBorder (EV: 23.066666666666666)
+
+ 
+          Game over. 
+         Player A/ Team 0: 4
+         Player B/ Team 2: 5 <--WINNER ON SERVER within 9 turns
+         Player C/ Team 1: 2
+
+ 
+                  Evaluation. 
+                 Player A| Q = 0.2 * activeTokens + 0.6 * successfulTokens + 0.2 * tokenDistanceToBorder (EV: 6.0)
+                 Player B| Q = 0.11986592592592593 * activeTokens + 0.6195933333333333 * successfulTokens + 0.5209481481481482 * tokenDistanceToBorder (EV: 39.6)
+                 Player C| Q = 0.18142592592592593 * activeTokens + 0.6721333333333334 * successfulTokens + 0.4068481481481482 * tokenDistanceToBorder (EV: 2.0)
+
+ 
+          Game over. 
+         Player A/ Team 0: 4
+         Player B/ Team 2: 5 <--WINNER ON SERVER within 9 turns
+         Player C/ Team 1: 2
+
+ 
+                  Evaluation. 
+                 Player A| Q = 0.2 * activeTokens + 0.6 * successfulTokens + 0.2 * tokenDistanceToBorder (EV: 6.0)
+                 Player B| Q = 0.11986592592592593 * activeTokens + 0.6195933333333333 * successfulTokens + 0.5209481481481482 * tokenDistanceToBorder (EV: 39.6)
+                 Player C| Q = 0.18142592592592593 * activeTokens + 0.6721333333333334 * successfulTokens + 0.4068481481481482 * tokenDistanceToBorder (EV: 2.0)
+
+ 
+Calculating medium parameter evaluation from 2 games played. 
+[6.0, 6.0] ----> Writing medium:Q = 0.2 * activeTokens + 0.6 * successfulTokens + 0.2 * tokenDistanceToBorder (EV: 6.0)
+[39.6, 39.6] ----> Writing medium:Q = 0.11986592592592593 * activeTokens + 0.6195933333333333 * successfulTokens + 0.5209481481481482 * tokenDistanceToBorder (EV: 39.6)
+[2.0, 2.0] ----> Writing medium:Q = 0.18142592592592593 * activeTokens + 0.6721333333333334 * successfulTokens + 0.4068481481481482 * tokenDistanceToBorder (EV: 2.0)
+
+ 
+          Game over. 
+         Player A/ Team 2: 6 <--WINNER ON SERVER within 8 turns
+         Player B/ Team 0: 1
+         Player C/ Team 1: 0
+
+ 
+                  Evaluation. 
+                 Player A| Q = 0.15 * activeTokens + 0.8 * successfulTokens + 0.5 * tokenDistanceToBorder (EV: 43.0)
+                 Player B| Q = 0.11986592592592593 * activeTokens + 0.6195933333333333 * successfulTokens + 0.5209481481481482 * tokenDistanceToBorder (EV: 5.0)
+                 Player C| Q = 0.18142592592592593 * activeTokens + 0.6721333333333334 * successfulTokens + 0.4068481481481482 * tokenDistanceToBorder (EV: 3.0)
+
+ 
+          Game over. 
+         Player A/ Team 1: 2
+         Player B/ Team 2: 5 <--WINNER ON SERVER within 7 turns
+         Player C/ Team 0: 1
+
+ 
+                  Evaluation. 
+                 Player A| Q = 0.15 * activeTokens + 0.8 * successfulTokens + 0.5 * tokenDistanceToBorder (EV: 43.13333333333333)
+                 Player B| Q = 0.11986592592592593 * activeTokens + 0.6195933333333333 * successfulTokens + 0.5209481481481482 * tokenDistanceToBorder (EV: 43.13333333333333)
+                 Player C| Q = 0.18142592592592593 * activeTokens + 0.6721333333333334 * successfulTokens + 0.4068481481481482 * tokenDistanceToBorder (EV: 3.0)
+
+ 
+Calculating medium parameter evaluation from 2 games played. 
+[43.0, 43.13333333333333] ----> Writing medium:Q = 0.15 * activeTokens + 0.8 * successfulTokens + 0.5 * tokenDistanceToBorder (EV: 43.06666666666666)
+[5.0, 43.13333333333333] ----> Writing medium:Q = 0.11986592592592593 * activeTokens + 0.6195933333333333 * successfulTokens + 0.5209481481481482 * tokenDistanceToBorder (EV: 24.066666666666666)
+[3.0, 3.0] ----> Writing medium:Q = 0.18142592592592593 * activeTokens + 0.6721333333333334 * successfulTokens + 0.4068481481481482 * tokenDistanceToBorder (EV: 3.0)
+
+ 
+          Game over. 
+         Player A/ Team 0: 5 <--WINNER ON SERVER within 10 turns
+         Player B/ Team 1: 1
+         Player C/ Team 2: 4
+
+ 
+                  Evaluation. 
+                 Player A| Q = 0.11986592592592593 * activeTokens + 0.6195933333333333 * successfulTokens + 0.5209481481481482 * tokenDistanceToBorder (EV: 7.0)
+                 Player B| Q = 0.11986592592592593 * activeTokens + 0.6195933333333333 * successfulTokens + 0.5209481481481482 * tokenDistanceToBorder (EV: 1.0)
+                 Player C| Q = 0.15 * activeTokens + 0.8 * successfulTokens + 0.5 * tokenDistanceToBorder (EV: 7.0)
+
+ 
+          Game over. 
+         Player A/ Team 1: 2
+         Player B/ Team 0: 1
+         Player C/ Team 2: 5 <--WINNER ON SERVER within 7 turns
+
+ 
+                  Evaluation. 
+                 Player A| Q = 0.11986592592592593 * activeTokens + 0.6195933333333333 * successfulTokens + 0.5209481481481482 * tokenDistanceToBorder (EV: 43.13333333333333)
+                 Player B| Q = 0.11986592592592593 * activeTokens + 0.6195933333333333 * successfulTokens + 0.5209481481481482 * tokenDistanceToBorder (EV: 3.0)
+                 Player C| Q = 0.15 * activeTokens + 0.8 * successfulTokens + 0.5 * tokenDistanceToBorder (EV: 43.13333333333333)
+
+ 
+Calculating medium parameter evaluation from 2 games played. 
+[7.0, 43.13333333333333] ----> Writing medium:Q = 0.11986592592592593 * activeTokens + 0.6195933333333333 * successfulTokens + 0.5209481481481482 * tokenDistanceToBorder (EV: 25.066666666666666)
+[1.0, 3.0] ----> Writing medium:Q = 0.11986592592592593 * activeTokens + 0.6195933333333333 * successfulTokens + 0.5209481481481482 * tokenDistanceToBorder (EV: 2.0)
+[7.0, 43.13333333333333] ----> Writing medium:Q = 0.15 * activeTokens + 0.8 * successfulTokens + 0.5 * tokenDistanceToBorder (EV: 25.066666666666666)
+
+ 
+Creating mutations. 
+High Mutations: [-0.0746, -0.0096, 0.0842]
+Low_Mutations: [-0.01132, 0.03212, -0.0208]
+
+ 
+Recombination. 
+Parent: Q = 0.11986592592592593 * activeTokens + 0.6195933333333333 * successfulTokens + 0.5209481481481482 * tokenDistanceToBorder (EV: 2.0)
+Child: Q = 0.12337944349477684 * activeTokens + 0.7402672991452992 * successfulTokens + 0.49138583095916427 * tokenDistanceToBorder (EV: 0.0)
+Child: Q = 0.06009944349477683 * activeTokens + 0.6985472991452991 * successfulTokens + 0.5963858309591643 * tokenDistanceToBorder (EV: 0.0)
+Parent: Q = 0.15 * activeTokens + 0.8 * successfulTokens + 0.5 * tokenDistanceToBorder (EV: 25.066666666666666)
+Child: Q = 0.12337944349477684 * activeTokens + 0.7402672991452992 * successfulTokens + 0.49138583095916427 * tokenDistanceToBorder (EV: 0.0)
+Child: Q = 0.06009944349477683 * activeTokens + 0.6985472991452991 * successfulTokens + 0.5963858309591643 * tokenDistanceToBorder (EV: 0.0)
+Parent: Q = 0.11986592592592593 * activeTokens + 0.6195933333333333 * successfulTokens + 0.5209481481481482 * tokenDistanceToBorder (EV: 25.066666666666666)
+Child: Q = 0.12337944349477684 * activeTokens + 0.7402672991452992 * successfulTokens + 0.49138583095916427 * tokenDistanceToBorder (EV: 0.0)
+Child: Q = 0.06009944349477683 * activeTokens + 0.6985472991452991 * successfulTokens + 0.5963858309591643 * tokenDistanceToBorder (EV: 0.0)
+
+ 
+          Game over. 
+         Player A/ Team 1: 2
+         Player B/ Team 2: 5 <--WINNER ON SERVER within 7 turns
+         Player C/ Team 0: 1
+
+ 
+                  Evaluation. 
+                 Player A| Q = 0.11986592592592593 * activeTokens + 0.6195933333333333 * successfulTokens + 0.5209481481481482 * tokenDistanceToBorder (EV: 3.0)
+                 Player B| Q = 0.12337944349477684 * activeTokens + 0.7402672991452992 * successfulTokens + 0.49138583095916427 * tokenDistanceToBorder (EV: 43.13333333333333)
+                 Player C| Q = 0.06009944349477683 * activeTokens + 0.6985472991452991 * successfulTokens + 0.5963858309591643 * tokenDistanceToBorder (EV: 3.0)
+
+ 
+          Game over. 
+         Player A/ Team 2: 6 <--WINNER ON SERVER within 8 turns
+         Player B/ Team 0: 1
+         Player C/ Team 1: 2
+
+ 
+                  Evaluation. 
+                 Player A| Q = 0.11986592592592593 * activeTokens + 0.6195933333333333 * successfulTokens + 0.5209481481481482 * tokenDistanceToBorder (EV: 3.0)
+                 Player B| Q = 0.12337944349477684 * activeTokens + 0.7402672991452992 * successfulTokens + 0.49138583095916427 * tokenDistanceToBorder (EV: 3.0)
+                 Player C| Q = 0.06009944349477683 * activeTokens + 0.6985472991452991 * successfulTokens + 0.5963858309591643 * tokenDistanceToBorder (EV: 5.0)
+
+ 
+Calculating medium parameter evaluation from 2 games played. 
+[3.0, 3.0] ----> Writing medium:Q = 0.11986592592592593 * activeTokens + 0.6195933333333333 * successfulTokens + 0.5209481481481482 * tokenDistanceToBorder (EV: 3.0)
+[43.13333333333333, 3.0] ----> Writing medium:Q = 0.12337944349477684 * activeTokens + 0.7402672991452992 * successfulTokens + 0.49138583095916427 * tokenDistanceToBorder (EV: 23.066666666666666)
+[3.0, 5.0] ----> Writing medium:Q = 0.06009944349477683 * activeTokens + 0.6985472991452991 * successfulTokens + 0.5963858309591643 * tokenDistanceToBorder (EV: 4.0)
+
+ 
+          Game over. 
+         Player A/ Team 2: 6 <--WINNER ON SERVER within 8 turns
+         Player B/ Team 0: 1
+         Player C/ Team 1: 2
+
+ 
+                  Evaluation. 
+                 Player A| Q = 0.15 * activeTokens + 0.8 * successfulTokens + 0.5 * tokenDistanceToBorder (EV: 41.0)
+                 Player B| Q = 0.12337944349477684 * activeTokens + 0.7402672991452992 * successfulTokens + 0.49138583095916427 * tokenDistanceToBorder (EV: 3.0)
+                 Player C| Q = 0.06009944349477683 * activeTokens + 0.6985472991452991 * successfulTokens + 0.5963858309591643 * tokenDistanceToBorder (EV: 5.0)
+
+ 
+          Game over. 
+         Player A/ Team 0: 4
+         Player B/ Team 1: 2
+         Player C/ Team 2: 5 <--WINNER ON SERVER within 9 turns
+
+ 
+                  Evaluation. 
+                 Player A| Q = 0.15 * activeTokens + 0.8 * successfulTokens + 0.5 * tokenDistanceToBorder (EV: 39.6)
+                 Player B| Q = 0.12337944349477684 * activeTokens + 0.7402672991452992 * successfulTokens + 0.49138583095916427 * tokenDistanceToBorder (EV: 2.0)
+                 Player C| Q = 0.06009944349477683 * activeTokens + 0.6985472991452991 * successfulTokens + 0.5963858309591643 * tokenDistanceToBorder (EV: 39.6)
+
+ 
+Calculating medium parameter evaluation from 2 games played. 
+[41.0, 39.6] ----> Writing medium:Q = 0.15 * activeTokens + 0.8 * successfulTokens + 0.5 * tokenDistanceToBorder (EV: 40.3)
+[3.0, 2.0] ----> Writing medium:Q = 0.12337944349477684 * activeTokens + 0.7402672991452992 * successfulTokens + 0.49138583095916427 * tokenDistanceToBorder (EV: 2.5)
+[5.0, 39.6] ----> Writing medium:Q = 0.06009944349477683 * activeTokens + 0.6985472991452991 * successfulTokens + 0.5963858309591643 * tokenDistanceToBorder (EV: 22.3)
+
+ 
+          Game over. 
+         Player A/ Team 2: 4 <--WINNER ON SERVER within 8 turns
+         Player B/ Team 1: 2
+         Player C/ Team 0: 1
+
+ 
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 
+ ERROR OCCURED. 
+ Winner on server didn't match the calculated winner. 
+ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+ 
+                  Evaluation. 
+                 Player A| Q = 0.11986592592592593 * activeTokens + 0.6195933333333333 * successfulTokens + 0.5209481481481482 * tokenDistanceToBorder (EV: 25.0)
+                 Player B| Q = 0.12337944349477684 * activeTokens + 0.7402672991452992 * successfulTokens + 0.49138583095916427 * tokenDistanceToBorder (EV: 21.0)
+                 Player C| Q = 0.06009944349477683 * activeTokens + 0.6985472991452991 * successfulTokens + 0.5963858309591643 * tokenDistanceToBorder (EV: 19.0)
+
+ 
+          Game over. 
+         Player A/ Team 2: 6 <--WINNER ON SERVER within 8 turns
+         Player B/ Team 0: 1
+         Player C/ Team 1: 2
+
+ 
+                  Evaluation. 
+                 Player A| Q = 0.11986592592592593 * activeTokens + 0.6195933333333333 * successfulTokens + 0.5209481481481482 * tokenDistanceToBorder (EV: 41.0)
+                 Player B| Q = 0.12337944349477684 * activeTokens + 0.7402672991452992 * successfulTokens + 0.49138583095916427 * tokenDistanceToBorder (EV: 3.0)
+                 Player C| Q = 0.06009944349477683 * activeTokens + 0.6985472991452991 * successfulTokens + 0.5963858309591643 * tokenDistanceToBorder (EV: 5.0)
+
+ 
+Calculating medium parameter evaluation from 2 games played. 
+[25.0, 41.0] ----> Writing medium:Q = 0.11986592592592593 * activeTokens + 0.6195933333333333 * successfulTokens + 0.5209481481481482 * tokenDistanceToBorder (EV: 33.0)
+[21.0, 3.0] ----> Writing medium:Q = 0.12337944349477684 * activeTokens + 0.7402672991452992 * successfulTokens + 0.49138583095916427 * tokenDistanceToBorder (EV: 12.0)
+[19.0, 5.0] ----> Writing medium:Q = 0.06009944349477683 * activeTokens + 0.6985472991452991 * successfulTokens + 0.5963858309591643 * tokenDistanceToBorder (EV: 12.0)
