@@ -9,10 +9,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.Random;
-import java.util.stream.DoubleStream;
 
 public class EvolutionaryOptimization {
 
@@ -35,35 +32,35 @@ public class EvolutionaryOptimization {
     };
 
     private EvaluationParameter[][] currParamGen;
-    private EvaluationParameter[][] prevParamGen;
+    private EvaluationParameter[] selectedParams;
 
-    private void recombineAndMutateSelectedParamsToNewGen(EvaluationParameter[] selectedParams){
-        Arrays.sort(selectedParams);
+    private void recombineAndMutateSelectedParamsToNewGen(EvaluationParameter[] parentParams){
+        Arrays.sort(parentParams);
         int totalEvaluatedValuesForGen = 0;
         double[] high_Mutation = getMutation(HIGH_MUTATION_MAX);
         double[] low_Mutation = getMutation(LOW_MUTATION_MAX);
         logger.logMutation(high_Mutation, low_Mutation);
 
         EvaluationParameter[][] newParamGen = new EvaluationParameter[NUM_INDIVIUUMS_PER_GEN/NUM_OF_PLAYERS][NUM_OF_PLAYERS]; // 9 values per generation
-        for(int i = 0; i < selectedParams.length; i++){
-            totalEvaluatedValuesForGen += selectedParams[i].evaluationValue;
+        for(int i = 0; i < parentParams.length; i++){
+            totalEvaluatedValuesForGen += parentParams[i].evaluationValue;
         }
 
         double activeTokensPercentage = 0;
-        for(int p = 0; p < selectedParams.length; p++){
-            activeTokensPercentage += selectedParams[p].activeTokensPercentage * (selectedParams[p].evaluationValue/totalEvaluatedValuesForGen);
+        for(int p = 0; p < parentParams.length; p++){
+            activeTokensPercentage += parentParams[p].activeTokensPercentage * (parentParams[p].evaluationValue/totalEvaluatedValuesForGen);
         }
         double successfulTokensPercentage = 0;
-        for(int p = 0; p < selectedParams.length; p++){
-            activeTokensPercentage += selectedParams[p].successfulTokensPercentage * (selectedParams[p].evaluationValue/totalEvaluatedValuesForGen);
+        for(int p = 0; p < parentParams.length; p++){
+            activeTokensPercentage += parentParams[p].successfulTokensPercentage * (parentParams[p].evaluationValue/totalEvaluatedValuesForGen);
         }
         double tokenDistanceToBorderPercentage = 0;
-        for(int p = 0; p < selectedParams.length; p++){
-            activeTokensPercentage += selectedParams[p].tokenDistanceToBorderPercentage * (selectedParams[p].evaluationValue/totalEvaluatedValuesForGen);
+        for(int p = 0; p < parentParams.length; p++){
+            activeTokensPercentage += parentParams[p].tokenDistanceToBorderPercentage * (parentParams[p].evaluationValue/totalEvaluatedValuesForGen);
         }
 
         for(int i = 0; i < newParamGen.length; i++){
-            newParamGen[i][0] = selectedParams[i];
+            newParamGen[i][0] = parentParams[i];
             for(int j = 1; j < newParamGen.length; j++){
                 double[] mutations = j == newParamGen.length -1 ? high_Mutation : low_Mutation;
                 newParamGen[i][j] = new EvaluationParameter(
@@ -72,7 +69,6 @@ public class EvolutionaryOptimization {
                         tokenDistanceToBorderPercentage + + mutations[2]);
             }
         }
-        prevParamGen = currParamGen; //TODO: needed?
         currParamGen = newParamGen;
         logger.logRecombination(currParamGen);
     }
@@ -84,7 +80,7 @@ public class EvolutionaryOptimization {
         return new double[]{activeTokensModifier/(10.0 * max), successfulTokensModifier/(10.0 * max), tokenDistanceToBorderModifier/(10.0 * max)};
     }
 
-    private void evaluateCurrentParamGen(EvaluationParameter[] gameParams, int[] gameResult, int numberOfTurnsToVictory){
+    private void evaluateParams(EvaluationParameter[] gameParams, int[] gameResult, int numberOfTurnsToVictory){
         double timeBonus = getNormedTimeBonus(numberOfTurnsToVictory);
         int[] summands = new int[gameResult.length];
         for(int i = 0; i < gameResult.length; i++){
@@ -143,38 +139,15 @@ public class EvolutionaryOptimization {
         }
         return lastTeamCode;
     }
-    private void runEvaluationMatch(BufferedImage image, EvaluationParameter[] evaluationParameters) {
+    private void runMatchWithEvaluation(BufferedImage image, EvaluationParameter[] evaluationParameters) {
         double[][] evaluatedValues = new double[evaluationParameters.length][GAMEPLAY_ITERATION_PER_GEN];
         for (int n = 0; n < GAMEPLAY_ITERATION_PER_GEN; n++) {
-            Server server = new Server();
-
-            Player[] players = new Player[NUM_OF_PLAYERS];
-            Thread[] playerThreads = new Thread[NUM_OF_PLAYERS];
-            String[] names = new String[]{"A", "B", "C"};
-
-            long timeStartedRunning = System.currentTimeMillis();
-            while (System.currentTimeMillis() - timeStartedRunning < 5000) {
-                // wait
-            }
-
-            for (int i = 0; i < players.length; i++) {
-                boolean createDumpPlayer = i < 1;
-                players[i] = new Player(TIME_LIMIT, createDumpPlayer, image, names[i], evaluationParameters[i]);
-                playerThreads[i] = new Thread(players[i]);
-                playerThreads[i].start();
-            }
-
-            int winnerIndex = server.runOnceAndReturnTheWinner(TIME_LIMIT) - 1;
-            int[] score = players[0].getCurrentScore();
-            int numberOfTurnsToVictory = players[winnerIndex].getTurnNumber();
-
-            evaluateCurrentParamGen(evaluationParameters, score, numberOfTurnsToVictory);
+            GameResult gameResult = runGame(image, evaluationParameters);
+            evaluateParams(evaluationParameters, gameResult.scoreOfTeams, gameResult.numOfTurnsToGameOver);
             for(int i = 0; i < evaluationParameters.length; i++){
                 evaluatedValues[i][n] = evaluationParameters[i].evaluationValue;
             }
-            logger.logGameOver(score, winnerIndex, players, names, numberOfTurnsToVictory);
-            logger.logEvaluation(players, evaluationParameters);
-
+            logger.logEvaluation(gameResult.players, evaluationParameters);
         }
 
         //calculate medium
@@ -186,7 +159,34 @@ public class EvolutionaryOptimization {
             evaluationParameters[i].evaluationValue = sumEvaluatedValues/GAMEPLAY_ITERATION_PER_GEN;
 
         }
-        logger.logMedium(evaluatedValues, evaluationParameters);
+        logger.logMediumEvaluation(evaluatedValues, evaluationParameters);
+
+    }
+
+    private GameResult runGame(BufferedImage image, EvaluationParameter[] evaluationParameters) {
+        Server server = new Server();
+
+        Player[] players = new Player[NUM_OF_PLAYERS];
+        Thread[] playerThreads = new Thread[NUM_OF_PLAYERS];
+        String[] names = new String[]{"A", "B", "C"};
+
+        long timeStartedRunning = System.currentTimeMillis();
+        while (System.currentTimeMillis() - timeStartedRunning < 5000) {
+            // wait
+        }
+
+        for (int i = 0; i < players.length; i++) {
+            boolean createDumpPlayer = i < 1;
+            players[i] = new Player(TIME_LIMIT, createDumpPlayer, image, names[i], evaluationParameters[i]);
+            playerThreads[i] = new Thread(players[i]);
+            playerThreads[i].start();
+        }
+
+        int winner = server.runOnceAndReturnTheWinner(TIME_LIMIT);
+        int[] score = players[0].getCurrentScore();
+        int numberOfTurnsToVictory = players[0].getTurnNumber();
+        logger.logGameOver(score, winner, players, numberOfTurnsToVictory);
+        return new GameResult(players, score, numberOfTurnsToVictory, winner);
     }
 
     public void runEvolutionaryOptimization() throws IOException {
@@ -194,15 +194,40 @@ public class EvolutionaryOptimization {
         logger = new Logger();
         random = new Random(1);
 
-        runEvaluationMatch(image, initialParamParents);
+        runMatchWithEvaluation(image, initialParamParents);
         recombineAndMutateSelectedParamsToNewGen(initialParamParents);
 
         logger.logNewGeneration(0);
         for(int g = 0; g < currParamGen.length; g++) {
-            runEvaluationMatch(image, currParamGen[g]);
+            runMatchWithEvaluation(image, currParamGen[g]);
         }
+        selectParentParams(image);
+        recombineAndMutateSelectedParamsToNewGen(selectedParams);
+        for(int g = 0; g < currParamGen.length; g++) {
+            runMatchWithEvaluation(image, currParamGen[g]);
+        }
+
         logger.stop();
         System.exit(0);
+    }
+
+    private void selectParentParams(BufferedImage image) {
+        EvaluationParameter[] matchChampions = getMediumMatchChampionsOfCurrentParamGen();
+        runMatchWithEvaluation(image, matchChampions);
+        selectedParams = matchChampions;
+    }
+
+    private EvaluationParameter[] getMediumMatchChampionsOfCurrentParamGen() {
+        EvaluationParameter[] champions = new EvaluationParameter[currParamGen.length];
+        for(int c = 0; c < currParamGen.length; c++) {
+            champions[c] = currParamGen[c][0];
+            for(int r = 1; r < currParamGen[c].length; r++) {
+                if(currParamGen[c][r].evaluationValue > champions[c].evaluationValue){
+                    champions[c] = currParamGen[c][r];
+                }
+            }
+        }
+        return champions;
     }
 
     public static void main(String[] args) throws IOException {

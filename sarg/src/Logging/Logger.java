@@ -18,16 +18,27 @@ public class Logger {
         out = new PrintWriter("/home/july/Projects/AI/sarg/logs/log" + sdf.format(new Date()) + ".txt");
     }
 
-    public void logGameOver(int[] score, int winnerIndex, Player[] players, String[] names, int numberOfTurnsToVictory) {
-        String log = "Game over. \n";
+    public void logGameOver(int[] score, int winner, Player[] players, int numberOfTurnsToVictory) {
+        boolean winnerError = false;
+        winner = winner - 1;
+        String log = "          Game over. \n";
         for(int i = 0; i < score.length; i++){
-            log+= "Player " + players[i].name + "/ Team " + players[i].getTeamCode() + ": " + score[players[i].getTeamCode()];
-            if(i == winnerIndex){
+            log+= "         Player " + players[i].name + "/ Team " + players[i].getTeamCode() + ": " + score[players[i].getTeamCode()];
+            if(players[i].getTeamCode() == winner){
                 log+= " <--WINNER ON SERVER within " + numberOfTurnsToVictory  + " turns";
+                if(score[players[i].getTeamCode()] < 5){
+                    winnerError = true;
+                }
             }
             log+="\n";
         }
+        //log+= "WINNER ON SERVER:" + winner + " within " + numberOfTurnsToVictory  + " turns";
         writeToLogFile(log);
+
+        if(winnerError){
+            String error = "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! \n ERROR OCCURED. \n Winner on server didn't match the calculated winner. \n !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!";
+            writeToLogFile(error);
+        }
     }
 
     private void writeToLogFile(String log){
@@ -37,9 +48,9 @@ public class Logger {
     }
 
     public void logEvaluation(Player[] players, EvaluationParameter[] evaluationParameters) {
-        String log = "Evaluation. \n";
+        String log = "          Evaluation. \n";
         for (int i = 0; i < evaluationParameters.length; i++) {
-            log+= "Player " + players[i].name + "| " + evaluationParameters[i] + "\n";
+            log+= "         Player " + players[i].name + "| " + evaluationParameters[i] + "\n";
         }
         writeToLogFile(log);
     }
@@ -68,7 +79,7 @@ public class Logger {
         out.close();
     }
 
-    public void logMedium(double[][] evaluatedValues, EvaluationParameter[] evaluationParameters) {
+    public void logMediumEvaluation(double[][] evaluatedValues, EvaluationParameter[] evaluationParameters) {
         String log = "Calculating medium parameter evaluation from "+ evaluatedValues[0].length +" games played. \n";
         for(int i = 0; i < evaluationParameters.length; i++){
             log += Arrays.toString(evaluatedValues[i]) + " ----> Writing medium:" + evaluationParameters[i] + "\n";
