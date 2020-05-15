@@ -87,11 +87,17 @@ public class Logger {
         writeToLogFile(log);
     }
 
-    public void logMutation(double[] high_mutations, double[] low_mutations) {
+    public void logMutation(double[][] high_mutations, double[][] low_mutations) {
         String log = "Creating mutations. \n";
         log += "High Mutations: " + Arrays.toString(high_mutations) + "\n";
         log += "Low_Mutations: " + Arrays.toString(low_mutations) + "\n";
         writeToLogFile(log);
     }
 
+    public void logMutationCorrection(double[] mutatedParams, double[] validatedMutatedParams) {
+        String log = "CORRECTED mutations to be in range 0 to 1. \n";
+        log += "Invalid Parameters: " + Arrays.toString(mutatedParams) + "\n";
+        log += "Valid Parameters: " + Arrays.toString(validatedMutatedParams) + "\n";
+        writeToLogFile(log);
+    }
 }

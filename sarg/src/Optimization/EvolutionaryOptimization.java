@@ -26,6 +26,7 @@ public class EvolutionaryOptimization {
     private final int LOW_MUTATION_MAX = 5000;
     private Logger logger;
     private Random random;
+    private EvaluationParamValidator validator;
 
     private EvaluationParameter[] initialParamParents = new EvaluationParameter[]{
         new EvaluationParameter(0.2,0.6,0.2),
@@ -39,9 +40,9 @@ public class EvolutionaryOptimization {
     private void recombineAndMutateSelectedParamsToNewGen(EvaluationParameter[] parentParams){
         Arrays.sort(parentParams);
         int totalEvaluatedValuesForGen = 0;
-        double[] high_Mutation = getMutation(HIGH_MUTATION_MAX);
-        double[] low_Mutation = getMutation(LOW_MUTATION_MAX);
-        logger.logMutation(high_Mutation, low_Mutation);
+        double[][] high_Mutations = new double[][]{getMutation(HIGH_MUTATION_MAX), getMutation(HIGH_MUTATION_MAX), getMutation(HIGH_MUTATION_MAX)};
+        double[][] low_Mutations = new double[][]{new double[]{0,0,0}, getMutation(LOW_MUTATION_MAX), getMutation(LOW_MUTATION_MAX)};
+        logger.logMutation(high_Mutations, low_Mutations);
 
         EvaluationParameter[][] newParamGen = new EvaluationParameter[NUM_INDIVIUUMS_PER_GEN/NUM_OF_PLAYERS][NUM_OF_PLAYERS]; // 9 values per generation
         for(int i = 0; i < parentParams.length; i++){
@@ -62,14 +63,13 @@ public class EvolutionaryOptimization {
         for(int i = 0; i < newParamGen.length; i++){
             newParamGen[i][0] = parentParams[i]; // first has no mutation
             for(int j = 1; j < newParamGen.length; j++){
-                double[] mutations = j == newParamGen.length -1 ? high_Mutation : low_Mutation;
-                newParamGen[i][j] = EvaluationParamValidator.getValidatedMutatedParams(activeTokensPercentage, successfulTokensPercentage, tokenDistanceToBorderPercentage, mutations);
+                double[][] mutations = j == newParamGen.length -1 ? high_Mutations : low_Mutations;
+                newParamGen[i][j] = validator.getValidatedMutatedParams(activeTokensPercentage, successfulTokensPercentage, tokenDistanceToBorderPercentage, mutations[i]);
             }
         }
         currParamGen = newParamGen;
         logger.logRecombination(currParamGen);
     }
-
 
 
     private double[] getMutation(int max){
@@ -174,6 +174,7 @@ public class EvolutionaryOptimization {
     public void runEvolutionaryOptimization() throws IOException {
         BufferedImage image = ImageIO.read(new File("/home/july/Projects/AI/logos/earth_bending_emblem_fill_by_mr_droy-d6xo95p.png"));
         logger = new Logger();
+        validator = new EvaluationParamValidator(logger);
         random = new Random(1);
 
         runMatchWithEvaluation(image, initialParamParents);
