@@ -8,6 +8,7 @@ import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.stream.Stream;
 
 public class Logger {
 
@@ -89,8 +90,14 @@ public class Logger {
 
     public void logMutation(double[][] high_mutations, double[][] low_mutations) {
         String log = "Creating mutations. \n";
-        log += "High Mutations: " + Arrays.toString(high_mutations) + "\n";
-        log += "Low_Mutations: " + Arrays.toString(low_mutations) + "\n";
+        log += "High Mutations: ";
+        for(int i = 0; i < high_mutations.length; i++){
+            log+= Arrays.toString(high_mutations[i]);
+        }
+        log += "\nLow_Mutations: ";
+        for(int i = 0; i < low_mutations.length; i++){
+            log+= Arrays.toString(low_mutations[i]);
+        }
         writeToLogFile(log);
     }
 

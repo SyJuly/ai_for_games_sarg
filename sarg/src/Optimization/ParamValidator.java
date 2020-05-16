@@ -3,12 +3,12 @@ package Optimization;
 import AI.EvaluationParameter;
 import Logging.Logger;
 
-public class EvaluationParamValidator {
+public class ParamValidator {
     private static final double MAX_PARAM_VALUE = 0.9999999999999;
     private static final double MIN_PARAM_VALUE = 0.0000000000001;
     private Logger logger;
 
-    public EvaluationParamValidator(Logger logger){
+    public ParamValidator(Logger logger){
         this.logger = logger;
     }
 
