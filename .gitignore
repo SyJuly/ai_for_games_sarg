@@ -4,6 +4,9 @@
 #out
 out/
 
+#docu
+docu/
+
 # Compiled class file
 *.class
 
