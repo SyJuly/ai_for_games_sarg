@@ -1,6 +1,8 @@
 package Logging;
 
 import AI.EvaluationParameter;
+import Board.BoardConfiguration;
+import Board.Token;
 import Optimization.Player;
 
 import java.io.FileNotFoundException;
@@ -8,15 +10,22 @@ import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.Optional;
 import java.util.stream.Stream;
 
 public class Logger {
 
     private PrintWriter out;
+    private String filename;
     SimpleDateFormat sdf = new SimpleDateFormat("MM-dd_HH-mm");
 
-    public Logger() throws FileNotFoundException {
-        out = new PrintWriter("/home/july/Projects/AI/sarg/logs/log" + sdf.format(new Date()) + ".txt");
+    public Logger() {
+        filename = "/home/july/Projects/AI/sarg/logs/log" + sdf.format(new Date()) + ".txt";
+        try {
+            out = new PrintWriter(filename);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     public void logGameOver(int[] score, int winner, Player[] players, int numberOfTurnsToVictory) {
@@ -110,6 +119,33 @@ public class Logger {
 
     public void logDraw() {
         String log = "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! \n DRAW DETECTED. Skipping game. \n";
+        writeToLogFile(log);
+    }
+
+    public void logTeamTokens(BoardConfiguration boardConfig) {
+        String log = "Team tokens. \n";
+        for(int i = 0; i < boardConfig.teams.length; i++){
+            log+= "Team "+ boardConfig.teams[i].getTeamCode() + ": "+ Arrays.toString(boardConfig.teams[i].belongingTokens.toArray()) + "\n";
+        }
+        writeToLogFile(log);
+    }
+
+    public void logMove(Token token) {
+        String log = "Move"+ token +". \n";
+        writeToLogFile(log);
+    }
+
+    public void logBeforeMove() {
+        String log = "_________________________________________________________________________________________\n";
+        writeToLogFile(log);
+    }
+
+    public void logDepthReport(int[] depthLogging, int[] depths) {
+        String log = "--------------------------------------------------\n--------------------------------------------------\nDepth report. \n";
+        for(int i = 0; i < depthLogging.length -1; i++){
+            log+= "Depth "+ depths[i] + " was reached "+ depthLogging[i] + " times.\n";
+        }
+        log+= "Fallback choosing random token happened "+ depthLogging[depthLogging.length -1] + " times.\n";
         writeToLogFile(log);
     }
 }

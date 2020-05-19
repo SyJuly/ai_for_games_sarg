@@ -1,5 +1,6 @@
 package Board;
 
+import Logging.Logger;
 import lenz.htw.sarg.Move;
 
 public class BoardManager {
@@ -9,6 +10,7 @@ public class BoardManager {
 
     private BoardBoundary boardBoundary;
     private BoardConfiguration boardConfig;
+    private Logger logger;
     private boolean isGameOver = false;
 
     public BoardManager(){
@@ -19,11 +21,16 @@ public class BoardManager {
 
         Token[][] board = new Token[BOARD_SIZE][BOARD_SIZE];
         boardConfig = new BoardConfiguration(board, NUMBER_OF_PIECES_PER_PLAYER);
+        //logger = new Logger();
     }
 
     public int[] update(Move receiveMove) {
+        //logger.logBeforeMove();
+        //logger.logTeamTokens(boardConfig);
+        //logger.logMove(boardConfig.board[receiveMove.x][receiveMove.y]);
         boardConfig = chooseToken(boardConfig, receiveMove.x, receiveMove.y);
         isGameOver = boardConfig.isGameOver();
+        //logger.logTeamTokens(boardConfig);
         //boardConfig.printScore();
         return boardConfig.getScore();
     }
@@ -58,14 +65,15 @@ public class BoardManager {
             if(!isValid(token.x, token.y)){
                 if(!addToTeamList){
                     currBoardConfig.removeTokenFromTeamList(token);
-
                 }
                 currBoardConfig.addSuccessfulTokenToTeam(token);
                 return null;
             }
             startRemovingJumpedByTokens = true;
         }
-        currBoardConfig.addTokenToTeamList(token);
+        if(addToTeamList){
+            currBoardConfig.addTokenToTeamList(token);
+        }
         return token;
     }
 

@@ -73,6 +73,7 @@ public class Player implements Runnable {
             System.out.println("");
             System.out.println("");
             System.out.println("");
+            e.printStackTrace();
             throw e;
         }
         System.out.println("Player performed mic drop.");

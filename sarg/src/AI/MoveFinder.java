@@ -2,9 +2,12 @@ package AI;
 
 import Board.BoardManager;
 import Board.Token;
+import Logging.Logger;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
@@ -25,6 +28,7 @@ public class MoveFinder {
     private ExecutorService executor;
     private MoveFinderWorker[] workers;
     private AlphaBetaResult[] results;
+    private int[] depthLogging = new int[4];
     private int[] depths = new int[]{7, 9, 10};
     private long timeLimitThreshold = 500;
 
@@ -82,12 +86,22 @@ public class MoveFinder {
     private Token chooseBestToken(Future<AlphaBetaResult>[] results) {
         for (int i = depths.length -1; i >= 0; i--) {
             if(results[i].isDone()){
-                stopFindingBestToken();
+
+                depthLogging[i]++;
                 //System.out.println("Choose best token after " + (System.currentTimeMillis() - timeStartedFindingMove) * 1.0/1000.0 + " seconds with depth: " + depths[i]);
-                return this.results[i].token;
+                try {
+                    Token t = results[i].get().token;
+                    stopFindingBestToken();
+                    return t;
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                } catch (ExecutionException e) {
+                    e.printStackTrace();
+                }
             }
         }
         System.out.println("WARNING: Chose random token as fall back.");
+        depthLogging[depthLogging.length -1]++;
         return chooseRandomPiece();
     }
 
@@ -114,5 +128,9 @@ public class MoveFinder {
         for (int i = 0; i < depths.length; i++) {
             workers[i].setupMoveFinderWorker(teamCode, params);
         }
+    }
+
+    public void logDepthReport(Logger logger){
+        logger.logDepthReport(depthLogging, depths);
     }
 }

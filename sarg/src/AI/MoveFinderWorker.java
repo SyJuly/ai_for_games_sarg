@@ -32,6 +32,7 @@ public class MoveFinderWorker implements Callable {
     public AlphaBetaResult call() {
         isCancelled = false;
         results[id] = alphaBeta(ownTeamCode, boardManager.getCurrentBoardConfig(), depth, Double.NEGATIVE_INFINITY, Double.POSITIVE_INFINITY);
+
         /*if(ownTeamCode == 0){
             boardManager.getCurrentBoardConfig().printScore();
         }*/
@@ -56,8 +57,8 @@ public class MoveFinderWorker implements Callable {
             for(int i = 0; i < tokensToChooseFrom.size(); i++){
                 Token token = tokensToChooseFrom.get(i);
                 AlphaBetaResult evaluation = getAlphaBetaResultFromNextTraverse(teamCode, boardConfig, depth, alpha, beta, token);
-                maxEval = AlphaBetaResult.getMaxAlphaBetaResult(maxEval, evaluation);
-                alpha = Math.max(alpha, evaluation.value);
+                maxEval = AlphaBetaResult.getMaxAlphaBetaResult(maxEval,evaluation);
+                alpha = Math.max(evaluation.value, alpha);
                 if(beta <= alpha){
                     break;
                 }
@@ -70,7 +71,7 @@ public class MoveFinderWorker implements Callable {
                 Token token = tokensToChooseFrom.get(i);
                 AlphaBetaResult evaluation = getAlphaBetaResultFromNextTraverse(teamCode, boardConfig, depth, alpha, beta, token);
                 minEval = AlphaBetaResult.getMinAlphaBetaResult(minEval, evaluation);
-                beta = Math.min(beta, evaluation.value);
+                beta = Math.min(evaluation.value, beta);
                 if(beta <= alpha){
                     break;
                 }
