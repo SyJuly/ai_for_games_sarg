@@ -14,24 +14,32 @@ public class Evaluator {
     private int counter = 0;
     private EvaluationParameter params;
 
-    public Evaluator(int teamCode, BoardManager boardManager, EvaluationParameter params){
-        this.teamCode = teamCode;
+    public Evaluator(int ownTeamCode, BoardManager boardManager, EvaluationParameter params){
+        this.teamCode = ownTeamCode;
         this.boardManager = boardManager;
         this.params = params;
     }
 
     public AlphaBetaResult evaluate(BoardConfiguration boardConfig) {
-        if(boardConfig.getSuccessfulTokensOfTeam(teamCode) >= NUM_OF_SUCCESSFUL_TOKENS_TO_WIN){
-            return new AlphaBetaResult(Integer.MAX_VALUE);
+        if(isVictorious(boardConfig, teamCode)){
+            return new AlphaBetaResult(Double.POSITIVE_INFINITY);
 
         }
+
         List<Token> activeTeamTokensOnBoard = boardConfig.getCurrentTokensOfTeam(teamCode);
 
-        double evaluatedValue;
+        int opponentA = boardConfig.getNextTeam(teamCode);
+        int opponentB = boardConfig.getNextTeam(opponentA);
 
-        double a = 0.2;
-        double b = 0.6;
-        double c = 0.2;
+        if(isVictorious(boardConfig, opponentA)
+        || isVictorious(boardConfig, opponentB)
+        || activeTeamTokensOnBoard.isEmpty()){
+            return new AlphaBetaResult(Double.NEGATIVE_INFINITY);
+
+        }
+
+
+        double evaluatedValue;
 
         int activeTokens = activeTeamTokensOnBoard.size();
         int successfulTokens = boardConfig.getSuccessfulTokensOfTeam(teamCode);
@@ -48,5 +56,9 @@ public class Evaluator {
             //System.out.println("ActiveTokens: " + a + "*" + activeTokens + " | TokensOutSideBoard: " + b + "*" + tokensOutsideBoard + " | TokenDistanceToBorder: " + c + "*" + tokenDistanceToBorder + " =====> " + evaluatedValue + " = rounded: " + Math.round(evaluatedValue));
         }
         return new AlphaBetaResult(evaluatedValue);
+    }
+
+    private boolean isVictorious(BoardConfiguration boardConfig, int teamCodeToCheck) {
+        return boardConfig.getSuccessfulTokensOfTeam(teamCodeToCheck) >= NUM_OF_SUCCESSFUL_TOKENS_TO_WIN;
     }
 }
