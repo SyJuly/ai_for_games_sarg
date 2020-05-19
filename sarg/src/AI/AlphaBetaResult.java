@@ -11,9 +11,11 @@ public class AlphaBetaResult {
     }
 
     public static AlphaBetaResult getMaxAlphaBetaResult(AlphaBetaResult first, AlphaBetaResult second){
-        if(first.value >= second.value){
+        if(first.value > second.value){
             return first;
-        } else {
+        } else if(first.value == second.value){
+            return first.token == null ? second : first;
+        } else{
             return second;
         }
     }
@@ -21,7 +23,9 @@ public class AlphaBetaResult {
     public static AlphaBetaResult getMinAlphaBetaResult(AlphaBetaResult first, AlphaBetaResult second){
         if(first.value < second.value){
             return first;
-        } else {
+        } else if(first.value == second.value){
+            return first.token == null ? second : first;
+        } else{
             return second;
         }
     }
