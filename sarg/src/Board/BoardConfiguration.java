@@ -6,7 +6,6 @@ import Team.TeamRed;
 import Team.TeamGreen;
 import Team.TeamBlue;
 import Team.Team;
-import org.lwjgl.Sys;
 
 import java.util.List;
 
@@ -87,7 +86,7 @@ public class BoardConfiguration {
                 if(token == null){
                     continue;
                 }
-                Token copiedToken = new Token(token.x, token.y, token.teamCode);
+                Token copiedToken = new Token(token.x, token.y, token.teamCode, token.prevTurnABValue);
                 copiedBoard[i][j] = copiedToken;
                 copiedTeams[token.teamCode].belongingTokens.add(copiedToken);
             }

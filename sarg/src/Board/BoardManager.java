@@ -13,7 +13,7 @@ public class BoardManager {
     private Logger logger;
     private boolean isGameOver = false;
 
-    public BoardManager(){
+    public BoardManager(Logger logger){
         boardBoundary = new BoardBoundary(new double[][]{
                 {-0.1,-0.1}, {-0.1,4.1}, {4.1,8.1}, {8.1,8.1}, {8.1,4.1}, {4.1,-0.1}
         });
@@ -21,7 +21,7 @@ public class BoardManager {
 
         Token[][] board = new Token[BOARD_SIZE][BOARD_SIZE];
         boardConfig = new BoardConfiguration(board, NUMBER_OF_PIECES_PER_PLAYER);
-        //logger = new Logger();
+        this.logger = logger;
     }
 
     public int[] update(Move receiveMove) {
@@ -31,7 +31,7 @@ public class BoardManager {
         boardConfig = chooseToken(boardConfig, receiveMove.x, receiveMove.y);
         isGameOver = boardConfig.isGameOver();
         //logger.logTeamTokens(boardConfig);
-        //boardConfig.printScore();
+        boardConfig.printScore();
         return boardConfig.getScore();
     }
 
@@ -45,7 +45,7 @@ public class BoardManager {
         int[] movingDirection_Left = nextBoardConfig.teams[moved_team_code].getmovingDirection_Left();
         int[] movingDirection_Right = nextBoardConfig.teams[moved_team_code].getmovingDirection_Right();
 
-        Token tokenLeft = new Token(x , y , moved_team_code);
+        Token tokenLeft = new Token(x , y , moved_team_code, token.prevTurnABValue);
 
         token = moveToken(nextBoardConfig, token, movingDirection_Right, false);
         tokenLeft = moveToken(nextBoardConfig, tokenLeft, movingDirection_Left, true);

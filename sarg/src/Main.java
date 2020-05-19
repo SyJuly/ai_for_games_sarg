@@ -7,18 +7,20 @@ import AI.EvaluationParameter;
 import AI.MoveFinder;
 import Board.BoardManager;
 import Board.Token;
+import Logging.Logger;
 import lenz.htw.sarg.Move;
 import lenz.htw.sarg.net.NetworkClient;
 
 public class Main {
 
     public static void main(String[] args) throws IOException {
+        Logger logger = new Logger();
 
         EvaluationParameter baseEvaluationParams = new EvaluationParameter(0.2,0.6,0.2);
 
-        String teamName = args.length > 0 ? args[0] : "CLIENT X";
+        String teamName = args.length > 0 ? args[0] : "CLIENT J";
         boolean createDumpPlayer = args.length > 1 ? Boolean.getBoolean(args[1]) : false;
-        BoardManager boardManager = new BoardManager();
+        BoardManager boardManager = new BoardManager(logger);
 
 
         NetworkClient nc = new NetworkClient("127.0.0.1", teamName, ImageIO.read(new File("/home/july/Projects/AI/logos/earth_bending_emblem_fill_by_mr_droy-d6xo95p.png")));
@@ -37,6 +39,7 @@ public class Main {
                 Move move = new Move(token.x, token.y);
                 System.out.println(teamName + " made Move: " + move.x + "," + move.y);
                 nc.sendMove(move);
+                moveFinder.prepareNextMoveFinding();
             } else {
                 if(receiveMove.x < 0 || receiveMove.y < 0){
                     return;
@@ -46,6 +49,8 @@ public class Main {
             }
         } while (!boardManager.isGameOver());
         System.out.println("GAME OVER. Player disconnected.");
+        moveFinder.logDepthReport(logger);
+        logger.stop();
         System.exit(0);
     }
 }

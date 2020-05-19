@@ -4,6 +4,7 @@ import AI.EvaluationParameter;
 import AI.MoveFinder;
 import Board.BoardManager;
 import Board.Token;
+import Logging.Logger;
 import lenz.htw.sarg.Move;
 import lenz.htw.sarg.net.NetworkClient;
 import org.lwjgl.Sys;
@@ -20,6 +21,7 @@ public class Player implements Runnable {
     private MoveFinder moveFinder;
     private int teamCode;
     private BufferedImage image;
+    private Logger logger;
     private long timeStartedRunning;
     private int[] currentScore;
     private int turnNumber = 0;
@@ -27,7 +29,8 @@ public class Player implements Runnable {
     public Player(long timeLimit, boolean createDumpPlayer, BufferedImage image, String name, EvaluationParameter params){
         this.image = image;
         this.name = name;
-        boardManager = new BoardManager();
+        logger = new Logger();
+        boardManager = new BoardManager(logger);
         moveFinder = new MoveFinder(boardManager, timeLimit * 1000, createDumpPlayer, params);
     }
 
@@ -76,6 +79,7 @@ public class Player implements Runnable {
             e.printStackTrace();
             throw e;
         }
+        logger.stop();
         System.out.println("Player performed mic drop.");
         //System.exit(0);
     }

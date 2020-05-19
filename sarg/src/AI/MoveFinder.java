@@ -3,8 +3,9 @@ package AI;
 import Board.BoardManager;
 import Board.Token;
 import Logging.Logger;
+import Team.Team;
 
-import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 import java.util.concurrent.ExecutionException;
@@ -103,6 +104,13 @@ public class MoveFinder {
         System.out.println("WARNING: Chose random token as fall back.");
         depthLogging[depthLogging.length -1]++;
         return chooseRandomPiece();
+    }
+
+    public void prepareNextMoveFinding(){
+        Team[] teams = boardManager.getCurrentBoardConfig().teams;
+        for(int i = 0; i < teams.length; i++){
+            Collections.sort(teams[i].belongingTokens, new TokenComparator());
+        }
     }
 
     private void stopFindingBestToken(){

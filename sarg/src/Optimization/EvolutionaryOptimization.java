@@ -8,8 +8,8 @@ import java.io.IOException;
 public class EvolutionaryOptimization {
 
     private final int NUM_OF_PLAYERS = 3;
-    private final int GAMEPLAY_ITERATION_PER_GEN = 10;
-    private final int NUMBER_OF_GENERATIONS = 20;
+    private final int GAMEPLAY_ITERATION_PER_GEN = 2;
+    private final int NUMBER_OF_GENERATIONS = 2;
 
     private Logger logger;
     private ParamGenerator paramGenerator;

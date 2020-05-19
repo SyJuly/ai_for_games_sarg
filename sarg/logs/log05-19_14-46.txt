@@ -1,0 +1,9 @@
+
+ 
+--------------------------------------------------
+--------------------------------------------------
+Depth report. 
+Depth 7 was reached 0 times.
+Depth 9 was reached 0 times.
+Depth 10 was reached 12 times.
+Fallback choosing random token happened0 times.
