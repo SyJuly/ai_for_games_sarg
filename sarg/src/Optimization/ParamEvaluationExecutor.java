@@ -12,7 +12,7 @@ import java.io.IOException;
 public class ParamEvaluationExecutor {
 
     private final int TIME_LIMIT = 3;
-    private final int TIME_TO_CONNECT_TO_SERVER = 5000;
+    private final int TIME_TO_CONNECT_TO_SERVER = 3000;
     private String[] names = new String[]{"A", "B", "C"};
 
     private int NUM_OF_PLAYERS;
@@ -77,7 +77,7 @@ public class ParamEvaluationExecutor {
 
         for (int i = 0; i < players.length; i++) {
             boolean createDumpPlayer = i < 1;
-            players[i] = new Player(TIME_LIMIT, createDumpPlayer, image, names[i], evaluationParameters[i]);
+            players[i] = new Player(TIME_LIMIT, createDumpPlayer, image, names[i], evaluationParameters[i], logger);
             playerThreads[i] = new Thread(players[i]);
             playerThreads[i].start();
         }

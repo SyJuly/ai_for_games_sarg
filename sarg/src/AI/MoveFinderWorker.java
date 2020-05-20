@@ -57,10 +57,6 @@ public class MoveFinderWorker implements Callable {
             for(int i = 0; i < tokensToChooseFrom.size(); i++){
                 Token token = tokensToChooseFrom.get(i);
                 AlphaBetaResult evaluation = getAlphaBetaResultFromNextTraverse(teamCode, boardConfig, currDepth, alpha, beta, token);
-                if(currDepth == depth){
-                    token.prevTurnABValue = evaluation.value;
-                    System.out.println("Preparing token for sorting");
-                }
                 maxEval = AlphaBetaResult.getMaxAlphaBetaResult(maxEval,evaluation);
                 alpha = Math.max(evaluation.value, alpha);
                 if(beta <= alpha){
@@ -84,10 +80,13 @@ public class MoveFinderWorker implements Callable {
         }
     }
 
-    private AlphaBetaResult getAlphaBetaResultFromNextTraverse(int teamCode, BoardConfiguration boardConfig, int depth, double alpha, double beta, Token token) {
+    private AlphaBetaResult getAlphaBetaResultFromNextTraverse(int teamCode, BoardConfiguration boardConfig, int currDepth, double alpha, double beta, Token token) {
         BoardConfiguration newBoardConfig = boardManager.chooseToken(boardConfig, token.x, token.y);
-        AlphaBetaResult evaluation = alphaBeta(newBoardConfig.getNextTeam(teamCode), newBoardConfig, depth - 1, alpha, beta);
+        AlphaBetaResult evaluation = alphaBeta(newBoardConfig.getNextTeam(teamCode), newBoardConfig, currDepth - 1, alpha, beta);
         evaluation.token = token;
+        if(currDepth == depth){
+            token.prevTurnABValue = evaluation.value;
+        }
         return evaluation;
     }
 

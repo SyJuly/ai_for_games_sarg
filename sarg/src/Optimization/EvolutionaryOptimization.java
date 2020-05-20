@@ -8,8 +8,8 @@ import java.io.IOException;
 public class EvolutionaryOptimization {
 
     private final int NUM_OF_PLAYERS = 3;
-    private final int GAMEPLAY_ITERATION_PER_GEN = 2;
-    private final int NUMBER_OF_GENERATIONS = 2;
+    private final int GAMEPLAY_ITERATION_PER_GEN = 1;
+    private final int NUMBER_OF_GENERATIONS = 1;
 
     private Logger logger;
     private ParamGenerator paramGenerator;
@@ -24,25 +24,27 @@ public class EvolutionaryOptimization {
 
 
     public void runEvolutionaryOptimization() throws IOException {
+        try {
+            logger = new Logger();
+            paramGenerator = new ParamGenerator(logger, NUM_OF_PLAYERS);
+            paramEvaluationExecutor = new ParamEvaluationExecutor(logger, NUM_OF_PLAYERS, GAMEPLAY_ITERATION_PER_GEN);
+            paramSelector = new ParamSelector(paramEvaluationExecutor);
 
-        logger = new Logger();
-        paramGenerator = new ParamGenerator(logger, NUM_OF_PLAYERS);
-        paramEvaluationExecutor = new ParamEvaluationExecutor(logger, NUM_OF_PLAYERS, GAMEPLAY_ITERATION_PER_GEN);
-        paramSelector = new ParamSelector(paramEvaluationExecutor);
+            EvaluationParameter[][] currParamGen;
+            EvaluationParameter[] selectedParams = initialParamParents;
+            paramEvaluationExecutor.runMatchWithEvaluation(selectedParams);
 
-        EvaluationParameter[][] currParamGen;
-        EvaluationParameter[] selectedParams = initialParamParents;
-        paramEvaluationExecutor.runMatchWithEvaluation(selectedParams);
-
-        for(int i = 0; i < NUMBER_OF_GENERATIONS; i++) {
-            logger.logNewGeneration(i);
-            currParamGen = paramGenerator.recombineAndMutateSelectedParamsToNewGen(selectedParams);
-            for (int g = 0; g < currParamGen.length; g++) {
-                paramEvaluationExecutor.runMatchWithEvaluation(currParamGen[g]);
+            for (int i = 0; i < NUMBER_OF_GENERATIONS; i++) {
+                logger.logNewGeneration(i);
+                currParamGen = paramGenerator.recombineAndMutateSelectedParamsToNewGen(selectedParams);
+                for (int g = 0; g < currParamGen.length; g++) {
+                    paramEvaluationExecutor.runMatchWithEvaluation(currParamGen[g]);
+                }
+                selectedParams = paramSelector.selectParentParams(currParamGen);
             }
-            selectedParams = paramSelector.selectParentParams(currParamGen);
+        } finally {
+            //logger.stop();
         }
-
         logger.stop();
         System.exit(0);
     }

@@ -26,10 +26,10 @@ public class Player implements Runnable {
     private int[] currentScore;
     private int turnNumber = 0;
 
-    public Player(long timeLimit, boolean createDumpPlayer, BufferedImage image, String name, EvaluationParameter params){
+    public Player(long timeLimit, boolean createDumpPlayer, BufferedImage image, String name, EvaluationParameter params, Logger logger){
         this.image = image;
         this.name = name;
-        logger = new Logger();
+        this.logger = logger;
         boardManager = new BoardManager(logger);
         moveFinder = new MoveFinder(boardManager, timeLimit * 1000, createDumpPlayer, params);
     }
@@ -79,7 +79,7 @@ public class Player implements Runnable {
             e.printStackTrace();
             throw e;
         }
-        logger.stop();
+        //logger.stop();
         System.out.println("Player performed mic drop.");
         //System.exit(0);
     }

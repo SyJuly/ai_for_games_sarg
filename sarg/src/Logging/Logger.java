@@ -5,7 +5,9 @@ import Board.BoardConfiguration;
 import Board.Token;
 import Optimization.Player;
 
+import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
@@ -16,16 +18,17 @@ import java.util.stream.Stream;
 public class Logger {
 
     private PrintWriter out;
-    private String filename;
+    private String logDir = "/home/july/Projects/AI/sarg/logs/";
     SimpleDateFormat sdf = new SimpleDateFormat("MM-dd_HH-mm");
+    private String currDir;
+    private String fileType = ".txt";
 
-    public Logger() {
-        filename = "/home/july/Projects/AI/sarg/logs/log" + sdf.format(new Date()) + ".txt";
-        try {
-            out = new PrintWriter(filename);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
+    public Logger() throws FileNotFoundException {
+        //out = new PrintWriter("/home/july/Projects/AI/sarg/logs/log" + sdf.format(new Date()) + ".txt");
+        currDir = logDir + "log" + sdf.format(new Date()) + "/";
+        new File(currDir).mkdir();
+        out = new PrintWriter(currDir + "init" + fileType);
+
     }
 
     public void logGameOver(int[] score, int winner, Player[] players, int numberOfTurnsToVictory) {
@@ -81,12 +84,19 @@ public class Logger {
     }
 
     public void logNewGeneration(int index) {
+        out.close();
+        try {
+            out = new PrintWriter(currDir + index + fileType);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
         String log = "----------------------------------------------------------------------\n Starting Generation (Number: " + index + ").";
         writeToLogFile(log);
     }
 
     public void stop() {
         out.close();
+        System.out.println("STOPPING LOGGER.");
     }
 
     public void logMediumEvaluation(Double[][] evaluatedValues, EvaluationParameter[] evaluationParameters) {
