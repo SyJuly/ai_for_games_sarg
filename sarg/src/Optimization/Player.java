@@ -4,6 +4,7 @@ import AI.EvaluationParameter;
 import AI.MoveFinder;
 import Board.BoardManager;
 import Board.Token;
+import Logging.LogDepthReport;
 import Logging.Logger;
 import lenz.htw.sarg.Move;
 import lenz.htw.sarg.net.NetworkClient;
@@ -17,6 +18,7 @@ public class Player implements Runnable {
 
     private final long WAIT_UNTIL_STARTING = 5000;
     public String name;
+    private LogDepthReport logDepthReport;
     private BoardManager boardManager;
     private MoveFinder moveFinder;
     private int teamCode;
@@ -76,9 +78,10 @@ public class Player implements Runnable {
             System.out.println("");
             System.out.println("");
             System.out.println("");
-            e.printStackTrace();
+            logger.logErrror(e);
             throw e;
         }
+        logDepthReport = moveFinder.getDepthReport();
         //logger.stop();
         System.out.println("Player performed mic drop.");
         //System.exit(0);
@@ -94,5 +97,9 @@ public class Player implements Runnable {
 
     public int getTeamCode(){
         return teamCode;
+    }
+
+    public LogDepthReport getDepthReport(){
+        return logDepthReport;
     }
 }

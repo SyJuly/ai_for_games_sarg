@@ -1,6 +1,7 @@
 package Optimization;
 
 import AI.EvaluationParameter;
+import Logging.LogDepthReport;
 import Logging.Logger;
 import lenz.htw.sarg.Server;
 
@@ -87,6 +88,7 @@ public class ParamEvaluationExecutor {
         int[] score = players[0].getCurrentScore();
         int numberOfTurnsToVictory = players[0].getTurnNumber();
         logger.logGameOver(score, winner, players, numberOfTurnsToVictory);
+        logger.logDepthReport(new LogDepthReport[]{players[0].getDepthReport(), players[1].getDepthReport(), players[2].getDepthReport()});
         if(winner == -1){
             logger.logDraw();
             return null;

@@ -2,6 +2,7 @@ package AI;
 
 import Board.BoardManager;
 import Board.Token;
+import Logging.LogDepthReport;
 import Logging.Logger;
 import Team.Team;
 
@@ -138,7 +139,7 @@ public class MoveFinder {
         }
     }
 
-    public void logDepthReport(Logger logger){
-        logger.logDepthReport(depthLogging, depths);
+    public LogDepthReport getDepthReport(){
+        return new LogDepthReport(depthLogging, depths, ownTeamCode);
     }
 }

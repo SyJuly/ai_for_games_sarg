@@ -150,12 +150,26 @@ public class Logger {
         writeToLogFile(log);
     }
 
-    public void logDepthReport(int[] depthLogging, int[] depths) {
-        String log = "--------------------------------------------------\n--------------------------------------------------\nDepth report. \n";
-        for(int i = 0; i < depthLogging.length -1; i++){
-            log+= "Depth "+ depths[i] + " was reached "+ depthLogging[i] + " times.\n";
+    public void logDepthReport(LogDepthReport[] depthReports) {
+        String log = "--------------------------------------------------\n--------------------------------------------------\nDepth report.\n";
+        for(int j = 0; j < depthReports.length; j++) {
+            int[] depthLogging = depthReports[j].depthLogging;
+            int[] depths = depthReports[j].depths;
+            int teamCode = depthReports[j].teamCode;
+            log+= "     Team " + teamCode + ":\n";
+            for (int i = 0; i < depthLogging.length - 1; i++) {
+                log += "        Depth " + depths[i] + " was reached " + depthLogging[i] + " times.\n";
+            }
+            log += "        Fallback choosing random token happened " + depthLogging[depthLogging.length - 1] + " times.\n";
+
         }
-        log+= "Fallback choosing random token happened "+ depthLogging[depthLogging.length -1] + " times.\n";
+        log += "--------------------------------------------------\n--------------------------------------------------\n";
+        writeToLogFile(log);
+    }
+
+    public void logErrror(Exception e) {
+        String log = "!!!!!!!!!!!!!!!!!!!!!!!!!!!ERROR DETECTED!!!!!!!!!!!!!!!!!!!!!!!!!. \n\n\n";
+        log += e.getMessage() + "\n\n\n";
         writeToLogFile(log);
     }
 }
