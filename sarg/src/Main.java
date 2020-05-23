@@ -50,7 +50,7 @@ public class Main {
                 }
             } while (!boardManager.isGameOver());
             System.out.println("GAME OVER. Player disconnected.");
-            moveFinder.logDepthReport(logger);
+            //moveFinder.logDepthReport(logger);
         } finally{
             logger.stop();
         }

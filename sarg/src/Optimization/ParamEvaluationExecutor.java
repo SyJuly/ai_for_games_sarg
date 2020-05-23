@@ -14,6 +14,7 @@ public class ParamEvaluationExecutor {
 
     private final int TIME_LIMIT = 3;
     private final int TIME_TO_CONNECT_TO_SERVER = 3000;
+    private final int TIMEOUT = 10000;
     private String[] names = new String[]{"A", "B", "C"};
 
     private int NUM_OF_PLAYERS;
@@ -40,7 +41,7 @@ public class ParamEvaluationExecutor {
                 }
                 continue;
             }
-            paramEvaluator.evaluateParams(evaluationParameters, gameResult.scoreOfTeams, gameResult.numOfTurnsToGameOver);
+            paramEvaluator.evaluateParams(evaluationParameters, gameResult);
             for(int i = 0; i < evaluationParameters.length; i++){
                 evaluatedValues[i][n] = evaluationParameters[i].evaluationValue;
             }
@@ -77,23 +78,72 @@ public class ParamEvaluationExecutor {
         }
 
         for (int i = 0; i < players.length; i++) {
-            boolean createDumpPlayer = i < 1;
-            players[i] = new Player(TIME_LIMIT, createDumpPlayer, image, names[i], evaluationParameters[i], logger);
+            players[i] = new Player(TIME_LIMIT, false, image, names[i], evaluationParameters[i], logger);
             playerThreads[i] = new Thread(players[i]);
             playerThreads[i].start();
         }
 
         int winner = server.runOnceAndReturnTheWinner(TIME_LIMIT);
+        //waitForPlayersToFinish(players, playerThreads);
 
-        int[] score = players[0].getCurrentScore();
+        int[] score = getScoreFromWinner(players, winner);
+        boolean[] teamsLostPrematurely = getTeamsLostPrematurely(players);
         int numberOfTurnsToVictory = players[0].getTurnNumber();
+
         logger.logGameOver(score, winner, players, numberOfTurnsToVictory);
         logger.logDepthReport(new LogDepthReport[]{players[0].getDepthReport(), players[1].getDepthReport(), players[2].getDepthReport()});
-        if(winner == -1){
+        if(winner == 0){
             logger.logDraw();
             return null;
         }
-        return new GameResult(players, score, numberOfTurnsToVictory, winner);
+
+        return new GameResult(players, score, numberOfTurnsToVictory, winner, teamsLostPrematurely);
+    }
+
+    private int[] getScoreFromWinner(Player[] players, int winner) {
+        for (int i = 0; i < players.length; i++) {
+            if(players[i].getTeamCode() == winner - 1){
+                return players[i].getCurrentScore();
+            }
+        }
+        return new int[]{0,0,0};
+    }
+
+    private void waitForPlayersToFinish(Player[] players, Thread[] playerThreads) {
+        long time = System.currentTimeMillis();
+        long timeDiff = 0;
+        while(!arePlayersFinished(players) || timeDiff < TIMEOUT){
+            timeDiff = System.currentTimeMillis() - time;
+            if(timeDiff > TIMEOUT){
+                for (int i = 0; i < playerThreads.length; i++) {
+                    playerThreads[i].interrupt();
+                }
+                System.out.println("\n\n\n");
+                System.out.println("Something went wrong. Players did not finish playing.");
+                System.out.println("\n\n\n");
+            }
+        }
+    }
+
+    private boolean arePlayersFinished(Player[] players) {
+        int numOfPlayersFinished = 0;
+        for (int i = 0; i < players.length; i++) {
+            if(players[i].isFinished()){
+                numOfPlayersFinished++;
+            }
+        }
+        return numOfPlayersFinished == players.length;
+    }
+
+    private boolean[] getTeamsLostPrematurely(Player[] players) {
+        boolean[] teamsLostPrematurely = new boolean[]{false, false, false};
+        for (int i = 0; i < players.length; i++) {
+            if(players[i].didLoosePrematurely()){
+                teamsLostPrematurely[players[i].getTeamCode()] = true;
+                logger.logTeamLostPrematurely(players[i].getTeamCode());
+            }
+        }
+        return teamsLostPrematurely;
     }
 
 }

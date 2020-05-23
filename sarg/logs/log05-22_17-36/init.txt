@@ -1,0 +1,45 @@
+
+ 
+          Game over. 
+         Player A/ Team 0: 4
+         Player B/ Team 1: 1
+         Player C/ Team 2: 3 <--WINNER ON SERVER within 9 turns
+
+ 
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 
+ ERROR OCCURED. 
+ Winner on server didn't match the calculated winner. 
+ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+ 
+--------------------------------------------------
+--------------------------------------------------
+Depth report.
+     Team 0:
+        Depth 7 was reached 0 times.
+        Depth 9 was reached 0 times.
+        Depth 10 was reached 0 times.
+        Fallback choosing random token happened 0 times.
+     Team 1:
+        Depth 7 was reached 3 times.
+        Depth 9 was reached 2 times.
+        Depth 10 was reached 4 times.
+        Fallback choosing random token happened 0 times.
+     Team 2:
+        Depth 7 was reached 0 times.
+        Depth 9 was reached 2 times.
+        Depth 10 was reached 7 times.
+        Fallback choosing random token happened 0 times.
+--------------------------------------------------
+--------------------------------------------------
+
+ 
+                  Evaluation. 
+                 Player A| Q = 0.2 * activeTokens + 0.6 * successfulTokens + 0.2 * tokenDistanceToBorder (EV: 24.0)
+                 Player B| Q = 0.15 * activeTokens + 0.8 * successfulTokens + 0.5 * tokenDistanceToBorder (EV: 18.0)
+                 Player C| Q = 0.3 * activeTokens + 0.4 * successfulTokens + 0.3 * tokenDistanceToBorder (EV: 22.0)
+
+ 
+Calculating medium parameter evaluation from 1 games played. 
+[24.0] ----> Writing medium:Q = 0.2 * activeTokens + 0.6 * successfulTokens + 0.2 * tokenDistanceToBorder (EV: 24.0)
+[18.0] ----> Writing medium:Q = 0.15 * activeTokens + 0.8 * successfulTokens + 0.5 * tokenDistanceToBorder (EV: 18.0)
+[22.0] ----> Writing medium:Q = 0.3 * activeTokens + 0.4 * successfulTokens + 0.3 * tokenDistanceToBorder (EV: 22.0)

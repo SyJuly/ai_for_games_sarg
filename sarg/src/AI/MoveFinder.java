@@ -72,6 +72,7 @@ public class MoveFinder {
             return new Token(-1,-1, ownTeamCode);
         }
         if(isDumpPlayer){
+            System.out.println("Team " + ownTeamCode + " choose best token after " + (System.currentTimeMillis() - timeStartedFindingMove+ " (is dump player)"));
             return chooseFirstPiece();
         }
         timeStartedFindingMove = System.currentTimeMillis();
@@ -90,7 +91,7 @@ public class MoveFinder {
             if(results[i].isDone()){
 
                 depthLogging[i]++;
-                //System.out.println("Choose best token after " + (System.currentTimeMillis() - timeStartedFindingMove) * 1.0/1000.0 + " seconds with depth: " + depths[i]);
+                System.out.println("Team " + ownTeamCode + " choose best token after " + (System.currentTimeMillis() - timeStartedFindingMove) * 1.0/1000.0 + " seconds with depth: " + depths[i]);
                 try {
                     Token t = results[i].get().token;
                     stopFindingBestToken();

@@ -8,10 +8,8 @@ import Logging.LogDepthReport;
 import Logging.Logger;
 import lenz.htw.sarg.Move;
 import lenz.htw.sarg.net.NetworkClient;
-import org.lwjgl.Sys;
 
 import java.awt.image.BufferedImage;
-import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Player implements Runnable {
@@ -22,11 +20,14 @@ public class Player implements Runnable {
     private BoardManager boardManager;
     private MoveFinder moveFinder;
     private int teamCode;
+    private long timeLimit;
     private BufferedImage image;
     private Logger logger;
     private long timeStartedRunning;
     private int[] currentScore;
     private int turnNumber = 0;
+    private boolean lostPrematurely = false;
+    private boolean finished = false;
 
     public Player(long timeLimit, boolean createDumpPlayer, BufferedImage image, String name, EvaluationParameter params, Logger logger){
         this.image = image;
@@ -62,8 +63,10 @@ public class Player implements Runnable {
                     }
                     currentScore = boardManager.update(receiveMove);
                 }
+                logDepthReport = moveFinder.getDepthReport();
             } while (!boardManager.isGameOver());
         } catch(RuntimeException e){
+            lostPrematurely = true;
             System.out.println("");
             System.out.println("");
             System.out.println("");
@@ -81,7 +84,7 @@ public class Player implements Runnable {
             logger.logErrror(e);
             throw e;
         }
-        logDepthReport = moveFinder.getDepthReport();
+        finished = true;
         //logger.stop();
         System.out.println("Player performed mic drop.");
         //System.exit(0);
@@ -101,5 +104,13 @@ public class Player implements Runnable {
 
     public LogDepthReport getDepthReport(){
         return logDepthReport;
+    }
+
+    public boolean didLoosePrematurely(){
+        return lostPrematurely;
+    }
+
+    public boolean isFinished() {
+        return finished;
     }
 }

@@ -172,4 +172,9 @@ public class Logger {
         log += e.getMessage() + "\n\n\n";
         writeToLogFile(log);
     }
+
+    public void logTeamLostPrematurely(int teamCode) {
+        String log = "INFO: Team " + teamCode + " lost prematurely (probably because it had no more tokens to play). \n\n";
+        writeToLogFile(log);
+    }
 }

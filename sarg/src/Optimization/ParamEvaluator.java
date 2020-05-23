@@ -14,14 +14,15 @@ public class ParamEvaluator {
         this.NUM_OF_PLAYERS = NUM_OF_PLAYERS;
     }
 
-    public void evaluateParams(EvaluationParameter[] gameParams, int[] gameResult, int numberOfTurnsToVictory){
-        double timeBonus = getNormedTimeBonus(numberOfTurnsToVictory);
-        int[] summands = new int[gameResult.length];
-        for(int i = 0; i < gameResult.length; i++){
-            int gamepoints = gameResult[i];
+    public void evaluateParams(EvaluationParameter[] gameParams, GameResult gameResult){
+        int[] gameResultScore = gameResult.scoreOfTeams;
+        double timeBonus = getNormedTimeBonus(gameResult.numOfTurnsToGameOver);
+        int[] summands = new int[gameResultScore.length];
+        for(int i = 0; i < gameResultScore.length; i++){
+            int gamepoints = gameResultScore[i];
             if(gamepoints >= MAX_GAMEPOINTS){
                 summands[i] = MAX_GAMEPOINTS * VICTORY_MODIFIER;
-            } else{
+            } else {
                 summands[i] = gamepoints;
             }
         }
@@ -29,10 +30,15 @@ public class ParamEvaluator {
         for(int j = 0; j < gameParams.length; j++) {
             EvaluationParameter parameter = gameParams[j];
             int gamePointsGainedWithParams = summands[parameter.teamCode];
+            if(gameResult.teamsLostPrematurely[parameter.teamCode]){
+                gamePointsGainedWithParams = 0; //penality for loosing early
+            }
             int otherPlayer1 = getNextTeam(parameter.teamCode);
             int otherPlayer2 = getNextTeam(otherPlayer1);
+
             parameter.evaluationValue = gamePointsGainedWithParams - summands[otherPlayer1] - summands[otherPlayer2];
-            if (gameResult[parameter.teamCode] == 5) {
+
+            if (gameResultScore[parameter.teamCode] >= MAX_GAMEPOINTS) {
                 parameter.evaluationValue += timeBonus;
             }
             parameter.evaluationValue += 24; //  adjust range from -24 to 24 in positive area: 0 to 48
