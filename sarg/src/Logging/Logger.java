@@ -177,4 +177,10 @@ public class Logger {
         String log = "INFO: Team " + teamCode + " lost prematurely (probably because it had no more tokens to play). \n\n";
         writeToLogFile(log);
     }
+
+    public void logInvalidMove(int teamCode) {
+
+        String log = "INFO: Team " + teamCode + " received invalid move. \n\n";
+        writeToLogFile(log);
+    }
 }

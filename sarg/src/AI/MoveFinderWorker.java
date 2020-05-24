@@ -48,11 +48,11 @@ public class MoveFinderWorker implements Callable {
         if(isCancelled){
             return null;
         }
-        if(currDepth == 0 || boardConfig.areMoreTurnsPossible(teamCode)) {
-            return evaluator.evaluate(boardConfig);
+        if(currDepth == 0 || boardConfig.areMoreTurnsPossible(teamCode) || boardConfig.isGameOver()) {
+            return evaluator.evaluate(boardConfig, currDepth);
         }
         if(teamCode == ownTeamCode){
-            AlphaBetaResult maxEval = new AlphaBetaResult(Double.NEGATIVE_INFINITY);
+            AlphaBetaResult maxEval = new AlphaBetaResult(Double.NEGATIVE_INFINITY, currDepth);
             List<Token> tokensToChooseFrom = boardConfig.getCurrentTokensOfTeam(teamCode);
             for(int i = 0; i < tokensToChooseFrom.size(); i++){
                 Token token = tokensToChooseFrom.get(i);
@@ -65,7 +65,7 @@ public class MoveFinderWorker implements Callable {
             }
             return maxEval;
         } else {
-            AlphaBetaResult minEval =  new AlphaBetaResult(Double.POSITIVE_INFINITY);
+            AlphaBetaResult minEval =  new AlphaBetaResult(Double.POSITIVE_INFINITY, currDepth);
             List<Token> tokensToChooseFrom = boardConfig.getCurrentTokensOfTeam(teamCode);
             for(int i = 0; i < tokensToChooseFrom.size(); i++){
                 Token token = tokensToChooseFrom.get(i);
@@ -95,6 +95,6 @@ public class MoveFinderWorker implements Callable {
     public void setupMoveFinderWorker(int ownTeamCode, EvaluationParameter params) {
         this.ownTeamCode = ownTeamCode;
         params.teamCode = ownTeamCode;
-        this.evaluator = new Evaluator(ownTeamCode, boardManager, params);
+        this.evaluator = new Evaluator(ownTeamCode, params);
     }
 }

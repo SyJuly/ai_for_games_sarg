@@ -10,10 +10,12 @@ import Board.Token;
 import Logging.Logger;
 import lenz.htw.sarg.Move;
 import lenz.htw.sarg.net.NetworkClient;
+import org.lwjgl.Sys;
 
 public class Main {
 
     public static void main(String[] args) throws IOException {
+
         Logger logger = new Logger();
         try {
 
@@ -33,6 +35,8 @@ public class Main {
 
             moveFinder.setTeam(nc.getMyPlayerNumber()); // 0 = rot, 1 = grün, 2 = blau
 
+
+
             do {
                 Move receiveMove = nc.receiveMove();
                 if (receiveMove == null) {
@@ -43,7 +47,7 @@ public class Main {
                     moveFinder.prepareNextMoveFinding();
                 } else {
                     if (receiveMove.x < 0 || receiveMove.y < 0) {
-                        return;
+                        System.out.println("GAME OVER?");
                     }
                     System.out.println("Updating with Move: " + receiveMove.x + "," + receiveMove.y);
                     boardManager.update(receiveMove);

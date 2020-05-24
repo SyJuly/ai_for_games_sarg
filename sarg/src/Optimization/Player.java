@@ -51,6 +51,7 @@ public class Player implements Runnable {
         try {
             do {
                 Move receiveMove = client.receiveMove();
+
                 if (receiveMove == null) {
                     Token token = moveFinder.getBestToken();
                     Move move = new Move(token.x, token.y);
@@ -62,8 +63,12 @@ public class Player implements Runnable {
                         return;
                     }
                     currentScore = boardManager.update(receiveMove);
+                    if(receiveMove.x < 0 && receiveMove.y < 0){
+                        logger.logInvalidMove(teamCode);
+                    }
                 }
                 logDepthReport = moveFinder.getDepthReport();
+
             } while (!boardManager.isGameOver());
         } catch(RuntimeException e){
             lostPrematurely = true;

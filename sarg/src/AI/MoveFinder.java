@@ -31,7 +31,7 @@ public class MoveFinder {
     private MoveFinderWorker[] workers;
     private AlphaBetaResult[] results;
     private int[] depthLogging = new int[4];
-    private int[] depths = new int[]{7, 9, 10};
+    private int[] depths = new int[]{5, 5, 5};
     private long timeLimitThreshold = 500;
 
     public MoveFinder(BoardManager boardManager, long timeLimit, boolean createDumpPlayer, EvaluationParameter params){

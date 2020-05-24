@@ -10,19 +10,16 @@ public class Evaluator {
 
     public static final int NUM_OF_SUCCESSFUL_TOKENS_TO_WIN = 5;
     private int teamCode;
-    private BoardManager boardManager;
-    private int counter = 0;
     private EvaluationParameter params;
 
-    public Evaluator(int ownTeamCode, BoardManager boardManager, EvaluationParameter params){
+    public Evaluator(int ownTeamCode, EvaluationParameter params){
         this.teamCode = ownTeamCode;
-        this.boardManager = boardManager;
         this.params = params;
     }
 
-    public AlphaBetaResult evaluate(BoardConfiguration boardConfig) {
+    public AlphaBetaResult evaluate(BoardConfiguration boardConfig, int depth) {
         if(isVictorious(boardConfig, teamCode)){
-            return new AlphaBetaResult(Double.POSITIVE_INFINITY);
+            return new AlphaBetaResult(Double.POSITIVE_INFINITY, depth);
 
         }
 
@@ -34,7 +31,7 @@ public class Evaluator {
         if(isVictorious(boardConfig, opponentA)
         || isVictorious(boardConfig, opponentB)
         || activeTeamTokensOnBoard.isEmpty()){
-            return new AlphaBetaResult(Double.NEGATIVE_INFINITY);
+            return new AlphaBetaResult(Double.NEGATIVE_INFINITY, depth);
 
         }
 
@@ -51,11 +48,7 @@ public class Evaluator {
 
         evaluatedValue = params.activeTokensPercentage * activeTokens + params.successfulTokensPercentage * successfulTokens + params.tokenDistanceToBorderPercentage * tokenDistanceToBorder;
 
-        if(counter < 10){
-            counter++;
-            //System.out.println("ActiveTokens: " + a + "*" + activeTokens + " | TokensOutSideBoard: " + b + "*" + tokensOutsideBoard + " | TokenDistanceToBorder: " + c + "*" + tokenDistanceToBorder + " =====> " + evaluatedValue + " = rounded: " + Math.round(evaluatedValue));
-        }
-        return new AlphaBetaResult(evaluatedValue);
+        return new AlphaBetaResult(evaluatedValue, depth);
     }
 
     private boolean isVictorious(BoardConfiguration boardConfig, int teamCodeToCheck) {
