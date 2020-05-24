@@ -4,7 +4,7 @@ import AI.EvaluationParameter;
 import Logging.Logger;
 
 public class ParamValidator {
-    private static final double MAX_PARAM_VALUE = 0.9999999999999;
+    private static final double MAX_PARAM_VALUE = 0.9999999999998;
     private static final double MIN_PARAM_VALUE = 0.0000000000001;
     private Logger logger;
 
@@ -16,6 +16,7 @@ public class ParamValidator {
         double[] mutatedParams = new double[]{activeTokensPercentage + mutations[0], successfulTokensPercentage + mutations[1], tokenDistanceToBorderPercentage + mutations[2]};
         double[] validatedMutatedParams = new double[mutatedParams.length];
         boolean correctionNeeded = false;
+        int correctionTries = 0;
         for(int i = 0; i < mutatedParams.length; i++){
             double validatedParam = mutatedParams[i];
             double correction;
@@ -32,15 +33,40 @@ public class ParamValidator {
             }
             validatedMutatedParams[i] = validatedParam;
         }
+        validatedMutatedParams = mutatedParams;
+
+        double correction = (1.0 - getParamsSum(validatedMutatedParams))/validatedMutatedParams.length;
+        while(correction == 0){
+            correctionTries++;
+            correctionNeeded = true;
+
+            for(int i = 0; i < validatedMutatedParams.length - 1; i++){
+                validatedMutatedParams[i] = validatedMutatedParams[i] + correction;
+            }
+            validatedMutatedParams[validatedMutatedParams.length - 1] =  validatedMutatedParams[validatedMutatedParams.length - 1] + (1.0 - getParamsSum(validatedMutatedParams));
+            correction = (1.0 - getParamsSum(validatedMutatedParams))/validatedMutatedParams.length;
+            if(correctionTries > 20){
+                continue;
+            }
+        }
+
 
         if(correctionNeeded){
-            logger.logMutationCorrection(mutatedParams, validatedMutatedParams);
+            logger.logMutationCorrection(mutatedParams, validatedMutatedParams, correctionTries);
         }
 
         return new EvaluationParameter(
-                mutatedParams[0],
-                mutatedParams[1],
-                mutatedParams[2]);
+                validatedMutatedParams[0],
+                validatedMutatedParams[1],
+                validatedMutatedParams[2]);
+    }
+
+    private double getParamsSum(double[] mutatedParams) {
+        double sum = 0;
+        for(int i = 0; i < mutatedParams.length; i++){
+            sum += mutatedParams[i];
+        }
+        return sum;
     }
 
     private void balanceCorrection(double[] paramValues, int i, double correction) {
