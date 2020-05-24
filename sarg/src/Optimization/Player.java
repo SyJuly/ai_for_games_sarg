@@ -20,12 +20,11 @@ public class Player implements Runnable {
     private BoardManager boardManager;
     private MoveFinder moveFinder;
     private int teamCode;
-    private long timeLimit;
     private BufferedImage image;
     private Logger logger;
-    private long timeStartedRunning;
     private int[] currentScore;
     private int turnNumber = 0;
+    private int receivedMoves = 0;
     private boolean lostPrematurely = false;
     private boolean finished = false;
 
@@ -39,7 +38,7 @@ public class Player implements Runnable {
 
     @Override
     public void run() {
-        timeStartedRunning = System.currentTimeMillis();
+        long timeStartedRunning = System.currentTimeMillis();
 
         while(System.currentTimeMillis() - timeStartedRunning < WAIT_UNTIL_STARTING){
             // wait
@@ -60,15 +59,19 @@ public class Player implements Runnable {
                     turnNumber++;
                 } else {
                     if (receiveMove.x < 0 || receiveMove.y < 0) {
-                        return;
+                        if(receiveMove.x < 0 && receiveMove.y < 0){
+                            logger.logInvalidMove(teamCode);
+                        }
+                        continue;
                     }
                     currentScore = boardManager.update(receiveMove);
-                    if(receiveMove.x < 0 && receiveMove.y < 0){
-                        logger.logInvalidMove(teamCode);
-                    }
+                    /*for(int i = 0; i < currentScore.length; i++){
+                        System.out.println("Team " + i + ": " + currentScore[i]);
+                    }*/
+                    receivedMoves++;
+                    System.out.println("Received move number: " + receivedMoves);
                 }
                 logDepthReport = moveFinder.getDepthReport();
-
             } while (!boardManager.isGameOver());
         } catch(RuntimeException e){
             lostPrematurely = true;
@@ -90,9 +93,7 @@ public class Player implements Runnable {
             throw e;
         }
         finished = true;
-        //logger.stop();
         System.out.println("Player performed mic drop.");
-        //System.exit(0);
     }
 
     public int[] getCurrentScore(){

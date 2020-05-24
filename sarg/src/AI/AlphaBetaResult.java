@@ -16,19 +16,7 @@ public class AlphaBetaResult {
         if(first.value > second.value){
             return first;
         } else if(first.value == second.value){
-            if(first.token == null || second.token == null) {
-                return getValidResult(first, second);
-            } else if(first.depth > second.depth){
-                if(first.value == Double.POSITIVE_INFINITY){
-                    System.out.println("Choosing: " + first.token + " with " + first.depth + " because win would be in " + second.depth + " otherwise.");
-                }
-                return first;
-            } else {
-                if(first.value == Double.POSITIVE_INFINITY){
-                    System.out.println("Choosing: " + second.token + " with " + second.depth + " because win would be in " + first.depth + " otherwise.");
-                }
-                return second;
-            }
+            return getMostRelevantResult(first, second);
         } else{
             return second;
         }

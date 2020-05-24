@@ -31,7 +31,7 @@ public class BoardManager {
         boardConfig = chooseToken(boardConfig, receiveMove.x, receiveMove.y);
         isGameOver = boardConfig.isGameOver();
         //logger.logTeamTokens(boardConfig);
-        boardConfig.printScore();
+        //boardConfig.printScore();
         return boardConfig.getScore();
     }
 

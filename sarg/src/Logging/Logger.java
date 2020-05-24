@@ -120,10 +120,11 @@ public class Logger {
         writeToLogFile(log);
     }
 
-    public void logMutationCorrection(double[] mutatedParams, double[] validatedMutatedParams) {
+    public void logMutationCorrection(double[] mutatedParams, double[] validatedMutatedParams, int correctionTries) {
         String log = "CORRECTED mutations to be in range 0 to 1. \n";
         log += "Invalid Parameters: " + Arrays.toString(mutatedParams) + "\n";
         log += "Valid Parameters: " + Arrays.toString(validatedMutatedParams) + "\n";
+        log += "Tried: " + correctionTries + " times.\n";
         writeToLogFile(log);
     }
 

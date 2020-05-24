@@ -48,6 +48,7 @@ public class Evaluator {
 
         evaluatedValue = params.activeTokensPercentage * activeTokens + params.successfulTokensPercentage * successfulTokens + params.tokenDistanceToBorderPercentage * tokenDistanceToBorder;
 
+        //System.out.println("activeTokens: " + activeTokens + "|successfulTokensPercentage: " + successfulTokens + "|tokenDistanceToBorderPercentage: " + tokenDistanceToBorder);
         return new AlphaBetaResult(evaluatedValue, depth);
     }
 

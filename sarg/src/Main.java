@@ -19,10 +19,10 @@ public class Main {
         Logger logger = new Logger();
         try {
 
-            EvaluationParameter baseEvaluationParams = new EvaluationParameter(0.2, 0.6, 0.2);
+            EvaluationParameter baseEvaluationParams = new EvaluationParameter(0.1, 0.8, 0.1);
 
             String teamName = args.length > 0 ? args[0] : "CLIENT J";
-            boolean createDumpPlayer = args.length > 1 ? Boolean.getBoolean(args[1]) : false;
+            boolean createDumpPlayer = args.length > 1 ? true : false;
             BoardManager boardManager = new BoardManager(logger);
 
 
