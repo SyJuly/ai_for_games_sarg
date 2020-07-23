@@ -1,0 +1,2893 @@
+
+ 
+----------------------------------------------------------------------
+ Starting Generation (Number: 0).
+ 
+Creating mutations. 
+High Mutations: [-0.0015, -0.0412, 0.0427][0.0847, -0.0687, -0.016][-0.0746, -0.0096, 0.0842]
+Low_Mutations: [0.0, 0.0, 0.0][-0.01132, 0.03212, -0.0208][0.09956, -0.06504, -0.03452]
+ 
+Recombination. 
+Parent: Q = 0.14481567344686608 * activeTokens + 0.4796158967096459 * successfulTokens + 0.5918038415259373 * tokenDistanceToBorder (EV: 15.020000000000001)
+Child: Q = 0.17328121990144843 * activeTokens + 0.4723426714297148 * successfulTokens + 0.5801706867646694 * tokenDistanceToBorder (EV: 0.0)
+Child: Q = 0.17178121990144843 * activeTokens + 0.4311426714297148 * successfulTokens + 0.6228706867646694 * tokenDistanceToBorder (EV: 0.0)
+Parent: Q = 0.18331567344686608 * activeTokens + 0.47381589670964586 * successfulTokens + 0.5591038415259374 * tokenDistanceToBorder (EV: 15.88)
+Child: Q = 0.16196121990144843 * activeTokens + 0.5044626714297148 * successfulTokens + 0.5593706867646694 * tokenDistanceToBorder (EV: 0.0)
+Child: Q = 0.2579812199014484 * activeTokens + 0.4036426714297148 * successfulTokens + 0.5641706867646694 * tokenDistanceToBorder (EV: 0.0)
+Parent: Q = 0.1721231276877053 * activeTokens + 0.4255188924028295 * successfulTokens + 0.5389737587622515 * tokenDistanceToBorder (EV: 19.78)
+Child: Q = 0.27284121990144844 * activeTokens + 0.4073026714297148 * successfulTokens + 0.5456506867646694 * tokenDistanceToBorder (EV: 0.0)
+Child: Q = 0.09868121990144843 * activeTokens + 0.4627426714297148 * successfulTokens + 0.6643706867646695 * tokenDistanceToBorder (EV: 0.0)
+
+ 
+!!!!!!!!!!!!!!!!!!!!!!!!!!!ERROR DETECTED!!!!!!!!!!!!!!!!!!!!!!!!!. 
+
+
+You got kicked because your move was invalid!
+
+
+
+ 
+INFO: Team 2 lost prematurely (probably because it had no more tokens to play). 
+
+
+ 
+          Game over. 
+         Player A/ Team 0: 5 <--WINNER ON SERVER within 13 turns
+         Player B/ Team 2: 1
+         Player C/ Team 1: 3
+
+ 
+--------------------------------------------------
+--------------------------------------------------
+Depth report.
+     Team 0:
+        Depth 7 was reached 4 times.
+        Depth 9 was reached 4 times.
+        Depth 10 was reached 5 times.
+        Fallback choosing random token happened 0 times.
+     Team 2:
+        Depth 7 was reached 4 times.
+        Depth 9 was reached 1 times.
+        Depth 10 was reached 5 times.
+        Fallback choosing random token happened 0 times.
+     Team 1:
+        Depth 7 was reached 2 times.
+        Depth 9 was reached 3 times.
+        Depth 10 was reached 7 times.
+        Fallback choosing random token happened 0 times.
+--------------------------------------------------
+--------------------------------------------------
+
+ 
+                  Evaluation. 
+                 Player A| Q = 0.14481567344686608 * activeTokens + 0.4796158967096459 * successfulTokens + 0.5918038415259373 * tokenDistanceToBorder (EV: 40.53333333333333)
+                 Player B| Q = 0.17328121990144843 * activeTokens + 0.4723426714297148 * successfulTokens + 0.5801706867646694 * tokenDistanceToBorder (EV: 1.0)
+                 Player C| Q = 0.17178121990144843 * activeTokens + 0.4311426714297148 * successfulTokens + 0.6228706867646694 * tokenDistanceToBorder (EV: 6.0)
+
+ 
+          Game over. 
+         Player A/ Team 1: 2
+         Player B/ Team 2: 0
+         Player C/ Team 0: 5 <--WINNER ON SERVER within 7 turns
+
+ 
+--------------------------------------------------
+--------------------------------------------------
+Depth report.
+     Team 1:
+        Depth 7 was reached 3 times.
+        Depth 9 was reached 2 times.
+        Depth 10 was reached 2 times.
+        Fallback choosing random token happened 0 times.
+     Team 2:
+        Depth 7 was reached 2 times.
+        Depth 9 was reached 3 times.
+        Depth 10 was reached 2 times.
+        Fallback choosing random token happened 0 times.
+     Team 0:
+        Depth 7 was reached 3 times.
+        Depth 9 was reached 2 times.
+        Depth 10 was reached 3 times.
+        Fallback choosing random token happened 0 times.
+--------------------------------------------------
+--------------------------------------------------
+
+ 
+                  Evaluation. 
+                 Player A| Q = 0.14481567344686608 * activeTokens + 0.4796158967096459 * successfulTokens + 0.5918038415259373 * tokenDistanceToBorder (EV: 6.0)
+                 Player B| Q = 0.17328121990144843 * activeTokens + 0.4723426714297148 * successfulTokens + 0.5801706867646694 * tokenDistanceToBorder (EV: 2.0)
+                 Player C| Q = 0.17178121990144843 * activeTokens + 0.4311426714297148 * successfulTokens + 0.6228706867646694 * tokenDistanceToBorder (EV: 44.13333333333333)
+
+ 
+          Game over. 
+         Player A/ Team 2: 0
+         Player B/ Team 1: 2
+         Player C/ Team 0: 5 <--WINNER ON SERVER within 7 turns
+
+ 
+--------------------------------------------------
+--------------------------------------------------
+Depth report.
+     Team 2:
+        Depth 7 was reached 2 times.
+        Depth 9 was reached 3 times.
+        Depth 10 was reached 2 times.
+        Fallback choosing random token happened 0 times.
+     Team 1:
+        Depth 7 was reached 3 times.
+        Depth 9 was reached 2 times.
+        Depth 10 was reached 2 times.
+        Fallback choosing random token happened 0 times.
+     Team 0:
+        Depth 7 was reached 3 times.
+        Depth 9 was reached 2 times.
+        Depth 10 was reached 3 times.
+        Fallback choosing random token happened 0 times.
+--------------------------------------------------
+--------------------------------------------------
+
+ 
+                  Evaluation. 
+                 Player A| Q = 0.14481567344686608 * activeTokens + 0.4796158967096459 * successfulTokens + 0.5918038415259373 * tokenDistanceToBorder (EV: 2.0)
+                 Player B| Q = 0.17328121990144843 * activeTokens + 0.4723426714297148 * successfulTokens + 0.5801706867646694 * tokenDistanceToBorder (EV: 6.0)
+                 Player C| Q = 0.17178121990144843 * activeTokens + 0.4311426714297148 * successfulTokens + 0.6228706867646694 * tokenDistanceToBorder (EV: 44.13333333333333)
+
+ 
+!!!!!!!!!!!!!!!!!!!!!!!!!!!ERROR DETECTED!!!!!!!!!!!!!!!!!!!!!!!!!. 
+
+
+You got kicked because your move was invalid!
+
+
+
+ 
+INFO: Team 2 lost prematurely (probably because it had no more tokens to play). 
+
+
+ 
+          Game over. 
+         Player A/ Team 0: 5 <--WINNER ON SERVER within 13 turns
+         Player B/ Team 2: 1
+         Player C/ Team 1: 3
+
+ 
+--------------------------------------------------
+--------------------------------------------------
+Depth report.
+     Team 0:
+        Depth 7 was reached 4 times.
+        Depth 9 was reached 4 times.
+        Depth 10 was reached 5 times.
+        Fallback choosing random token happened 0 times.
+     Team 2:
+        Depth 7 was reached 4 times.
+        Depth 9 was reached 1 times.
+        Depth 10 was reached 5 times.
+        Fallback choosing random token happened 0 times.
+     Team 1:
+        Depth 7 was reached 2 times.
+        Depth 9 was reached 3 times.
+        Depth 10 was reached 7 times.
+        Fallback choosing random token happened 0 times.
+--------------------------------------------------
+--------------------------------------------------
+
+ 
+                  Evaluation. 
+                 Player A| Q = 0.14481567344686608 * activeTokens + 0.4796158967096459 * successfulTokens + 0.5918038415259373 * tokenDistanceToBorder (EV: 40.53333333333333)
+                 Player B| Q = 0.17328121990144843 * activeTokens + 0.4723426714297148 * successfulTokens + 0.5801706867646694 * tokenDistanceToBorder (EV: 1.0)
+                 Player C| Q = 0.17178121990144843 * activeTokens + 0.4311426714297148 * successfulTokens + 0.6228706867646694 * tokenDistanceToBorder (EV: 6.0)
+
+ 
+          Game over. 
+         Player A/ Team 0: 3
+         Player B/ Team 1: 3 <--WINNER ON SERVER within 9 turns
+         Player C/ Team 2: 0
+
+ 
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 
+ ERROR OCCURED. 
+ Winner on server didn't match the calculated winner. 
+ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+ 
+--------------------------------------------------
+--------------------------------------------------
+Depth report.
+     Team 0:
+        Depth 7 was reached 5 times.
+        Depth 9 was reached 4 times.
+        Depth 10 was reached 0 times.
+        Fallback choosing random token happened 0 times.
+     Team 1:
+        Depth 7 was reached 4 times.
+        Depth 9 was reached 4 times.
+        Depth 10 was reached 1 times.
+        Fallback choosing random token happened 0 times.
+     Team 2:
+        Depth 7 was reached 5 times.
+        Depth 9 was reached 3 times.
+        Depth 10 was reached 0 times.
+        Fallback choosing random token happened 0 times.
+--------------------------------------------------
+--------------------------------------------------
+
+ 
+                  Evaluation. 
+                 Player A| Q = 0.14481567344686608 * activeTokens + 0.4796158967096459 * successfulTokens + 0.5918038415259373 * tokenDistanceToBorder (EV: 24.0)
+                 Player B| Q = 0.17328121990144843 * activeTokens + 0.4723426714297148 * successfulTokens + 0.5801706867646694 * tokenDistanceToBorder (EV: 24.0)
+                 Player C| Q = 0.17178121990144843 * activeTokens + 0.4311426714297148 * successfulTokens + 0.6228706867646694 * tokenDistanceToBorder (EV: 18.0)
+
+ 
+!!!!!!!!!!!!!!!!!!!!!!!!!!!ERROR DETECTED!!!!!!!!!!!!!!!!!!!!!!!!!. 
+
+
+You got kicked because your move was invalid!
+
+
+
+ 
+INFO: Team 2 lost prematurely (probably because it had no more tokens to play). 
+
+
+ 
+          Game over. 
+         Player A/ Team 0: 4 <--WINNER ON SERVER within 13 turns
+         Player B/ Team 2: 1
+         Player C/ Team 1: 3
+
+ 
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 
+ ERROR OCCURED. 
+ Winner on server didn't match the calculated winner. 
+ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+ 
+--------------------------------------------------
+--------------------------------------------------
+Depth report.
+     Team 0:
+        Depth 7 was reached 6 times.
+        Depth 9 was reached 2 times.
+        Depth 10 was reached 5 times.
+        Fallback choosing random token happened 0 times.
+     Team 2:
+        Depth 7 was reached 4 times.
+        Depth 9 was reached 2 times.
+        Depth 10 was reached 4 times.
+        Fallback choosing random token happened 0 times.
+     Team 1:
+        Depth 7 was reached 3 times.
+        Depth 9 was reached 3 times.
+        Depth 10 was reached 6 times.
+        Fallback choosing random token happened 0 times.
+--------------------------------------------------
+--------------------------------------------------
+
+ 
+                  Evaluation. 
+                 Player A| Q = 0.14481567344686608 * activeTokens + 0.4796158967096459 * successfulTokens + 0.5918038415259373 * tokenDistanceToBorder (EV: 24.0)
+                 Player B| Q = 0.17328121990144843 * activeTokens + 0.4723426714297148 * successfulTokens + 0.5801706867646694 * tokenDistanceToBorder (EV: 17.0)
+                 Player C| Q = 0.17178121990144843 * activeTokens + 0.4311426714297148 * successfulTokens + 0.6228706867646694 * tokenDistanceToBorder (EV: 22.0)
+
+ 
+          Game over. 
+         Player A/ Team 2: 0
+         Player B/ Team 1: 2
+         Player C/ Team 0: 5 <--WINNER ON SERVER within 7 turns
+
+ 
+--------------------------------------------------
+--------------------------------------------------
+Depth report.
+     Team 2:
+        Depth 7 was reached 2 times.
+        Depth 9 was reached 3 times.
+        Depth 10 was reached 2 times.
+        Fallback choosing random token happened 0 times.
+     Team 1:
+        Depth 7 was reached 4 times.
+        Depth 9 was reached 1 times.
+        Depth 10 was reached 2 times.
+        Fallback choosing random token happened 0 times.
+     Team 0:
+        Depth 7 was reached 3 times.
+        Depth 9 was reached 2 times.
+        Depth 10 was reached 3 times.
+        Fallback choosing random token happened 0 times.
+--------------------------------------------------
+--------------------------------------------------
+
+ 
+                  Evaluation. 
+                 Player A| Q = 0.14481567344686608 * activeTokens + 0.4796158967096459 * successfulTokens + 0.5918038415259373 * tokenDistanceToBorder (EV: 2.0)
+                 Player B| Q = 0.17328121990144843 * activeTokens + 0.4723426714297148 * successfulTokens + 0.5801706867646694 * tokenDistanceToBorder (EV: 6.0)
+                 Player C| Q = 0.17178121990144843 * activeTokens + 0.4311426714297148 * successfulTokens + 0.6228706867646694 * tokenDistanceToBorder (EV: 44.13333333333333)
+
+ 
+!!!!!!!!!!!!!!!!!!!!!!!!!!!ERROR DETECTED!!!!!!!!!!!!!!!!!!!!!!!!!. 
+
+
+You got kicked because your move was invalid!
+
+
+
+ 
+INFO: Team 2 lost prematurely (probably because it had no more tokens to play). 
+
+
+ 
+          Game over. 
+         Player A/ Team 2: 1
+         Player B/ Team 0: 5 <--WINNER ON SERVER within 11 turns
+         Player C/ Team 1: 3
+
+ 
+--------------------------------------------------
+--------------------------------------------------
+Depth report.
+     Team 2:
+        Depth 7 was reached 4 times.
+        Depth 9 was reached 1 times.
+        Depth 10 was reached 5 times.
+        Fallback choosing random token happened 0 times.
+     Team 0:
+        Depth 7 was reached 4 times.
+        Depth 9 was reached 4 times.
+        Depth 10 was reached 5 times.
+        Fallback choosing random token happened 0 times.
+     Team 1:
+        Depth 7 was reached 3 times.
+        Depth 9 was reached 3 times.
+        Depth 10 was reached 6 times.
+        Fallback choosing random token happened 0 times.
+--------------------------------------------------
+--------------------------------------------------
+
+ 
+                  Evaluation. 
+                 Player A| Q = 0.14481567344686608 * activeTokens + 0.4796158967096459 * successfulTokens + 0.5918038415259373 * tokenDistanceToBorder (EV: 1.0)
+                 Player B| Q = 0.17328121990144843 * activeTokens + 0.4723426714297148 * successfulTokens + 0.5801706867646694 * tokenDistanceToBorder (EV: 41.06666666666666)
+                 Player C| Q = 0.17178121990144843 * activeTokens + 0.4311426714297148 * successfulTokens + 0.6228706867646694 * tokenDistanceToBorder (EV: 6.0)
+
+ 
+          Game over. 
+         Player A/ Team 2: 0
+         Player B/ Team 1: 2
+         Player C/ Team 0: 5 <--WINNER ON SERVER within 7 turns
+
+ 
+--------------------------------------------------
+--------------------------------------------------
+Depth report.
+     Team 2:
+        Depth 7 was reached 2 times.
+        Depth 9 was reached 3 times.
+        Depth 10 was reached 2 times.
+        Fallback choosing random token happened 0 times.
+     Team 1:
+        Depth 7 was reached 3 times.
+        Depth 9 was reached 2 times.
+        Depth 10 was reached 2 times.
+        Fallback choosing random token happened 0 times.
+     Team 0:
+        Depth 7 was reached 3 times.
+        Depth 9 was reached 2 times.
+        Depth 10 was reached 3 times.
+        Fallback choosing random token happened 0 times.
+--------------------------------------------------
+--------------------------------------------------
+
+ 
+                  Evaluation. 
+                 Player A| Q = 0.14481567344686608 * activeTokens + 0.4796158967096459 * successfulTokens + 0.5918038415259373 * tokenDistanceToBorder (EV: 2.0)
+                 Player B| Q = 0.17328121990144843 * activeTokens + 0.4723426714297148 * successfulTokens + 0.5801706867646694 * tokenDistanceToBorder (EV: 6.0)
+                 Player C| Q = 0.17178121990144843 * activeTokens + 0.4311426714297148 * successfulTokens + 0.6228706867646694 * tokenDistanceToBorder (EV: 44.13333333333333)
+
+ 
+          Game over. 
+         Player A/ Team 1: 5 <--WINNER ON SERVER within 9 turns
+         Player B/ Team 0: 3
+         Player C/ Team 2: 0
+
+ 
+--------------------------------------------------
+--------------------------------------------------
+Depth report.
+     Team 1:
+        Depth 7 was reached 4 times.
+        Depth 9 was reached 4 times.
+        Depth 10 was reached 1 times.
+        Fallback choosing random token happened 0 times.
+     Team 0:
+        Depth 7 was reached 5 times.
+        Depth 9 was reached 3 times.
+        Depth 10 was reached 1 times.
+        Fallback choosing random token happened 0 times.
+     Team 2:
+        Depth 7 was reached 6 times.
+        Depth 9 was reached 2 times.
+        Depth 10 was reached 0 times.
+        Fallback choosing random token happened 0 times.
+--------------------------------------------------
+--------------------------------------------------
+
+ 
+                  Evaluation. 
+                 Player A| Q = 0.14481567344686608 * activeTokens + 0.4796158967096459 * successfulTokens + 0.5918038415259373 * tokenDistanceToBorder (EV: 42.6)
+                 Player B| Q = 0.17328121990144843 * activeTokens + 0.4723426714297148 * successfulTokens + 0.5801706867646694 * tokenDistanceToBorder (EV: 7.0)
+                 Player C| Q = 0.17178121990144843 * activeTokens + 0.4311426714297148 * successfulTokens + 0.6228706867646694 * tokenDistanceToBorder (EV: 1.0)
+
+ 
+          Game over. 
+         Player A/ Team 1: 5 <--WINNER ON SERVER within 9 turns
+         Player B/ Team 0: 3
+         Player C/ Team 2: 0
+
+ 
+--------------------------------------------------
+--------------------------------------------------
+Depth report.
+     Team 1:
+        Depth 7 was reached 4 times.
+        Depth 9 was reached 4 times.
+        Depth 10 was reached 1 times.
+        Fallback choosing random token happened 0 times.
+     Team 0:
+        Depth 7 was reached 5 times.
+        Depth 9 was reached 4 times.
+        Depth 10 was reached 0 times.
+        Fallback choosing random token happened 0 times.
+     Team 2:
+        Depth 7 was reached 5 times.
+        Depth 9 was reached 3 times.
+        Depth 10 was reached 0 times.
+        Fallback choosing random token happened 0 times.
+--------------------------------------------------
+--------------------------------------------------
+
+ 
+                  Evaluation. 
+                 Player A| Q = 0.14481567344686608 * activeTokens + 0.4796158967096459 * successfulTokens + 0.5918038415259373 * tokenDistanceToBorder (EV: 42.6)
+                 Player B| Q = 0.17328121990144843 * activeTokens + 0.4723426714297148 * successfulTokens + 0.5801706867646694 * tokenDistanceToBorder (EV: 7.0)
+                 Player C| Q = 0.17178121990144843 * activeTokens + 0.4311426714297148 * successfulTokens + 0.6228706867646694 * tokenDistanceToBorder (EV: 1.0)
+
+ 
+          Game over. 
+         Player A/ Team 2: 0
+         Player B/ Team 1: 2
+         Player C/ Team 0: 5 <--WINNER ON SERVER within 7 turns
+
+ 
+--------------------------------------------------
+--------------------------------------------------
+Depth report.
+     Team 2:
+        Depth 7 was reached 2 times.
+        Depth 9 was reached 3 times.
+        Depth 10 was reached 2 times.
+        Fallback choosing random token happened 0 times.
+     Team 1:
+        Depth 7 was reached 3 times.
+        Depth 9 was reached 2 times.
+        Depth 10 was reached 2 times.
+        Fallback choosing random token happened 0 times.
+     Team 0:
+        Depth 7 was reached 3 times.
+        Depth 9 was reached 2 times.
+        Depth 10 was reached 3 times.
+        Fallback choosing random token happened 0 times.
+--------------------------------------------------
+--------------------------------------------------
+
+ 
+                  Evaluation. 
+                 Player A| Q = 0.14481567344686608 * activeTokens + 0.4796158967096459 * successfulTokens + 0.5918038415259373 * tokenDistanceToBorder (EV: 2.0)
+                 Player B| Q = 0.17328121990144843 * activeTokens + 0.4723426714297148 * successfulTokens + 0.5801706867646694 * tokenDistanceToBorder (EV: 6.0)
+                 Player C| Q = 0.17178121990144843 * activeTokens + 0.4311426714297148 * successfulTokens + 0.6228706867646694 * tokenDistanceToBorder (EV: 44.13333333333333)
+
+ 
+          Game over. 
+         Player A/ Team 1: 2
+         Player B/ Team 2: 0
+         Player C/ Team 0: 5 <--WINNER ON SERVER within 7 turns
+
+ 
+--------------------------------------------------
+--------------------------------------------------
+Depth report.
+     Team 1:
+        Depth 7 was reached 3 times.
+        Depth 9 was reached 2 times.
+        Depth 10 was reached 2 times.
+        Fallback choosing random token happened 0 times.
+     Team 2:
+        Depth 7 was reached 2 times.
+        Depth 9 was reached 3 times.
+        Depth 10 was reached 2 times.
+        Fallback choosing random token happened 0 times.
+     Team 0:
+        Depth 7 was reached 3 times.
+        Depth 9 was reached 2 times.
+        Depth 10 was reached 3 times.
+        Fallback choosing random token happened 0 times.
+--------------------------------------------------
+--------------------------------------------------
+
+ 
+                  Evaluation. 
+                 Player A| Q = 0.14481567344686608 * activeTokens + 0.4796158967096459 * successfulTokens + 0.5918038415259373 * tokenDistanceToBorder (EV: 6.0)
+                 Player B| Q = 0.17328121990144843 * activeTokens + 0.4723426714297148 * successfulTokens + 0.5801706867646694 * tokenDistanceToBorder (EV: 2.0)
+                 Player C| Q = 0.17178121990144843 * activeTokens + 0.4311426714297148 * successfulTokens + 0.6228706867646694 * tokenDistanceToBorder (EV: 44.13333333333333)
+
+ 
+          Game over. 
+         Player A/ Team 2: 0
+         Player B/ Team 1: 2
+         Player C/ Team 0: 5 <--WINNER ON SERVER within 7 turns
+
+ 
+--------------------------------------------------
+--------------------------------------------------
+Depth report.
+     Team 2:
+        Depth 7 was reached 2 times.
+        Depth 9 was reached 3 times.
+        Depth 10 was reached 2 times.
+        Fallback choosing random token happened 0 times.
+     Team 1:
+        Depth 7 was reached 3 times.
+        Depth 9 was reached 2 times.
+        Depth 10 was reached 2 times.
+        Fallback choosing random token happened 0 times.
+     Team 0:
+        Depth 7 was reached 3 times.
+        Depth 9 was reached 2 times.
+        Depth 10 was reached 3 times.
+        Fallback choosing random token happened 0 times.
+--------------------------------------------------
+--------------------------------------------------
+
+ 
+                  Evaluation. 
+                 Player A| Q = 0.14481567344686608 * activeTokens + 0.4796158967096459 * successfulTokens + 0.5918038415259373 * tokenDistanceToBorder (EV: 2.0)
+                 Player B| Q = 0.17328121990144843 * activeTokens + 0.4723426714297148 * successfulTokens + 0.5801706867646694 * tokenDistanceToBorder (EV: 6.0)
+                 Player C| Q = 0.17178121990144843 * activeTokens + 0.4311426714297148 * successfulTokens + 0.6228706867646694 * tokenDistanceToBorder (EV: 44.13333333333333)
+
+ 
+!!!!!!!!!!!!!!!!!!!!!!!!!!!ERROR DETECTED!!!!!!!!!!!!!!!!!!!!!!!!!. 
+
+
+You got kicked because your move was invalid!
+
+
+
+ 
+INFO: Team 2 lost prematurely (probably because it had no more tokens to play). 
+
+
+ 
+          Game over. 
+         Player A/ Team 2: 1
+         Player B/ Team 0: 5 <--WINNER ON SERVER within 11 turns
+         Player C/ Team 1: 3
+
+ 
+--------------------------------------------------
+--------------------------------------------------
+Depth report.
+     Team 2:
+        Depth 7 was reached 4 times.
+        Depth 9 was reached 1 times.
+        Depth 10 was reached 5 times.
+        Fallback choosing random token happened 0 times.
+     Team 0:
+        Depth 7 was reached 4 times.
+        Depth 9 was reached 4 times.
+        Depth 10 was reached 5 times.
+        Fallback choosing random token happened 0 times.
+     Team 1:
+        Depth 7 was reached 3 times.
+        Depth 9 was reached 3 times.
+        Depth 10 was reached 6 times.
+        Fallback choosing random token happened 0 times.
+--------------------------------------------------
+--------------------------------------------------
+
+ 
+                  Evaluation. 
+                 Player A| Q = 0.14481567344686608 * activeTokens + 0.4796158967096459 * successfulTokens + 0.5918038415259373 * tokenDistanceToBorder (EV: 1.0)
+                 Player B| Q = 0.17328121990144843 * activeTokens + 0.4723426714297148 * successfulTokens + 0.5801706867646694 * tokenDistanceToBorder (EV: 41.06666666666666)
+                 Player C| Q = 0.17178121990144843 * activeTokens + 0.4311426714297148 * successfulTokens + 0.6228706867646694 * tokenDistanceToBorder (EV: 6.0)
+
+ 
+          Game over. 
+         Player A/ Team 0: 3
+         Player B/ Team 1: 5 <--WINNER ON SERVER within 9 turns
+         Player C/ Team 2: 0
+
+ 
+--------------------------------------------------
+--------------------------------------------------
+Depth report.
+     Team 0:
+        Depth 7 was reached 5 times.
+        Depth 9 was reached 3 times.
+        Depth 10 was reached 1 times.
+        Fallback choosing random token happened 0 times.
+     Team 1:
+        Depth 7 was reached 4 times.
+        Depth 9 was reached 4 times.
+        Depth 10 was reached 1 times.
+        Fallback choosing random token happened 0 times.
+     Team 2:
+        Depth 7 was reached 5 times.
+        Depth 9 was reached 3 times.
+        Depth 10 was reached 0 times.
+        Fallback choosing random token happened 0 times.
+--------------------------------------------------
+--------------------------------------------------
+
+ 
+                  Evaluation. 
+                 Player A| Q = 0.14481567344686608 * activeTokens + 0.4796158967096459 * successfulTokens + 0.5918038415259373 * tokenDistanceToBorder (EV: 7.0)
+                 Player B| Q = 0.17328121990144843 * activeTokens + 0.4723426714297148 * successfulTokens + 0.5801706867646694 * tokenDistanceToBorder (EV: 42.6)
+                 Player C| Q = 0.17178121990144843 * activeTokens + 0.4311426714297148 * successfulTokens + 0.6228706867646694 * tokenDistanceToBorder (EV: 1.0)
+
+ 
+          Game over. 
+         Player A/ Team 0: 3
+         Player B/ Team 1: 5 <--WINNER ON SERVER within 9 turns
+         Player C/ Team 2: 0
+
+ 
+--------------------------------------------------
+--------------------------------------------------
+Depth report.
+     Team 0:
+        Depth 7 was reached 4 times.
+        Depth 9 was reached 4 times.
+        Depth 10 was reached 1 times.
+        Fallback choosing random token happened 0 times.
+     Team 1:
+        Depth 7 was reached 4 times.
+        Depth 9 was reached 4 times.
+        Depth 10 was reached 1 times.
+        Fallback choosing random token happened 0 times.
+     Team 2:
+        Depth 7 was reached 5 times.
+        Depth 9 was reached 3 times.
+        Depth 10 was reached 0 times.
+        Fallback choosing random token happened 0 times.
+--------------------------------------------------
+--------------------------------------------------
+
+ 
+                  Evaluation. 
+                 Player A| Q = 0.14481567344686608 * activeTokens + 0.4796158967096459 * successfulTokens + 0.5918038415259373 * tokenDistanceToBorder (EV: 7.0)
+                 Player B| Q = 0.17328121990144843 * activeTokens + 0.4723426714297148 * successfulTokens + 0.5801706867646694 * tokenDistanceToBorder (EV: 42.6)
+                 Player C| Q = 0.17178121990144843 * activeTokens + 0.4311426714297148 * successfulTokens + 0.6228706867646694 * tokenDistanceToBorder (EV: 1.0)
+
+ 
+          Game over. 
+         Player A/ Team 1: 2
+         Player B/ Team 2: 0
+         Player C/ Team 0: 5 <--WINNER ON SERVER within 7 turns
+
+ 
+--------------------------------------------------
+--------------------------------------------------
+Depth report.
+     Team 1:
+        Depth 7 was reached 3 times.
+        Depth 9 was reached 2 times.
+        Depth 10 was reached 2 times.
+        Fallback choosing random token happened 0 times.
+     Team 2:
+        Depth 7 was reached 2 times.
+        Depth 9 was reached 3 times.
+        Depth 10 was reached 2 times.
+        Fallback choosing random token happened 0 times.
+     Team 0:
+        Depth 7 was reached 3 times.
+        Depth 9 was reached 2 times.
+        Depth 10 was reached 3 times.
+        Fallback choosing random token happened 0 times.
+--------------------------------------------------
+--------------------------------------------------
+
+ 
+                  Evaluation. 
+                 Player A| Q = 0.14481567344686608 * activeTokens + 0.4796158967096459 * successfulTokens + 0.5918038415259373 * tokenDistanceToBorder (EV: 6.0)
+                 Player B| Q = 0.17328121990144843 * activeTokens + 0.4723426714297148 * successfulTokens + 0.5801706867646694 * tokenDistanceToBorder (EV: 2.0)
+                 Player C| Q = 0.17178121990144843 * activeTokens + 0.4311426714297148 * successfulTokens + 0.6228706867646694 * tokenDistanceToBorder (EV: 44.13333333333333)
+
+ 
+          Game over. 
+         Player A/ Team 0: 3
+         Player B/ Team 1: 5 <--WINNER ON SERVER within 9 turns
+         Player C/ Team 2: 0
+
+ 
+--------------------------------------------------
+--------------------------------------------------
+Depth report.
+     Team 0:
+        Depth 7 was reached 5 times.
+        Depth 9 was reached 4 times.
+        Depth 10 was reached 0 times.
+        Fallback choosing random token happened 0 times.
+     Team 1:
+        Depth 7 was reached 4 times.
+        Depth 9 was reached 4 times.
+        Depth 10 was reached 1 times.
+        Fallback choosing random token happened 0 times.
+     Team 2:
+        Depth 7 was reached 6 times.
+        Depth 9 was reached 2 times.
+        Depth 10 was reached 0 times.
+        Fallback choosing random token happened 0 times.
+--------------------------------------------------
+--------------------------------------------------
+
+ 
+                  Evaluation. 
+                 Player A| Q = 0.14481567344686608 * activeTokens + 0.4796158967096459 * successfulTokens + 0.5918038415259373 * tokenDistanceToBorder (EV: 7.0)
+                 Player B| Q = 0.17328121990144843 * activeTokens + 0.4723426714297148 * successfulTokens + 0.5801706867646694 * tokenDistanceToBorder (EV: 42.6)
+                 Player C| Q = 0.17178121990144843 * activeTokens + 0.4311426714297148 * successfulTokens + 0.6228706867646694 * tokenDistanceToBorder (EV: 1.0)
+
+ 
+!!!!!!!!!!!!!!!!!!!!!!!!!!!ERROR DETECTED!!!!!!!!!!!!!!!!!!!!!!!!!. 
+
+
+You got kicked because your move was invalid!
+
+
+
+ 
+INFO: Team 2 lost prematurely (probably because it had no more tokens to play). 
+
+
+ 
+          Game over. 
+         Player A/ Team 0: 5 <--WINNER ON SERVER within 13 turns
+         Player B/ Team 2: 1
+         Player C/ Team 1: 3
+
+ 
+--------------------------------------------------
+--------------------------------------------------
+Depth report.
+     Team 0:
+        Depth 7 was reached 4 times.
+        Depth 9 was reached 4 times.
+        Depth 10 was reached 5 times.
+        Fallback choosing random token happened 0 times.
+     Team 2:
+        Depth 7 was reached 4 times.
+        Depth 9 was reached 1 times.
+        Depth 10 was reached 5 times.
+        Fallback choosing random token happened 0 times.
+     Team 1:
+        Depth 7 was reached 3 times.
+        Depth 9 was reached 3 times.
+        Depth 10 was reached 6 times.
+        Fallback choosing random token happened 0 times.
+--------------------------------------------------
+--------------------------------------------------
+
+ 
+                  Evaluation. 
+                 Player A| Q = 0.14481567344686608 * activeTokens + 0.4796158967096459 * successfulTokens + 0.5918038415259373 * tokenDistanceToBorder (EV: 40.53333333333333)
+                 Player B| Q = 0.17328121990144843 * activeTokens + 0.4723426714297148 * successfulTokens + 0.5801706867646694 * tokenDistanceToBorder (EV: 1.0)
+                 Player C| Q = 0.17178121990144843 * activeTokens + 0.4311426714297148 * successfulTokens + 0.6228706867646694 * tokenDistanceToBorder (EV: 6.0)
+
+ 
+Calculating medium parameter evaluation from 20 games played. 
+[40.53333333333333, 6.0, 2.0, 40.53333333333333, 24.0, 24.0, 2.0, 1.0, 2.0, 42.6, 42.6, 2.0, 6.0, 2.0, 1.0, 7.0, 7.0, 6.0, 7.0, 40.53333333333333] ----> Writing medium:Q = 0.14481567344686608 * activeTokens + 0.4796158967096459 * successfulTokens + 0.5918038415259373 * tokenDistanceToBorder (EV: 15.289999999999997)
+[1.0, 2.0, 6.0, 1.0, 24.0, 17.0, 6.0, 41.06666666666666, 6.0, 7.0, 7.0, 6.0, 2.0, 6.0, 41.06666666666666, 42.6, 42.6, 2.0, 42.6, 1.0] ----> Writing medium:Q = 0.17328121990144843 * activeTokens + 0.4723426714297148 * successfulTokens + 0.5801706867646694 * tokenDistanceToBorder (EV: 15.196666666666667)
+[6.0, 44.13333333333333, 44.13333333333333, 6.0, 18.0, 22.0, 44.13333333333333, 6.0, 44.13333333333333, 1.0, 1.0, 44.13333333333333, 44.13333333333333, 44.13333333333333, 6.0, 1.0, 1.0, 44.13333333333333, 1.0, 6.0] ----> Writing medium:Q = 0.17178121990144843 * activeTokens + 0.4311426714297148 * successfulTokens + 0.6228706867646694 * tokenDistanceToBorder (EV: 21.40333333333333)
+
+ 
+          Game over. 
+         Player A/ Team 2: 2
+         Player B/ Team 0: 6 <--WINNER ON SERVER within 10 turns
+         Player C/ Team 1: 4
+
+ 
+--------------------------------------------------
+--------------------------------------------------
+Depth report.
+     Team 2:
+        Depth 7 was reached 4 times.
+        Depth 9 was reached 1 times.
+        Depth 10 was reached 5 times.
+        Fallback choosing random token happened 0 times.
+     Team 0:
+        Depth 7 was reached 4 times.
+        Depth 9 was reached 4 times.
+        Depth 10 was reached 3 times.
+        Fallback choosing random token happened 0 times.
+     Team 1:
+        Depth 7 was reached 2 times.
+        Depth 9 was reached 5 times.
+        Depth 10 was reached 3 times.
+        Fallback choosing random token happened 0 times.
+--------------------------------------------------
+--------------------------------------------------
+
+ 
+                  Evaluation. 
+                 Player A| Q = 0.18331567344686608 * activeTokens + 0.47381589670964586 * successfulTokens + 0.5591038415259374 * tokenDistanceToBorder (EV: 2.0)
+                 Player B| Q = 0.16196121990144843 * activeTokens + 0.5044626714297148 * successfulTokens + 0.5593706867646694 * tokenDistanceToBorder (EV: 39.333333333333336)
+                 Player C| Q = 0.2579812199014484 * activeTokens + 0.4036426714297148 * successfulTokens + 0.5641706867646694 * tokenDistanceToBorder (EV: 6.0)
+
+ 
+          Game over. 
+         Player A/ Team 0: 3
+         Player B/ Team 1: 5 <--WINNER ON SERVER within 9 turns
+         Player C/ Team 2: 0
+
+ 
+--------------------------------------------------
+--------------------------------------------------
+Depth report.
+     Team 0:
+        Depth 7 was reached 5 times.
+        Depth 9 was reached 3 times.
+        Depth 10 was reached 1 times.
+        Fallback choosing random token happened 0 times.
+     Team 1:
+        Depth 7 was reached 4 times.
+        Depth 9 was reached 4 times.
+        Depth 10 was reached 1 times.
+        Fallback choosing random token happened 0 times.
+     Team 2:
+        Depth 7 was reached 5 times.
+        Depth 9 was reached 3 times.
+        Depth 10 was reached 0 times.
+        Fallback choosing random token happened 0 times.
+--------------------------------------------------
+--------------------------------------------------
+
+ 
+                  Evaluation. 
+                 Player A| Q = 0.18331567344686608 * activeTokens + 0.47381589670964586 * successfulTokens + 0.5591038415259374 * tokenDistanceToBorder (EV: 7.0)
+                 Player B| Q = 0.16196121990144843 * activeTokens + 0.5044626714297148 * successfulTokens + 0.5593706867646694 * tokenDistanceToBorder (EV: 42.6)
+                 Player C| Q = 0.2579812199014484 * activeTokens + 0.4036426714297148 * successfulTokens + 0.5641706867646694 * tokenDistanceToBorder (EV: 1.0)
+
+ 
+          Game over. 
+         Player A/ Team 2: 0
+         Player B/ Team 1: 5 <--WINNER ON SERVER within 8 turns
+         Player C/ Team 0: 3
+
+ 
+--------------------------------------------------
+--------------------------------------------------
+Depth report.
+     Team 2:
+        Depth 7 was reached 5 times.
+        Depth 9 was reached 3 times.
+        Depth 10 was reached 0 times.
+        Fallback choosing random token happened 0 times.
+     Team 1:
+        Depth 7 was reached 4 times.
+        Depth 9 was reached 4 times.
+        Depth 10 was reached 1 times.
+        Fallback choosing random token happened 0 times.
+     Team 0:
+        Depth 7 was reached 5 times.
+        Depth 9 was reached 3 times.
+        Depth 10 was reached 1 times.
+        Fallback choosing random token happened 0 times.
+--------------------------------------------------
+--------------------------------------------------
+
+ 
+                  Evaluation. 
+                 Player A| Q = 0.18331567344686608 * activeTokens + 0.47381589670964586 * successfulTokens + 0.5591038415259374 * tokenDistanceToBorder (EV: 1.0)
+                 Player B| Q = 0.16196121990144843 * activeTokens + 0.5044626714297148 * successfulTokens + 0.5593706867646694 * tokenDistanceToBorder (EV: 42.86666666666667)
+                 Player C| Q = 0.2579812199014484 * activeTokens + 0.4036426714297148 * successfulTokens + 0.5641706867646694 * tokenDistanceToBorder (EV: 7.0)
+
+ 
+          Game over. 
+         Player A/ Team 0: 5 <--WINNER ON SERVER within 10 turns
+         Player B/ Team 2: 2
+         Player C/ Team 1: 2
+
+ 
+--------------------------------------------------
+--------------------------------------------------
+Depth report.
+     Team 0:
+        Depth 7 was reached 6 times.
+        Depth 9 was reached 3 times.
+        Depth 10 was reached 1 times.
+        Fallback choosing random token happened 0 times.
+     Team 2:
+        Depth 7 was reached 6 times.
+        Depth 9 was reached 1 times.
+        Depth 10 was reached 2 times.
+        Fallback choosing random token happened 0 times.
+     Team 1:
+        Depth 7 was reached 2 times.
+        Depth 9 was reached 5 times.
+        Depth 10 was reached 2 times.
+        Fallback choosing random token happened 0 times.
+--------------------------------------------------
+--------------------------------------------------
+
+ 
+                  Evaluation. 
+                 Player A| Q = 0.18331567344686608 * activeTokens + 0.47381589670964586 * successfulTokens + 0.5591038415259374 * tokenDistanceToBorder (EV: 41.33333333333333)
+                 Player B| Q = 0.16196121990144843 * activeTokens + 0.5044626714297148 * successfulTokens + 0.5593706867646694 * tokenDistanceToBorder (EV: 4.0)
+                 Player C| Q = 0.2579812199014484 * activeTokens + 0.4036426714297148 * successfulTokens + 0.5641706867646694 * tokenDistanceToBorder (EV: 4.0)
+
+ 
+          Game over. 
+         Player A/ Team 1: 5 <--WINNER ON SERVER within 9 turns
+         Player B/ Team 2: 0
+         Player C/ Team 0: 3
+
+ 
+--------------------------------------------------
+--------------------------------------------------
+Depth report.
+     Team 1:
+        Depth 7 was reached 4 times.
+        Depth 9 was reached 4 times.
+        Depth 10 was reached 1 times.
+        Fallback choosing random token happened 0 times.
+     Team 2:
+        Depth 7 was reached 5 times.
+        Depth 9 was reached 3 times.
+        Depth 10 was reached 0 times.
+        Fallback choosing random token happened 0 times.
+     Team 0:
+        Depth 7 was reached 5 times.
+        Depth 9 was reached 3 times.
+        Depth 10 was reached 1 times.
+        Fallback choosing random token happened 0 times.
+--------------------------------------------------
+--------------------------------------------------
+
+ 
+                  Evaluation. 
+                 Player A| Q = 0.18331567344686608 * activeTokens + 0.47381589670964586 * successfulTokens + 0.5591038415259374 * tokenDistanceToBorder (EV: 42.6)
+                 Player B| Q = 0.16196121990144843 * activeTokens + 0.5044626714297148 * successfulTokens + 0.5593706867646694 * tokenDistanceToBorder (EV: 1.0)
+                 Player C| Q = 0.2579812199014484 * activeTokens + 0.4036426714297148 * successfulTokens + 0.5641706867646694 * tokenDistanceToBorder (EV: 7.0)
+
+ 
+          Game over. 
+         Player A/ Team 2: 0
+         Player B/ Team 0: 3
+         Player C/ Team 1: 5 <--WINNER ON SERVER within 8 turns
+
+ 
+--------------------------------------------------
+--------------------------------------------------
+Depth report.
+     Team 2:
+        Depth 7 was reached 5 times.
+        Depth 9 was reached 3 times.
+        Depth 10 was reached 0 times.
+        Fallback choosing random token happened 0 times.
+     Team 0:
+        Depth 7 was reached 5 times.
+        Depth 9 was reached 3 times.
+        Depth 10 was reached 1 times.
+        Fallback choosing random token happened 0 times.
+     Team 1:
+        Depth 7 was reached 4 times.
+        Depth 9 was reached 4 times.
+        Depth 10 was reached 1 times.
+        Fallback choosing random token happened 0 times.
+--------------------------------------------------
+--------------------------------------------------
+
+ 
+                  Evaluation. 
+                 Player A| Q = 0.18331567344686608 * activeTokens + 0.47381589670964586 * successfulTokens + 0.5591038415259374 * tokenDistanceToBorder (EV: 1.0)
+                 Player B| Q = 0.16196121990144843 * activeTokens + 0.5044626714297148 * successfulTokens + 0.5593706867646694 * tokenDistanceToBorder (EV: 7.0)
+                 Player C| Q = 0.2579812199014484 * activeTokens + 0.4036426714297148 * successfulTokens + 0.5641706867646694 * tokenDistanceToBorder (EV: 42.86666666666667)
+
+ 
+          Game over. 
+         Player A/ Team 2: 0
+         Player B/ Team 1: 5 <--WINNER ON SERVER within 8 turns
+         Player C/ Team 0: 3
+
+ 
+--------------------------------------------------
+--------------------------------------------------
+Depth report.
+     Team 2:
+        Depth 7 was reached 6 times.
+        Depth 9 was reached 2 times.
+        Depth 10 was reached 0 times.
+        Fallback choosing random token happened 0 times.
+     Team 1:
+        Depth 7 was reached 3 times.
+        Depth 9 was reached 5 times.
+        Depth 10 was reached 1 times.
+        Fallback choosing random token happened 0 times.
+     Team 0:
+        Depth 7 was reached 5 times.
+        Depth 9 was reached 3 times.
+        Depth 10 was reached 1 times.
+        Fallback choosing random token happened 0 times.
+--------------------------------------------------
+--------------------------------------------------
+
+ 
+                  Evaluation. 
+                 Player A| Q = 0.18331567344686608 * activeTokens + 0.47381589670964586 * successfulTokens + 0.5591038415259374 * tokenDistanceToBorder (EV: 1.0)
+                 Player B| Q = 0.16196121990144843 * activeTokens + 0.5044626714297148 * successfulTokens + 0.5593706867646694 * tokenDistanceToBorder (EV: 42.86666666666667)
+                 Player C| Q = 0.2579812199014484 * activeTokens + 0.4036426714297148 * successfulTokens + 0.5641706867646694 * tokenDistanceToBorder (EV: 7.0)
+
+ 
+          Game over. 
+         Player A/ Team 2: 2
+         Player B/ Team 0: 5 <--WINNER ON SERVER within 9 turns
+         Player C/ Team 1: 2
+
+ 
+--------------------------------------------------
+--------------------------------------------------
+Depth report.
+     Team 2:
+        Depth 7 was reached 6 times.
+        Depth 9 was reached 1 times.
+        Depth 10 was reached 2 times.
+        Fallback choosing random token happened 0 times.
+     Team 0:
+        Depth 7 was reached 6 times.
+        Depth 9 was reached 3 times.
+        Depth 10 was reached 1 times.
+        Fallback choosing random token happened 0 times.
+     Team 1:
+        Depth 7 was reached 2 times.
+        Depth 9 was reached 5 times.
+        Depth 10 was reached 2 times.
+        Fallback choosing random token happened 0 times.
+--------------------------------------------------
+--------------------------------------------------
+
+ 
+                  Evaluation. 
+                 Player A| Q = 0.18331567344686608 * activeTokens + 0.47381589670964586 * successfulTokens + 0.5591038415259374 * tokenDistanceToBorder (EV: 4.0)
+                 Player B| Q = 0.16196121990144843 * activeTokens + 0.5044626714297148 * successfulTokens + 0.5593706867646694 * tokenDistanceToBorder (EV: 41.6)
+                 Player C| Q = 0.2579812199014484 * activeTokens + 0.4036426714297148 * successfulTokens + 0.5641706867646694 * tokenDistanceToBorder (EV: 4.0)
+
+ 
+          Game over. 
+         Player A/ Team 1: 5 <--WINNER ON SERVER within 9 turns
+         Player B/ Team 2: 0
+         Player C/ Team 0: 3
+
+ 
+--------------------------------------------------
+--------------------------------------------------
+Depth report.
+     Team 1:
+        Depth 7 was reached 4 times.
+        Depth 9 was reached 4 times.
+        Depth 10 was reached 1 times.
+        Fallback choosing random token happened 0 times.
+     Team 2:
+        Depth 7 was reached 6 times.
+        Depth 9 was reached 2 times.
+        Depth 10 was reached 0 times.
+        Fallback choosing random token happened 0 times.
+     Team 0:
+        Depth 7 was reached 5 times.
+        Depth 9 was reached 3 times.
+        Depth 10 was reached 1 times.
+        Fallback choosing random token happened 0 times.
+--------------------------------------------------
+--------------------------------------------------
+
+ 
+                  Evaluation. 
+                 Player A| Q = 0.18331567344686608 * activeTokens + 0.47381589670964586 * successfulTokens + 0.5591038415259374 * tokenDistanceToBorder (EV: 42.6)
+                 Player B| Q = 0.16196121990144843 * activeTokens + 0.5044626714297148 * successfulTokens + 0.5593706867646694 * tokenDistanceToBorder (EV: 1.0)
+                 Player C| Q = 0.2579812199014484 * activeTokens + 0.4036426714297148 * successfulTokens + 0.5641706867646694 * tokenDistanceToBorder (EV: 7.0)
+
+ 
+          Game over. 
+         Player A/ Team 0: 3
+         Player B/ Team 2: 0
+         Player C/ Team 1: 5 <--WINNER ON SERVER within 9 turns
+
+ 
+--------------------------------------------------
+--------------------------------------------------
+Depth report.
+     Team 0:
+        Depth 7 was reached 5 times.
+        Depth 9 was reached 4 times.
+        Depth 10 was reached 0 times.
+        Fallback choosing random token happened 0 times.
+     Team 2:
+        Depth 7 was reached 5 times.
+        Depth 9 was reached 3 times.
+        Depth 10 was reached 0 times.
+        Fallback choosing random token happened 0 times.
+     Team 1:
+        Depth 7 was reached 4 times.
+        Depth 9 was reached 4 times.
+        Depth 10 was reached 1 times.
+        Fallback choosing random token happened 0 times.
+--------------------------------------------------
+--------------------------------------------------
+
+ 
+                  Evaluation. 
+                 Player A| Q = 0.18331567344686608 * activeTokens + 0.47381589670964586 * successfulTokens + 0.5591038415259374 * tokenDistanceToBorder (EV: 7.0)
+                 Player B| Q = 0.16196121990144843 * activeTokens + 0.5044626714297148 * successfulTokens + 0.5593706867646694 * tokenDistanceToBorder (EV: 1.0)
+                 Player C| Q = 0.2579812199014484 * activeTokens + 0.4036426714297148 * successfulTokens + 0.5641706867646694 * tokenDistanceToBorder (EV: 42.6)
+
+ 
+          Game over. 
+         Player A/ Team 2: 0
+         Player B/ Team 0: 3
+         Player C/ Team 1: 5 <--WINNER ON SERVER within 8 turns
+
+ 
+--------------------------------------------------
+--------------------------------------------------
+Depth report.
+     Team 2:
+        Depth 7 was reached 6 times.
+        Depth 9 was reached 2 times.
+        Depth 10 was reached 0 times.
+        Fallback choosing random token happened 0 times.
+     Team 0:
+        Depth 7 was reached 4 times.
+        Depth 9 was reached 5 times.
+        Depth 10 was reached 0 times.
+        Fallback choosing random token happened 0 times.
+     Team 1:
+        Depth 7 was reached 4 times.
+        Depth 9 was reached 4 times.
+        Depth 10 was reached 1 times.
+        Fallback choosing random token happened 0 times.
+--------------------------------------------------
+--------------------------------------------------
+
+ 
+                  Evaluation. 
+                 Player A| Q = 0.18331567344686608 * activeTokens + 0.47381589670964586 * successfulTokens + 0.5591038415259374 * tokenDistanceToBorder (EV: 1.0)
+                 Player B| Q = 0.16196121990144843 * activeTokens + 0.5044626714297148 * successfulTokens + 0.5593706867646694 * tokenDistanceToBorder (EV: 7.0)
+                 Player C| Q = 0.2579812199014484 * activeTokens + 0.4036426714297148 * successfulTokens + 0.5641706867646694 * tokenDistanceToBorder (EV: 42.86666666666667)
+
+ 
+          Game over. 
+         Player A/ Team 1: 5 <--WINNER ON SERVER within 9 turns
+         Player B/ Team 0: 3
+         Player C/ Team 2: 0
+
+ 
+--------------------------------------------------
+--------------------------------------------------
+Depth report.
+     Team 1:
+        Depth 7 was reached 4 times.
+        Depth 9 was reached 4 times.
+        Depth 10 was reached 1 times.
+        Fallback choosing random token happened 0 times.
+     Team 0:
+        Depth 7 was reached 5 times.
+        Depth 9 was reached 3 times.
+        Depth 10 was reached 1 times.
+        Fallback choosing random token happened 0 times.
+     Team 2:
+        Depth 7 was reached 6 times.
+        Depth 9 was reached 2 times.
+        Depth 10 was reached 0 times.
+        Fallback choosing random token happened 0 times.
+--------------------------------------------------
+--------------------------------------------------
+
+ 
+                  Evaluation. 
+                 Player A| Q = 0.18331567344686608 * activeTokens + 0.47381589670964586 * successfulTokens + 0.5591038415259374 * tokenDistanceToBorder (EV: 42.6)
+                 Player B| Q = 0.16196121990144843 * activeTokens + 0.5044626714297148 * successfulTokens + 0.5593706867646694 * tokenDistanceToBorder (EV: 7.0)
+                 Player C| Q = 0.2579812199014484 * activeTokens + 0.4036426714297148 * successfulTokens + 0.5641706867646694 * tokenDistanceToBorder (EV: 1.0)
+
+ 
+          Game over. 
+         Player A/ Team 2: 0
+         Player B/ Team 0: 3
+         Player C/ Team 1: 5 <--WINNER ON SERVER within 8 turns
+
+ 
+--------------------------------------------------
+--------------------------------------------------
+Depth report.
+     Team 2:
+        Depth 7 was reached 5 times.
+        Depth 9 was reached 3 times.
+        Depth 10 was reached 0 times.
+        Fallback choosing random token happened 0 times.
+     Team 0:
+        Depth 7 was reached 5 times.
+        Depth 9 was reached 3 times.
+        Depth 10 was reached 1 times.
+        Fallback choosing random token happened 0 times.
+     Team 1:
+        Depth 7 was reached 4 times.
+        Depth 9 was reached 4 times.
+        Depth 10 was reached 1 times.
+        Fallback choosing random token happened 0 times.
+--------------------------------------------------
+--------------------------------------------------
+
+ 
+                  Evaluation. 
+                 Player A| Q = 0.18331567344686608 * activeTokens + 0.47381589670964586 * successfulTokens + 0.5591038415259374 * tokenDistanceToBorder (EV: 1.0)
+                 Player B| Q = 0.16196121990144843 * activeTokens + 0.5044626714297148 * successfulTokens + 0.5593706867646694 * tokenDistanceToBorder (EV: 7.0)
+                 Player C| Q = 0.2579812199014484 * activeTokens + 0.4036426714297148 * successfulTokens + 0.5641706867646694 * tokenDistanceToBorder (EV: 42.86666666666667)
+
+ 
+          Game over. 
+         Player A/ Team 1: 5 <--WINNER ON SERVER within 9 turns
+         Player B/ Team 2: 0
+         Player C/ Team 0: 3
+
+ 
+--------------------------------------------------
+--------------------------------------------------
+Depth report.
+     Team 1:
+        Depth 7 was reached 4 times.
+        Depth 9 was reached 4 times.
+        Depth 10 was reached 1 times.
+        Fallback choosing random token happened 0 times.
+     Team 2:
+        Depth 7 was reached 5 times.
+        Depth 9 was reached 3 times.
+        Depth 10 was reached 0 times.
+        Fallback choosing random token happened 0 times.
+     Team 0:
+        Depth 7 was reached 5 times.
+        Depth 9 was reached 3 times.
+        Depth 10 was reached 1 times.
+        Fallback choosing random token happened 0 times.
+--------------------------------------------------
+--------------------------------------------------
+
+ 
+                  Evaluation. 
+                 Player A| Q = 0.18331567344686608 * activeTokens + 0.47381589670964586 * successfulTokens + 0.5591038415259374 * tokenDistanceToBorder (EV: 42.6)
+                 Player B| Q = 0.16196121990144843 * activeTokens + 0.5044626714297148 * successfulTokens + 0.5593706867646694 * tokenDistanceToBorder (EV: 1.0)
+                 Player C| Q = 0.2579812199014484 * activeTokens + 0.4036426714297148 * successfulTokens + 0.5641706867646694 * tokenDistanceToBorder (EV: 7.0)
+
+ 
+          Game over. 
+         Player A/ Team 0: 3
+         Player B/ Team 1: 5 <--WINNER ON SERVER within 9 turns
+         Player C/ Team 2: 0
+
+ 
+--------------------------------------------------
+--------------------------------------------------
+Depth report.
+     Team 0:
+        Depth 7 was reached 5 times.
+        Depth 9 was reached 3 times.
+        Depth 10 was reached 1 times.
+        Fallback choosing random token happened 0 times.
+     Team 1:
+        Depth 7 was reached 3 times.
+        Depth 9 was reached 5 times.
+        Depth 10 was reached 1 times.
+        Fallback choosing random token happened 0 times.
+     Team 2:
+        Depth 7 was reached 6 times.
+        Depth 9 was reached 2 times.
+        Depth 10 was reached 0 times.
+        Fallback choosing random token happened 0 times.
+--------------------------------------------------
+--------------------------------------------------
+
+ 
+                  Evaluation. 
+                 Player A| Q = 0.18331567344686608 * activeTokens + 0.47381589670964586 * successfulTokens + 0.5591038415259374 * tokenDistanceToBorder (EV: 7.0)
+                 Player B| Q = 0.16196121990144843 * activeTokens + 0.5044626714297148 * successfulTokens + 0.5593706867646694 * tokenDistanceToBorder (EV: 42.6)
+                 Player C| Q = 0.2579812199014484 * activeTokens + 0.4036426714297148 * successfulTokens + 0.5641706867646694 * tokenDistanceToBorder (EV: 1.0)
+
+ 
+          Game over. 
+         Player A/ Team 0: 3
+         Player B/ Team 2: 0
+         Player C/ Team 1: 5 <--WINNER ON SERVER within 9 turns
+
+ 
+--------------------------------------------------
+--------------------------------------------------
+Depth report.
+     Team 0:
+        Depth 7 was reached 5 times.
+        Depth 9 was reached 4 times.
+        Depth 10 was reached 0 times.
+        Fallback choosing random token happened 0 times.
+     Team 2:
+        Depth 7 was reached 5 times.
+        Depth 9 was reached 3 times.
+        Depth 10 was reached 0 times.
+        Fallback choosing random token happened 0 times.
+     Team 1:
+        Depth 7 was reached 4 times.
+        Depth 9 was reached 4 times.
+        Depth 10 was reached 1 times.
+        Fallback choosing random token happened 0 times.
+--------------------------------------------------
+--------------------------------------------------
+
+ 
+                  Evaluation. 
+                 Player A| Q = 0.18331567344686608 * activeTokens + 0.47381589670964586 * successfulTokens + 0.5591038415259374 * tokenDistanceToBorder (EV: 7.0)
+                 Player B| Q = 0.16196121990144843 * activeTokens + 0.5044626714297148 * successfulTokens + 0.5593706867646694 * tokenDistanceToBorder (EV: 1.0)
+                 Player C| Q = 0.2579812199014484 * activeTokens + 0.4036426714297148 * successfulTokens + 0.5641706867646694 * tokenDistanceToBorder (EV: 42.6)
+
+ 
+          Game over. 
+         Player A/ Team 1: 5 <--WINNER ON SERVER within 9 turns
+         Player B/ Team 2: 0
+         Player C/ Team 0: 3
+
+ 
+--------------------------------------------------
+--------------------------------------------------
+Depth report.
+     Team 1:
+        Depth 7 was reached 4 times.
+        Depth 9 was reached 4 times.
+        Depth 10 was reached 1 times.
+        Fallback choosing random token happened 0 times.
+     Team 2:
+        Depth 7 was reached 5 times.
+        Depth 9 was reached 3 times.
+        Depth 10 was reached 0 times.
+        Fallback choosing random token happened 0 times.
+     Team 0:
+        Depth 7 was reached 6 times.
+        Depth 9 was reached 2 times.
+        Depth 10 was reached 1 times.
+        Fallback choosing random token happened 0 times.
+--------------------------------------------------
+--------------------------------------------------
+
+ 
+                  Evaluation. 
+                 Player A| Q = 0.18331567344686608 * activeTokens + 0.47381589670964586 * successfulTokens + 0.5591038415259374 * tokenDistanceToBorder (EV: 42.6)
+                 Player B| Q = 0.16196121990144843 * activeTokens + 0.5044626714297148 * successfulTokens + 0.5593706867646694 * tokenDistanceToBorder (EV: 1.0)
+                 Player C| Q = 0.2579812199014484 * activeTokens + 0.4036426714297148 * successfulTokens + 0.5641706867646694 * tokenDistanceToBorder (EV: 7.0)
+
+ 
+          Game over. 
+         Player A/ Team 1: 5 <--WINNER ON SERVER within 9 turns
+         Player B/ Team 0: 3
+         Player C/ Team 2: 0
+
+ 
+--------------------------------------------------
+--------------------------------------------------
+Depth report.
+     Team 1:
+        Depth 7 was reached 4 times.
+        Depth 9 was reached 4 times.
+        Depth 10 was reached 1 times.
+        Fallback choosing random token happened 0 times.
+     Team 0:
+        Depth 7 was reached 5 times.
+        Depth 9 was reached 3 times.
+        Depth 10 was reached 1 times.
+        Fallback choosing random token happened 0 times.
+     Team 2:
+        Depth 7 was reached 5 times.
+        Depth 9 was reached 3 times.
+        Depth 10 was reached 0 times.
+        Fallback choosing random token happened 0 times.
+--------------------------------------------------
+--------------------------------------------------
+
+ 
+                  Evaluation. 
+                 Player A| Q = 0.18331567344686608 * activeTokens + 0.47381589670964586 * successfulTokens + 0.5591038415259374 * tokenDistanceToBorder (EV: 42.6)
+                 Player B| Q = 0.16196121990144843 * activeTokens + 0.5044626714297148 * successfulTokens + 0.5593706867646694 * tokenDistanceToBorder (EV: 7.0)
+                 Player C| Q = 0.2579812199014484 * activeTokens + 0.4036426714297148 * successfulTokens + 0.5641706867646694 * tokenDistanceToBorder (EV: 1.0)
+
+ 
+          Game over. 
+         Player A/ Team 0: 3
+         Player B/ Team 1: 5 <--WINNER ON SERVER within 9 turns
+         Player C/ Team 2: 0
+
+ 
+--------------------------------------------------
+--------------------------------------------------
+Depth report.
+     Team 0:
+        Depth 7 was reached 5 times.
+        Depth 9 was reached 3 times.
+        Depth 10 was reached 1 times.
+        Fallback choosing random token happened 0 times.
+     Team 1:
+        Depth 7 was reached 4 times.
+        Depth 9 was reached 4 times.
+        Depth 10 was reached 1 times.
+        Fallback choosing random token happened 0 times.
+     Team 2:
+        Depth 7 was reached 6 times.
+        Depth 9 was reached 2 times.
+        Depth 10 was reached 0 times.
+        Fallback choosing random token happened 0 times.
+--------------------------------------------------
+--------------------------------------------------
+
+ 
+                  Evaluation. 
+                 Player A| Q = 0.18331567344686608 * activeTokens + 0.47381589670964586 * successfulTokens + 0.5591038415259374 * tokenDistanceToBorder (EV: 7.0)
+                 Player B| Q = 0.16196121990144843 * activeTokens + 0.5044626714297148 * successfulTokens + 0.5593706867646694 * tokenDistanceToBorder (EV: 42.6)
+                 Player C| Q = 0.2579812199014484 * activeTokens + 0.4036426714297148 * successfulTokens + 0.5641706867646694 * tokenDistanceToBorder (EV: 1.0)
+
+ 
+          Game over. 
+         Player A/ Team 1: 5 <--WINNER ON SERVER within 9 turns
+         Player B/ Team 2: 0
+         Player C/ Team 0: 3
+
+ 
+--------------------------------------------------
+--------------------------------------------------
+Depth report.
+     Team 1:
+        Depth 7 was reached 4 times.
+        Depth 9 was reached 4 times.
+        Depth 10 was reached 1 times.
+        Fallback choosing random token happened 0 times.
+     Team 2:
+        Depth 7 was reached 5 times.
+        Depth 9 was reached 3 times.
+        Depth 10 was reached 0 times.
+        Fallback choosing random token happened 0 times.
+     Team 0:
+        Depth 7 was reached 5 times.
+        Depth 9 was reached 3 times.
+        Depth 10 was reached 1 times.
+        Fallback choosing random token happened 0 times.
+--------------------------------------------------
+--------------------------------------------------
+
+ 
+                  Evaluation. 
+                 Player A| Q = 0.18331567344686608 * activeTokens + 0.47381589670964586 * successfulTokens + 0.5591038415259374 * tokenDistanceToBorder (EV: 42.6)
+                 Player B| Q = 0.16196121990144843 * activeTokens + 0.5044626714297148 * successfulTokens + 0.5593706867646694 * tokenDistanceToBorder (EV: 1.0)
+                 Player C| Q = 0.2579812199014484 * activeTokens + 0.4036426714297148 * successfulTokens + 0.5641706867646694 * tokenDistanceToBorder (EV: 7.0)
+
+ 
+Calculating medium parameter evaluation from 20 games played. 
+[2.0, 7.0, 1.0, 41.33333333333333, 42.6, 1.0, 1.0, 4.0, 42.6, 7.0, 1.0, 42.6, 1.0, 42.6, 7.0, 7.0, 42.6, 42.6, 7.0, 42.6] ----> Writing medium:Q = 0.18331567344686608 * activeTokens + 0.47381589670964586 * successfulTokens + 0.5591038415259374 * tokenDistanceToBorder (EV: 19.276666666666667)
+[39.333333333333336, 42.6, 42.86666666666667, 4.0, 1.0, 7.0, 42.86666666666667, 41.6, 1.0, 1.0, 7.0, 7.0, 7.0, 1.0, 42.6, 1.0, 1.0, 7.0, 42.6, 1.0] ----> Writing medium:Q = 0.16196121990144843 * activeTokens + 0.5044626714297148 * successfulTokens + 0.5593706867646694 * tokenDistanceToBorder (EV: 17.023333333333333)
+[6.0, 1.0, 7.0, 4.0, 7.0, 42.86666666666667, 7.0, 4.0, 7.0, 42.6, 42.86666666666667, 1.0, 42.86666666666667, 7.0, 1.0, 42.6, 7.0, 1.0, 1.0, 7.0] ----> Writing medium:Q = 0.2579812199014484 * activeTokens + 0.4036426714297148 * successfulTokens + 0.5641706867646694 * tokenDistanceToBorder (EV: 14.09)
+
+ 
+          Game over. 
+         Player A/ Team 2: 0
+         Player B/ Team 1: 5 <--WINNER ON SERVER within 9 turns
+         Player C/ Team 0: 3
+
+ 
+--------------------------------------------------
+--------------------------------------------------
+Depth report.
+     Team 2:
+        Depth 7 was reached 8 times.
+        Depth 9 was reached 1 times.
+        Depth 10 was reached 0 times.
+        Fallback choosing random token happened 0 times.
+     Team 1:
+        Depth 7 was reached 3 times.
+        Depth 9 was reached 6 times.
+        Depth 10 was reached 1 times.
+        Fallback choosing random token happened 0 times.
+     Team 0:
+        Depth 7 was reached 7 times.
+        Depth 9 was reached 3 times.
+        Depth 10 was reached 0 times.
+        Fallback choosing random token happened 0 times.
+--------------------------------------------------
+--------------------------------------------------
+
+ 
+                  Evaluation. 
+                 Player A| Q = 0.1721231276877053 * activeTokens + 0.4255188924028295 * successfulTokens + 0.5389737587622515 * tokenDistanceToBorder (EV: 1.0)
+                 Player B| Q = 0.27284121990144844 * activeTokens + 0.4073026714297148 * successfulTokens + 0.5456506867646694 * tokenDistanceToBorder (EV: 42.6)
+                 Player C| Q = 0.09868121990144843 * activeTokens + 0.4627426714297148 * successfulTokens + 0.6643706867646695 * tokenDistanceToBorder (EV: 7.0)
+
+ 
+          Game over. 
+         Player A/ Team 0: 5 <--WINNER ON SERVER within 13 turns
+         Player B/ Team 1: 4
+         Player C/ Team 2: 2
+
+ 
+--------------------------------------------------
+--------------------------------------------------
+Depth report.
+     Team 0:
+        Depth 7 was reached 5 times.
+        Depth 9 was reached 3 times.
+        Depth 10 was reached 5 times.
+        Fallback choosing random token happened 0 times.
+     Team 1:
+        Depth 7 was reached 2 times.
+        Depth 9 was reached 5 times.
+        Depth 10 was reached 5 times.
+        Fallback choosing random token happened 0 times.
+     Team 2:
+        Depth 7 was reached 4 times.
+        Depth 9 was reached 2 times.
+        Depth 10 was reached 6 times.
+        Fallback choosing random token happened 0 times.
+--------------------------------------------------
+--------------------------------------------------
+
+ 
+                  Evaluation. 
+                 Player A| Q = 0.1721231276877053 * activeTokens + 0.4255188924028295 * successfulTokens + 0.5389737587622515 * tokenDistanceToBorder (EV: 38.53333333333333)
+                 Player B| Q = 0.27284121990144844 * activeTokens + 0.4073026714297148 * successfulTokens + 0.5456506867646694 * tokenDistanceToBorder (EV: 6.0)
+                 Player C| Q = 0.09868121990144843 * activeTokens + 0.4627426714297148 * successfulTokens + 0.6643706867646695 * tokenDistanceToBorder (EV: 2.0)
+
+ 
+          Game over. 
+         Player A/ Team 1: 5 <--WINNER ON SERVER within 9 turns
+         Player B/ Team 0: 3
+         Player C/ Team 2: 0
+
+ 
+--------------------------------------------------
+--------------------------------------------------
+Depth report.
+     Team 1:
+        Depth 7 was reached 4 times.
+        Depth 9 was reached 4 times.
+        Depth 10 was reached 1 times.
+        Fallback choosing random token happened 0 times.
+     Team 0:
+        Depth 7 was reached 5 times.
+        Depth 9 was reached 3 times.
+        Depth 10 was reached 1 times.
+        Fallback choosing random token happened 0 times.
+     Team 2:
+        Depth 7 was reached 5 times.
+        Depth 9 was reached 3 times.
+        Depth 10 was reached 0 times.
+        Fallback choosing random token happened 0 times.
+--------------------------------------------------
+--------------------------------------------------
+
+ 
+                  Evaluation. 
+                 Player A| Q = 0.1721231276877053 * activeTokens + 0.4255188924028295 * successfulTokens + 0.5389737587622515 * tokenDistanceToBorder (EV: 42.6)
+                 Player B| Q = 0.27284121990144844 * activeTokens + 0.4073026714297148 * successfulTokens + 0.5456506867646694 * tokenDistanceToBorder (EV: 7.0)
+                 Player C| Q = 0.09868121990144843 * activeTokens + 0.4627426714297148 * successfulTokens + 0.6643706867646695 * tokenDistanceToBorder (EV: 1.0)
+
+ 
+          Game over. 
+         Player A/ Team 2: 0
+         Player B/ Team 1: 2
+         Player C/ Team 0: 6 <--WINNER ON SERVER within 9 turns
+
+ 
+--------------------------------------------------
+--------------------------------------------------
+Depth report.
+     Team 2:
+        Depth 7 was reached 8 times.
+        Depth 9 was reached 1 times.
+        Depth 10 was reached 0 times.
+        Fallback choosing random token happened 0 times.
+     Team 1:
+        Depth 7 was reached 3 times.
+        Depth 9 was reached 5 times.
+        Depth 10 was reached 1 times.
+        Fallback choosing random token happened 0 times.
+     Team 0:
+        Depth 7 was reached 7 times.
+        Depth 9 was reached 2 times.
+        Depth 10 was reached 1 times.
+        Fallback choosing random token happened 0 times.
+--------------------------------------------------
+--------------------------------------------------
+
+ 
+                  Evaluation. 
+                 Player A| Q = 0.1721231276877053 * activeTokens + 0.4255188924028295 * successfulTokens + 0.5389737587622515 * tokenDistanceToBorder (EV: 2.0)
+                 Player B| Q = 0.27284121990144844 * activeTokens + 0.4073026714297148 * successfulTokens + 0.5456506867646694 * tokenDistanceToBorder (EV: 6.0)
+                 Player C| Q = 0.09868121990144843 * activeTokens + 0.4627426714297148 * successfulTokens + 0.6643706867646695 * tokenDistanceToBorder (EV: 43.6)
+
+ 
+          Game over. 
+         Player A/ Team 0: 4
+         Player B/ Team 2: 5 <--WINNER ON SERVER within 11 turns
+         Player C/ Team 1: 1
+
+ 
+--------------------------------------------------
+--------------------------------------------------
+Depth report.
+     Team 0:
+        Depth 7 was reached 3 times.
+        Depth 9 was reached 2 times.
+        Depth 10 was reached 6 times.
+        Fallback choosing random token happened 0 times.
+     Team 2:
+        Depth 7 was reached 2 times.
+        Depth 9 was reached 0 times.
+        Depth 10 was reached 9 times.
+        Fallback choosing random token happened 0 times.
+     Team 1:
+        Depth 7 was reached 2 times.
+        Depth 9 was reached 2 times.
+        Depth 10 was reached 7 times.
+        Fallback choosing random token happened 0 times.
+--------------------------------------------------
+--------------------------------------------------
+
+ 
+                  Evaluation. 
+                 Player A| Q = 0.1721231276877053 * activeTokens + 0.4255188924028295 * successfulTokens + 0.5389737587622515 * tokenDistanceToBorder (EV: 7.0)
+                 Player B| Q = 0.27284121990144844 * activeTokens + 0.4073026714297148 * successfulTokens + 0.5456506867646694 * tokenDistanceToBorder (EV: 40.06666666666666)
+                 Player C| Q = 0.09868121990144843 * activeTokens + 0.4627426714297148 * successfulTokens + 0.6643706867646695 * tokenDistanceToBorder (EV: 1.0)
+
+ 
+          Game over. 
+         Player A/ Team 2: 0
+         Player B/ Team 1: 2
+         Player C/ Team 0: 6 <--WINNER ON SERVER within 9 turns
+
+ 
+--------------------------------------------------
+--------------------------------------------------
+Depth report.
+     Team 2:
+        Depth 7 was reached 8 times.
+        Depth 9 was reached 1 times.
+        Depth 10 was reached 0 times.
+        Fallback choosing random token happened 0 times.
+     Team 1:
+        Depth 7 was reached 3 times.
+        Depth 9 was reached 5 times.
+        Depth 10 was reached 1 times.
+        Fallback choosing random token happened 0 times.
+     Team 0:
+        Depth 7 was reached 7 times.
+        Depth 9 was reached 2 times.
+        Depth 10 was reached 1 times.
+        Fallback choosing random token happened 0 times.
+--------------------------------------------------
+--------------------------------------------------
+
+ 
+                  Evaluation. 
+                 Player A| Q = 0.1721231276877053 * activeTokens + 0.4255188924028295 * successfulTokens + 0.5389737587622515 * tokenDistanceToBorder (EV: 2.0)
+                 Player B| Q = 0.27284121990144844 * activeTokens + 0.4073026714297148 * successfulTokens + 0.5456506867646694 * tokenDistanceToBorder (EV: 6.0)
+                 Player C| Q = 0.09868121990144843 * activeTokens + 0.4627426714297148 * successfulTokens + 0.6643706867646695 * tokenDistanceToBorder (EV: 43.6)
+
+ 
+          Game over. 
+         Player A/ Team 1: 5 <--WINNER ON SERVER within 9 turns
+         Player B/ Team 0: 3
+         Player C/ Team 2: 0
+
+ 
+--------------------------------------------------
+--------------------------------------------------
+Depth report.
+     Team 1:
+        Depth 7 was reached 4 times.
+        Depth 9 was reached 4 times.
+        Depth 10 was reached 1 times.
+        Fallback choosing random token happened 0 times.
+     Team 0:
+        Depth 7 was reached 5 times.
+        Depth 9 was reached 3 times.
+        Depth 10 was reached 1 times.
+        Fallback choosing random token happened 0 times.
+     Team 2:
+        Depth 7 was reached 5 times.
+        Depth 9 was reached 3 times.
+        Depth 10 was reached 0 times.
+        Fallback choosing random token happened 0 times.
+--------------------------------------------------
+--------------------------------------------------
+
+ 
+                  Evaluation. 
+                 Player A| Q = 0.1721231276877053 * activeTokens + 0.4255188924028295 * successfulTokens + 0.5389737587622515 * tokenDistanceToBorder (EV: 42.6)
+                 Player B| Q = 0.27284121990144844 * activeTokens + 0.4073026714297148 * successfulTokens + 0.5456506867646694 * tokenDistanceToBorder (EV: 7.0)
+                 Player C| Q = 0.09868121990144843 * activeTokens + 0.4627426714297148 * successfulTokens + 0.6643706867646695 * tokenDistanceToBorder (EV: 1.0)
+
+ 
+          Game over. 
+         Player A/ Team 1: 5 <--WINNER ON SERVER within 9 turns
+         Player B/ Team 0: 3
+         Player C/ Team 2: 0
+
+ 
+--------------------------------------------------
+--------------------------------------------------
+Depth report.
+     Team 1:
+        Depth 7 was reached 4 times.
+        Depth 9 was reached 4 times.
+        Depth 10 was reached 1 times.
+        Fallback choosing random token happened 0 times.
+     Team 0:
+        Depth 7 was reached 7 times.
+        Depth 9 was reached 2 times.
+        Depth 10 was reached 0 times.
+        Fallback choosing random token happened 0 times.
+     Team 2:
+        Depth 7 was reached 7 times.
+        Depth 9 was reached 1 times.
+        Depth 10 was reached 0 times.
+        Fallback choosing random token happened 0 times.
+--------------------------------------------------
+--------------------------------------------------
+
+ 
+                  Evaluation. 
+                 Player A| Q = 0.1721231276877053 * activeTokens + 0.4255188924028295 * successfulTokens + 0.5389737587622515 * tokenDistanceToBorder (EV: 42.6)
+                 Player B| Q = 0.27284121990144844 * activeTokens + 0.4073026714297148 * successfulTokens + 0.5456506867646694 * tokenDistanceToBorder (EV: 7.0)
+                 Player C| Q = 0.09868121990144843 * activeTokens + 0.4627426714297148 * successfulTokens + 0.6643706867646695 * tokenDistanceToBorder (EV: 1.0)
+
+ 
+          Game over. 
+         Player A/ Team 2: 0
+         Player B/ Team 1: 2
+         Player C/ Team 0: 6 <--WINNER ON SERVER within 9 turns
+
+ 
+--------------------------------------------------
+--------------------------------------------------
+Depth report.
+     Team 2:
+        Depth 7 was reached 8 times.
+        Depth 9 was reached 1 times.
+        Depth 10 was reached 0 times.
+        Fallback choosing random token happened 0 times.
+     Team 1:
+        Depth 7 was reached 4 times.
+        Depth 9 was reached 4 times.
+        Depth 10 was reached 1 times.
+        Fallback choosing random token happened 0 times.
+     Team 0:
+        Depth 7 was reached 7 times.
+        Depth 9 was reached 2 times.
+        Depth 10 was reached 1 times.
+        Fallback choosing random token happened 0 times.
+--------------------------------------------------
+--------------------------------------------------
+
+ 
+                  Evaluation. 
+                 Player A| Q = 0.1721231276877053 * activeTokens + 0.4255188924028295 * successfulTokens + 0.5389737587622515 * tokenDistanceToBorder (EV: 2.0)
+                 Player B| Q = 0.27284121990144844 * activeTokens + 0.4073026714297148 * successfulTokens + 0.5456506867646694 * tokenDistanceToBorder (EV: 6.0)
+                 Player C| Q = 0.09868121990144843 * activeTokens + 0.4627426714297148 * successfulTokens + 0.6643706867646695 * tokenDistanceToBorder (EV: 43.6)
+
+ 
+          Game over. 
+         Player A/ Team 2: 0
+         Player B/ Team 1: 5 <--WINNER ON SERVER within 9 turns
+         Player C/ Team 0: 3
+
+ 
+--------------------------------------------------
+--------------------------------------------------
+Depth report.
+     Team 2:
+        Depth 7 was reached 8 times.
+        Depth 9 was reached 1 times.
+        Depth 10 was reached 0 times.
+        Fallback choosing random token happened 0 times.
+     Team 1:
+        Depth 7 was reached 4 times.
+        Depth 9 was reached 5 times.
+        Depth 10 was reached 1 times.
+        Fallback choosing random token happened 0 times.
+     Team 0:
+        Depth 7 was reached 7 times.
+        Depth 9 was reached 3 times.
+        Depth 10 was reached 0 times.
+        Fallback choosing random token happened 0 times.
+--------------------------------------------------
+--------------------------------------------------
+
+ 
+                  Evaluation. 
+                 Player A| Q = 0.1721231276877053 * activeTokens + 0.4255188924028295 * successfulTokens + 0.5389737587622515 * tokenDistanceToBorder (EV: 1.0)
+                 Player B| Q = 0.27284121990144844 * activeTokens + 0.4073026714297148 * successfulTokens + 0.5456506867646694 * tokenDistanceToBorder (EV: 42.6)
+                 Player C| Q = 0.09868121990144843 * activeTokens + 0.4627426714297148 * successfulTokens + 0.6643706867646695 * tokenDistanceToBorder (EV: 7.0)
+
+ 
+          Game over. 
+         Player A/ Team 0: 6 <--WINNER ON SERVER within 8 turns
+         Player B/ Team 2: 2
+         Player C/ Team 1: 1
+
+ 
+--------------------------------------------------
+--------------------------------------------------
+Depth report.
+     Team 0:
+        Depth 7 was reached 4 times.
+        Depth 9 was reached 2 times.
+        Depth 10 was reached 2 times.
+        Fallback choosing random token happened 0 times.
+     Team 2:
+        Depth 7 was reached 2 times.
+        Depth 9 was reached 2 times.
+        Depth 10 was reached 3 times.
+        Fallback choosing random token happened 0 times.
+     Team 1:
+        Depth 7 was reached 3 times.
+        Depth 9 was reached 2 times.
+        Depth 10 was reached 2 times.
+        Fallback choosing random token happened 0 times.
+--------------------------------------------------
+--------------------------------------------------
+
+ 
+                  Evaluation. 
+                 Player A| Q = 0.1721231276877053 * activeTokens + 0.4255188924028295 * successfulTokens + 0.5389737587622515 * tokenDistanceToBorder (EV: 42.86666666666667)
+                 Player B| Q = 0.27284121990144844 * activeTokens + 0.4073026714297148 * successfulTokens + 0.5456506867646694 * tokenDistanceToBorder (EV: 5.0)
+                 Player C| Q = 0.09868121990144843 * activeTokens + 0.4627426714297148 * successfulTokens + 0.6643706867646695 * tokenDistanceToBorder (EV: 3.0)
+
+ 
+          Game over. 
+         Player A/ Team 0: 5 <--WINNER ON SERVER within 13 turns
+         Player B/ Team 1: 4
+         Player C/ Team 2: 2
+
+ 
+--------------------------------------------------
+--------------------------------------------------
+Depth report.
+     Team 0:
+        Depth 7 was reached 5 times.
+        Depth 9 was reached 3 times.
+        Depth 10 was reached 5 times.
+        Fallback choosing random token happened 0 times.
+     Team 1:
+        Depth 7 was reached 1 times.
+        Depth 9 was reached 6 times.
+        Depth 10 was reached 5 times.
+        Fallback choosing random token happened 0 times.
+     Team 2:
+        Depth 7 was reached 4 times.
+        Depth 9 was reached 2 times.
+        Depth 10 was reached 6 times.
+        Fallback choosing random token happened 0 times.
+--------------------------------------------------
+--------------------------------------------------
+
+ 
+                  Evaluation. 
+                 Player A| Q = 0.1721231276877053 * activeTokens + 0.4255188924028295 * successfulTokens + 0.5389737587622515 * tokenDistanceToBorder (EV: 38.53333333333333)
+                 Player B| Q = 0.27284121990144844 * activeTokens + 0.4073026714297148 * successfulTokens + 0.5456506867646694 * tokenDistanceToBorder (EV: 6.0)
+                 Player C| Q = 0.09868121990144843 * activeTokens + 0.4627426714297148 * successfulTokens + 0.6643706867646695 * tokenDistanceToBorder (EV: 2.0)
+
+ 
+          Game over. 
+         Player A/ Team 0: 6 <--WINNER ON SERVER within 8 turns
+         Player B/ Team 2: 2
+         Player C/ Team 1: 1
+
+ 
+--------------------------------------------------
+--------------------------------------------------
+Depth report.
+     Team 0:
+        Depth 7 was reached 3 times.
+        Depth 9 was reached 3 times.
+        Depth 10 was reached 2 times.
+        Fallback choosing random token happened 0 times.
+     Team 2:
+        Depth 7 was reached 2 times.
+        Depth 9 was reached 2 times.
+        Depth 10 was reached 3 times.
+        Fallback choosing random token happened 0 times.
+     Team 1:
+        Depth 7 was reached 3 times.
+        Depth 9 was reached 2 times.
+        Depth 10 was reached 2 times.
+        Fallback choosing random token happened 0 times.
+--------------------------------------------------
+--------------------------------------------------
+
+ 
+                  Evaluation. 
+                 Player A| Q = 0.1721231276877053 * activeTokens + 0.4255188924028295 * successfulTokens + 0.5389737587622515 * tokenDistanceToBorder (EV: 42.86666666666667)
+                 Player B| Q = 0.27284121990144844 * activeTokens + 0.4073026714297148 * successfulTokens + 0.5456506867646694 * tokenDistanceToBorder (EV: 5.0)
+                 Player C| Q = 0.09868121990144843 * activeTokens + 0.4627426714297148 * successfulTokens + 0.6643706867646695 * tokenDistanceToBorder (EV: 3.0)
+
+ 
+          Game over. 
+         Player A/ Team 1: 5 <--WINNER ON SERVER within 9 turns
+         Player B/ Team 0: 3
+         Player C/ Team 2: 0
+
+ 
+--------------------------------------------------
+--------------------------------------------------
+Depth report.
+     Team 1:
+        Depth 7 was reached 4 times.
+        Depth 9 was reached 4 times.
+        Depth 10 was reached 1 times.
+        Fallback choosing random token happened 0 times.
+     Team 0:
+        Depth 7 was reached 5 times.
+        Depth 9 was reached 3 times.
+        Depth 10 was reached 1 times.
+        Fallback choosing random token happened 0 times.
+     Team 2:
+        Depth 7 was reached 6 times.
+        Depth 9 was reached 2 times.
+        Depth 10 was reached 0 times.
+        Fallback choosing random token happened 0 times.
+--------------------------------------------------
+--------------------------------------------------
+
+ 
+                  Evaluation. 
+                 Player A| Q = 0.1721231276877053 * activeTokens + 0.4255188924028295 * successfulTokens + 0.5389737587622515 * tokenDistanceToBorder (EV: 42.6)
+                 Player B| Q = 0.27284121990144844 * activeTokens + 0.4073026714297148 * successfulTokens + 0.5456506867646694 * tokenDistanceToBorder (EV: 7.0)
+                 Player C| Q = 0.09868121990144843 * activeTokens + 0.4627426714297148 * successfulTokens + 0.6643706867646695 * tokenDistanceToBorder (EV: 1.0)
+
+ 
+          Game over. 
+         Player A/ Team 0: 5 <--WINNER ON SERVER within 13 turns
+         Player B/ Team 1: 4
+         Player C/ Team 2: 2
+
+ 
+--------------------------------------------------
+--------------------------------------------------
+Depth report.
+     Team 0:
+        Depth 7 was reached 5 times.
+        Depth 9 was reached 3 times.
+        Depth 10 was reached 5 times.
+        Fallback choosing random token happened 0 times.
+     Team 1:
+        Depth 7 was reached 2 times.
+        Depth 9 was reached 5 times.
+        Depth 10 was reached 5 times.
+        Fallback choosing random token happened 0 times.
+     Team 2:
+        Depth 7 was reached 4 times.
+        Depth 9 was reached 2 times.
+        Depth 10 was reached 6 times.
+        Fallback choosing random token happened 0 times.
+--------------------------------------------------
+--------------------------------------------------
+
+ 
+                  Evaluation. 
+                 Player A| Q = 0.1721231276877053 * activeTokens + 0.4255188924028295 * successfulTokens + 0.5389737587622515 * tokenDistanceToBorder (EV: 38.53333333333333)
+                 Player B| Q = 0.27284121990144844 * activeTokens + 0.4073026714297148 * successfulTokens + 0.5456506867646694 * tokenDistanceToBorder (EV: 6.0)
+                 Player C| Q = 0.09868121990144843 * activeTokens + 0.4627426714297148 * successfulTokens + 0.6643706867646695 * tokenDistanceToBorder (EV: 2.0)
+
+ 
+          Game over. 
+         Player A/ Team 2: 0
+         Player B/ Team 1: 5 <--WINNER ON SERVER within 9 turns
+         Player C/ Team 0: 3
+
+ 
+--------------------------------------------------
+--------------------------------------------------
+Depth report.
+     Team 2:
+        Depth 7 was reached 8 times.
+        Depth 9 was reached 1 times.
+        Depth 10 was reached 0 times.
+        Fallback choosing random token happened 0 times.
+     Team 1:
+        Depth 7 was reached 3 times.
+        Depth 9 was reached 6 times.
+        Depth 10 was reached 1 times.
+        Fallback choosing random token happened 0 times.
+     Team 0:
+        Depth 7 was reached 7 times.
+        Depth 9 was reached 3 times.
+        Depth 10 was reached 0 times.
+        Fallback choosing random token happened 0 times.
+--------------------------------------------------
+--------------------------------------------------
+
+ 
+                  Evaluation. 
+                 Player A| Q = 0.1721231276877053 * activeTokens + 0.4255188924028295 * successfulTokens + 0.5389737587622515 * tokenDistanceToBorder (EV: 1.0)
+                 Player B| Q = 0.27284121990144844 * activeTokens + 0.4073026714297148 * successfulTokens + 0.5456506867646694 * tokenDistanceToBorder (EV: 42.6)
+                 Player C| Q = 0.09868121990144843 * activeTokens + 0.4627426714297148 * successfulTokens + 0.6643706867646695 * tokenDistanceToBorder (EV: 7.0)
+
+ 
+          Game over. 
+         Player A/ Team 0: 5 <--WINNER ON SERVER within 13 turns
+         Player B/ Team 1: 4
+         Player C/ Team 2: 2
+
+ 
+--------------------------------------------------
+--------------------------------------------------
+Depth report.
+     Team 0:
+        Depth 7 was reached 5 times.
+        Depth 9 was reached 3 times.
+        Depth 10 was reached 5 times.
+        Fallback choosing random token happened 0 times.
+     Team 1:
+        Depth 7 was reached 2 times.
+        Depth 9 was reached 5 times.
+        Depth 10 was reached 5 times.
+        Fallback choosing random token happened 0 times.
+     Team 2:
+        Depth 7 was reached 4 times.
+        Depth 9 was reached 2 times.
+        Depth 10 was reached 6 times.
+        Fallback choosing random token happened 0 times.
+--------------------------------------------------
+--------------------------------------------------
+
+ 
+                  Evaluation. 
+                 Player A| Q = 0.1721231276877053 * activeTokens + 0.4255188924028295 * successfulTokens + 0.5389737587622515 * tokenDistanceToBorder (EV: 38.53333333333333)
+                 Player B| Q = 0.27284121990144844 * activeTokens + 0.4073026714297148 * successfulTokens + 0.5456506867646694 * tokenDistanceToBorder (EV: 6.0)
+                 Player C| Q = 0.09868121990144843 * activeTokens + 0.4627426714297148 * successfulTokens + 0.6643706867646695 * tokenDistanceToBorder (EV: 2.0)
+
+ 
+          Game over. 
+         Player A/ Team 0: 4
+         Player B/ Team 2: 5 <--WINNER ON SERVER within 11 turns
+         Player C/ Team 1: 1
+
+ 
+--------------------------------------------------
+--------------------------------------------------
+Depth report.
+     Team 0:
+        Depth 7 was reached 3 times.
+        Depth 9 was reached 2 times.
+        Depth 10 was reached 6 times.
+        Fallback choosing random token happened 0 times.
+     Team 2:
+        Depth 7 was reached 2 times.
+        Depth 9 was reached 0 times.
+        Depth 10 was reached 9 times.
+        Fallback choosing random token happened 0 times.
+     Team 1:
+        Depth 7 was reached 2 times.
+        Depth 9 was reached 2 times.
+        Depth 10 was reached 7 times.
+        Fallback choosing random token happened 0 times.
+--------------------------------------------------
+--------------------------------------------------
+
+ 
+                  Evaluation. 
+                 Player A| Q = 0.1721231276877053 * activeTokens + 0.4255188924028295 * successfulTokens + 0.5389737587622515 * tokenDistanceToBorder (EV: 7.0)
+                 Player B| Q = 0.27284121990144844 * activeTokens + 0.4073026714297148 * successfulTokens + 0.5456506867646694 * tokenDistanceToBorder (EV: 40.06666666666666)
+                 Player C| Q = 0.09868121990144843 * activeTokens + 0.4627426714297148 * successfulTokens + 0.6643706867646695 * tokenDistanceToBorder (EV: 1.0)
+
+ 
+          Game over. 
+         Player A/ Team 2: 5 <--WINNER ON SERVER within 13 turns
+         Player B/ Team 0: 4
+         Player C/ Team 1: 4
+
+ 
+--------------------------------------------------
+--------------------------------------------------
+Depth report.
+     Team 2:
+        Depth 7 was reached 4 times.
+        Depth 9 was reached 1 times.
+        Depth 10 was reached 8 times.
+        Fallback choosing random token happened 0 times.
+     Team 0:
+        Depth 7 was reached 4 times.
+        Depth 9 was reached 4 times.
+        Depth 10 was reached 5 times.
+        Fallback choosing random token happened 0 times.
+     Team 1:
+        Depth 7 was reached 2 times.
+        Depth 9 was reached 4 times.
+        Depth 10 was reached 7 times.
+        Fallback choosing random token happened 0 times.
+--------------------------------------------------
+--------------------------------------------------
+
+ 
+                  Evaluation. 
+                 Player A| Q = 0.1721231276877053 * activeTokens + 0.4255188924028295 * successfulTokens + 0.5389737587622515 * tokenDistanceToBorder (EV: 36.53333333333333)
+                 Player B| Q = 0.27284121990144844 * activeTokens + 0.4073026714297148 * successfulTokens + 0.5456506867646694 * tokenDistanceToBorder (EV: 4.0)
+                 Player C| Q = 0.09868121990144843 * activeTokens + 0.4627426714297148 * successfulTokens + 0.6643706867646695 * tokenDistanceToBorder (EV: 4.0)
+
+ 
+          Game over. 
+         Player A/ Team 2: 5 <--WINNER ON SERVER within 13 turns
+         Player B/ Team 0: 4
+         Player C/ Team 1: 4
+
+ 
+--------------------------------------------------
+--------------------------------------------------
+Depth report.
+     Team 2:
+        Depth 7 was reached 4 times.
+        Depth 9 was reached 1 times.
+        Depth 10 was reached 8 times.
+        Fallback choosing random token happened 0 times.
+     Team 0:
+        Depth 7 was reached 4 times.
+        Depth 9 was reached 4 times.
+        Depth 10 was reached 5 times.
+        Fallback choosing random token happened 0 times.
+     Team 1:
+        Depth 7 was reached 2 times.
+        Depth 9 was reached 4 times.
+        Depth 10 was reached 7 times.
+        Fallback choosing random token happened 0 times.
+--------------------------------------------------
+--------------------------------------------------
+
+ 
+                  Evaluation. 
+                 Player A| Q = 0.1721231276877053 * activeTokens + 0.4255188924028295 * successfulTokens + 0.5389737587622515 * tokenDistanceToBorder (EV: 36.53333333333333)
+                 Player B| Q = 0.27284121990144844 * activeTokens + 0.4073026714297148 * successfulTokens + 0.5456506867646694 * tokenDistanceToBorder (EV: 4.0)
+                 Player C| Q = 0.09868121990144843 * activeTokens + 0.4627426714297148 * successfulTokens + 0.6643706867646695 * tokenDistanceToBorder (EV: 4.0)
+
+ 
+Calculating medium parameter evaluation from 20 games played. 
+[1.0, 38.53333333333333, 42.6, 2.0, 7.0, 2.0, 42.6, 42.6, 2.0, 1.0, 42.86666666666667, 38.53333333333333, 42.86666666666667, 42.6, 38.53333333333333, 1.0, 38.53333333333333, 7.0, 36.53333333333333, 36.53333333333333] ----> Writing medium:Q = 0.1721231276877053 * activeTokens + 0.4255188924028295 * successfulTokens + 0.5389737587622515 * tokenDistanceToBorder (EV: 25.316666666666663)
+[42.6, 6.0, 7.0, 6.0, 40.06666666666666, 6.0, 7.0, 7.0, 6.0, 42.6, 5.0, 6.0, 5.0, 7.0, 6.0, 42.6, 6.0, 40.06666666666666, 4.0, 4.0] ----> Writing medium:Q = 0.27284121990144844 * activeTokens + 0.4073026714297148 * successfulTokens + 0.5456506867646694 * tokenDistanceToBorder (EV: 14.796666666666663)
+[7.0, 2.0, 1.0, 43.6, 1.0, 43.6, 1.0, 1.0, 43.6, 7.0, 3.0, 2.0, 3.0, 1.0, 2.0, 7.0, 2.0, 1.0, 4.0, 4.0] ----> Writing medium:Q = 0.09868121990144843 * activeTokens + 0.4627426714297148 * successfulTokens + 0.6643706867646695 * tokenDistanceToBorder (EV: 8.99)
+
+ 
+!!!!!!!!!!!!!!!!!!!!!!!!!!!ERROR DETECTED!!!!!!!!!!!!!!!!!!!!!!!!!. 
+
+
+You got kicked because your move was invalid!
+
+
+
+ 
+INFO: Team 2 lost prematurely (probably because it had no more tokens to play). 
+
+
+ 
+          Game over. 
+         Player A/ Team 1: 3
+         Player B/ Team 0: 5 <--WINNER ON SERVER within 12 turns
+         Player C/ Team 2: 1
+
+ 
+--------------------------------------------------
+--------------------------------------------------
+Depth report.
+     Team 1:
+        Depth 7 was reached 3 times.
+        Depth 9 was reached 3 times.
+        Depth 10 was reached 6 times.
+        Fallback choosing random token happened 0 times.
+     Team 0:
+        Depth 7 was reached 4 times.
+        Depth 9 was reached 4 times.
+        Depth 10 was reached 5 times.
+        Fallback choosing random token happened 0 times.
+     Team 2:
+        Depth 7 was reached 4 times.
+        Depth 9 was reached 1 times.
+        Depth 10 was reached 5 times.
+        Fallback choosing random token happened 0 times.
+--------------------------------------------------
+--------------------------------------------------
+
+ 
+                  Evaluation. 
+                 Player A| Q = 0.17178121990144843 * activeTokens + 0.4311426714297148 * successfulTokens + 0.6228706867646694 * tokenDistanceToBorder (EV: 6.0)
+                 Player B| Q = 0.18331567344686608 * activeTokens + 0.47381589670964586 * successfulTokens + 0.5591038415259374 * tokenDistanceToBorder (EV: 40.8)
+                 Player C| Q = 0.1721231276877053 * activeTokens + 0.4255188924028295 * successfulTokens + 0.5389737587622515 * tokenDistanceToBorder (EV: 1.0)
+
+ 
+          Game over. 
+         Player A/ Team 2: 0
+         Player B/ Team 0: 3
+         Player C/ Team 1: 5 <--WINNER ON SERVER within 8 turns
+
+ 
+--------------------------------------------------
+--------------------------------------------------
+Depth report.
+     Team 2:
+        Depth 7 was reached 7 times.
+        Depth 9 was reached 1 times.
+        Depth 10 was reached 0 times.
+        Fallback choosing random token happened 0 times.
+     Team 0:
+        Depth 7 was reached 7 times.
+        Depth 9 was reached 2 times.
+        Depth 10 was reached 0 times.
+        Fallback choosing random token happened 0 times.
+     Team 1:
+        Depth 7 was reached 4 times.
+        Depth 9 was reached 4 times.
+        Depth 10 was reached 1 times.
+        Fallback choosing random token happened 0 times.
+--------------------------------------------------
+--------------------------------------------------
+
+ 
+                  Evaluation. 
+                 Player A| Q = 0.17178121990144843 * activeTokens + 0.4311426714297148 * successfulTokens + 0.6228706867646694 * tokenDistanceToBorder (EV: 1.0)
+                 Player B| Q = 0.18331567344686608 * activeTokens + 0.47381589670964586 * successfulTokens + 0.5591038415259374 * tokenDistanceToBorder (EV: 7.0)
+                 Player C| Q = 0.1721231276877053 * activeTokens + 0.4255188924028295 * successfulTokens + 0.5389737587622515 * tokenDistanceToBorder (EV: 42.86666666666667)
+
+ 
+          Game over. 
+         Player A/ Team 2: 0
+         Player B/ Team 0: 3
+         Player C/ Team 1: 5 <--WINNER ON SERVER within 8 turns
+
+ 
+--------------------------------------------------
+--------------------------------------------------
+Depth report.
+     Team 2:
+        Depth 7 was reached 7 times.
+        Depth 9 was reached 1 times.
+        Depth 10 was reached 0 times.
+        Fallback choosing random token happened 0 times.
+     Team 0:
+        Depth 7 was reached 7 times.
+        Depth 9 was reached 2 times.
+        Depth 10 was reached 0 times.
+        Fallback choosing random token happened 0 times.
+     Team 1:
+        Depth 7 was reached 5 times.
+        Depth 9 was reached 3 times.
+        Depth 10 was reached 1 times.
+        Fallback choosing random token happened 0 times.
+--------------------------------------------------
+--------------------------------------------------
+
+ 
+                  Evaluation. 
+                 Player A| Q = 0.17178121990144843 * activeTokens + 0.4311426714297148 * successfulTokens + 0.6228706867646694 * tokenDistanceToBorder (EV: 1.0)
+                 Player B| Q = 0.18331567344686608 * activeTokens + 0.47381589670964586 * successfulTokens + 0.5591038415259374 * tokenDistanceToBorder (EV: 7.0)
+                 Player C| Q = 0.1721231276877053 * activeTokens + 0.4255188924028295 * successfulTokens + 0.5389737587622515 * tokenDistanceToBorder (EV: 42.86666666666667)
+
+ 
+          Game over. 
+         Player A/ Team 0: 5 <--WINNER ON SERVER within 9 turns
+         Player B/ Team 2: 2
+         Player C/ Team 1: 0
+
+ 
+--------------------------------------------------
+--------------------------------------------------
+Depth report.
+     Team 0:
+        Depth 7 was reached 3 times.
+        Depth 9 was reached 3 times.
+        Depth 10 was reached 3 times.
+        Fallback choosing random token happened 0 times.
+     Team 2:
+        Depth 7 was reached 4 times.
+        Depth 9 was reached 2 times.
+        Depth 10 was reached 2 times.
+        Fallback choosing random token happened 0 times.
+     Team 1:
+        Depth 7 was reached 3 times.
+        Depth 9 was reached 3 times.
+        Depth 10 was reached 2 times.
+        Fallback choosing random token happened 0 times.
+--------------------------------------------------
+--------------------------------------------------
+
+ 
+                  Evaluation. 
+                 Player A| Q = 0.17178121990144843 * activeTokens + 0.4311426714297148 * successfulTokens + 0.6228706867646694 * tokenDistanceToBorder (EV: 43.6)
+                 Player B| Q = 0.18331567344686608 * activeTokens + 0.47381589670964586 * successfulTokens + 0.5591038415259374 * tokenDistanceToBorder (EV: 6.0)
+                 Player C| Q = 0.1721231276877053 * activeTokens + 0.4255188924028295 * successfulTokens + 0.5389737587622515 * tokenDistanceToBorder (EV: 2.0)
+
+ 
+          Game over. 
+         Player A/ Team 0: 5 <--WINNER ON SERVER within 8 turns
+         Player B/ Team 2: 0
+         Player C/ Team 1: 2
+
+ 
+--------------------------------------------------
+--------------------------------------------------
+Depth report.
+     Team 0:
+        Depth 7 was reached 3 times.
+        Depth 9 was reached 2 times.
+        Depth 10 was reached 3 times.
+        Fallback choosing random token happened 0 times.
+     Team 2:
+        Depth 7 was reached 2 times.
+        Depth 9 was reached 3 times.
+        Depth 10 was reached 2 times.
+        Fallback choosing random token happened 0 times.
+     Team 1:
+        Depth 7 was reached 4 times.
+        Depth 9 was reached 1 times.
+        Depth 10 was reached 2 times.
+        Fallback choosing random token happened 0 times.
+--------------------------------------------------
+--------------------------------------------------
+
+ 
+                  Evaluation. 
+                 Player A| Q = 0.17178121990144843 * activeTokens + 0.4311426714297148 * successfulTokens + 0.6228706867646694 * tokenDistanceToBorder (EV: 43.86666666666667)
+                 Player B| Q = 0.18331567344686608 * activeTokens + 0.47381589670964586 * successfulTokens + 0.5591038415259374 * tokenDistanceToBorder (EV: 2.0)
+                 Player C| Q = 0.1721231276877053 * activeTokens + 0.4255188924028295 * successfulTokens + 0.5389737587622515 * tokenDistanceToBorder (EV: 6.0)
+
+ 
+!!!!!!!!!!!!!!!!!!!!!!!!!!!ERROR DETECTED!!!!!!!!!!!!!!!!!!!!!!!!!. 
+
+
+You got kicked because your move was invalid!
+
+
+
+ 
+INFO: Team 2 lost prematurely (probably because it had no more tokens to play). 
+
+
+ 
+          Game over. 
+         Player A/ Team 1: 3
+         Player B/ Team 0: 5 <--WINNER ON SERVER within 12 turns
+         Player C/ Team 2: 1
+
+ 
+--------------------------------------------------
+--------------------------------------------------
+Depth report.
+     Team 1:
+        Depth 7 was reached 3 times.
+        Depth 9 was reached 3 times.
+        Depth 10 was reached 6 times.
+        Fallback choosing random token happened 0 times.
+     Team 0:
+        Depth 7 was reached 4 times.
+        Depth 9 was reached 4 times.
+        Depth 10 was reached 5 times.
+        Fallback choosing random token happened 0 times.
+     Team 2:
+        Depth 7 was reached 4 times.
+        Depth 9 was reached 1 times.
+        Depth 10 was reached 5 times.
+        Fallback choosing random token happened 0 times.
+--------------------------------------------------
+--------------------------------------------------
+
+ 
+                  Evaluation. 
+                 Player A| Q = 0.17178121990144843 * activeTokens + 0.4311426714297148 * successfulTokens + 0.6228706867646694 * tokenDistanceToBorder (EV: 6.0)
+                 Player B| Q = 0.18331567344686608 * activeTokens + 0.47381589670964586 * successfulTokens + 0.5591038415259374 * tokenDistanceToBorder (EV: 40.8)
+                 Player C| Q = 0.1721231276877053 * activeTokens + 0.4255188924028295 * successfulTokens + 0.5389737587622515 * tokenDistanceToBorder (EV: 1.0)
+
+ 
+!!!!!!!!!!!!!!!!!!!!!!!!!!!ERROR DETECTED!!!!!!!!!!!!!!!!!!!!!!!!!. 
+
+
+You got kicked because your move was invalid!
+
+
+
+ 
+INFO: Team 2 lost prematurely (probably because it had no more tokens to play). 
+
+
+ 
+          Game over. 
+         Player A/ Team 1: 3
+         Player B/ Team 0: 5 <--WINNER ON SERVER within 12 turns
+         Player C/ Team 2: 1
+
+ 
+--------------------------------------------------
+--------------------------------------------------
+Depth report.
+     Team 1:
+        Depth 7 was reached 3 times.
+        Depth 9 was reached 3 times.
+        Depth 10 was reached 6 times.
+        Fallback choosing random token happened 0 times.
+     Team 0:
+        Depth 7 was reached 5 times.
+        Depth 9 was reached 3 times.
+        Depth 10 was reached 5 times.
+        Fallback choosing random token happened 0 times.
+     Team 2:
+        Depth 7 was reached 4 times.
+        Depth 9 was reached 1 times.
+        Depth 10 was reached 5 times.
+        Fallback choosing random token happened 0 times.
+--------------------------------------------------
+--------------------------------------------------
+
+ 
+                  Evaluation. 
+                 Player A| Q = 0.17178121990144843 * activeTokens + 0.4311426714297148 * successfulTokens + 0.6228706867646694 * tokenDistanceToBorder (EV: 6.0)
+                 Player B| Q = 0.18331567344686608 * activeTokens + 0.47381589670964586 * successfulTokens + 0.5591038415259374 * tokenDistanceToBorder (EV: 40.8)
+                 Player C| Q = 0.1721231276877053 * activeTokens + 0.4255188924028295 * successfulTokens + 0.5389737587622515 * tokenDistanceToBorder (EV: 1.0)
+
+ 
+          Game over. 
+         Player A/ Team 2: 0
+         Player B/ Team 1: 5 <--WINNER ON SERVER within 8 turns
+         Player C/ Team 0: 3
+
+ 
+--------------------------------------------------
+--------------------------------------------------
+Depth report.
+     Team 2:
+        Depth 7 was reached 5 times.
+        Depth 9 was reached 3 times.
+        Depth 10 was reached 0 times.
+        Fallback choosing random token happened 0 times.
+     Team 1:
+        Depth 7 was reached 3 times.
+        Depth 9 was reached 5 times.
+        Depth 10 was reached 1 times.
+        Fallback choosing random token happened 0 times.
+     Team 0:
+        Depth 7 was reached 4 times.
+        Depth 9 was reached 4 times.
+        Depth 10 was reached 1 times.
+        Fallback choosing random token happened 0 times.
+--------------------------------------------------
+--------------------------------------------------
+
+ 
+                  Evaluation. 
+                 Player A| Q = 0.17178121990144843 * activeTokens + 0.4311426714297148 * successfulTokens + 0.6228706867646694 * tokenDistanceToBorder (EV: 1.0)
+                 Player B| Q = 0.18331567344686608 * activeTokens + 0.47381589670964586 * successfulTokens + 0.5591038415259374 * tokenDistanceToBorder (EV: 42.86666666666667)
+                 Player C| Q = 0.1721231276877053 * activeTokens + 0.4255188924028295 * successfulTokens + 0.5389737587622515 * tokenDistanceToBorder (EV: 7.0)
+
+ 
+          Game over. 
+         Player A/ Team 0: 5 <--WINNER ON SERVER within 8 turns
+         Player B/ Team 2: 0
+         Player C/ Team 1: 2
+
+ 
+--------------------------------------------------
+--------------------------------------------------
+Depth report.
+     Team 0:
+        Depth 7 was reached 3 times.
+        Depth 9 was reached 2 times.
+        Depth 10 was reached 3 times.
+        Fallback choosing random token happened 0 times.
+     Team 2:
+        Depth 7 was reached 2 times.
+        Depth 9 was reached 3 times.
+        Depth 10 was reached 2 times.
+        Fallback choosing random token happened 0 times.
+     Team 1:
+        Depth 7 was reached 3 times.
+        Depth 9 was reached 2 times.
+        Depth 10 was reached 2 times.
+        Fallback choosing random token happened 0 times.
+--------------------------------------------------
+--------------------------------------------------
+
+ 
+                  Evaluation. 
+                 Player A| Q = 0.17178121990144843 * activeTokens + 0.4311426714297148 * successfulTokens + 0.6228706867646694 * tokenDistanceToBorder (EV: 43.86666666666667)
+                 Player B| Q = 0.18331567344686608 * activeTokens + 0.47381589670964586 * successfulTokens + 0.5591038415259374 * tokenDistanceToBorder (EV: 2.0)
+                 Player C| Q = 0.1721231276877053 * activeTokens + 0.4255188924028295 * successfulTokens + 0.5389737587622515 * tokenDistanceToBorder (EV: 6.0)
+
+ 
+          Game over. 
+         Player A/ Team 0: 5 <--WINNER ON SERVER within 8 turns
+         Player B/ Team 1: 2
+         Player C/ Team 2: 0
+
+ 
+--------------------------------------------------
+--------------------------------------------------
+Depth report.
+     Team 0:
+        Depth 7 was reached 3 times.
+        Depth 9 was reached 2 times.
+        Depth 10 was reached 3 times.
+        Fallback choosing random token happened 0 times.
+     Team 1:
+        Depth 7 was reached 3 times.
+        Depth 9 was reached 2 times.
+        Depth 10 was reached 2 times.
+        Fallback choosing random token happened 0 times.
+     Team 2:
+        Depth 7 was reached 2 times.
+        Depth 9 was reached 3 times.
+        Depth 10 was reached 2 times.
+        Fallback choosing random token happened 0 times.
+--------------------------------------------------
+--------------------------------------------------
+
+ 
+                  Evaluation. 
+                 Player A| Q = 0.17178121990144843 * activeTokens + 0.4311426714297148 * successfulTokens + 0.6228706867646694 * tokenDistanceToBorder (EV: 43.86666666666667)
+                 Player B| Q = 0.18331567344686608 * activeTokens + 0.47381589670964586 * successfulTokens + 0.5591038415259374 * tokenDistanceToBorder (EV: 6.0)
+                 Player C| Q = 0.1721231276877053 * activeTokens + 0.4255188924028295 * successfulTokens + 0.5389737587622515 * tokenDistanceToBorder (EV: 2.0)
+
+ 
+          Game over. 
+         Player A/ Team 1: 5 <--WINNER ON SERVER within 12 turns
+         Player B/ Team 2: 1
+         Player C/ Team 0: 4
+
+ 
+--------------------------------------------------
+--------------------------------------------------
+Depth report.
+     Team 1:
+        Depth 7 was reached 3 times.
+        Depth 9 was reached 4 times.
+        Depth 10 was reached 5 times.
+        Fallback choosing random token happened 0 times.
+     Team 2:
+        Depth 7 was reached 4 times.
+        Depth 9 was reached 1 times.
+        Depth 10 was reached 6 times.
+        Fallback choosing random token happened 0 times.
+     Team 0:
+        Depth 7 was reached 5 times.
+        Depth 9 was reached 3 times.
+        Depth 10 was reached 4 times.
+        Fallback choosing random token happened 0 times.
+--------------------------------------------------
+--------------------------------------------------
+
+ 
+                  Evaluation. 
+                 Player A| Q = 0.17178121990144843 * activeTokens + 0.4311426714297148 * successfulTokens + 0.6228706867646694 * tokenDistanceToBorder (EV: 39.8)
+                 Player B| Q = 0.18331567344686608 * activeTokens + 0.47381589670964586 * successfulTokens + 0.5591038415259374 * tokenDistanceToBorder (EV: 1.0)
+                 Player C| Q = 0.1721231276877053 * activeTokens + 0.4255188924028295 * successfulTokens + 0.5389737587622515 * tokenDistanceToBorder (EV: 7.0)
+
+ 
+          Game over. 
+         Player A/ Team 0: 5 <--WINNER ON SERVER within 8 turns
+         Player B/ Team 1: 2
+         Player C/ Team 2: 0
+
+ 
+--------------------------------------------------
+--------------------------------------------------
+Depth report.
+     Team 0:
+        Depth 7 was reached 3 times.
+        Depth 9 was reached 2 times.
+        Depth 10 was reached 3 times.
+        Fallback choosing random token happened 0 times.
+     Team 1:
+        Depth 7 was reached 3 times.
+        Depth 9 was reached 2 times.
+        Depth 10 was reached 2 times.
+        Fallback choosing random token happened 0 times.
+     Team 2:
+        Depth 7 was reached 2 times.
+        Depth 9 was reached 3 times.
+        Depth 10 was reached 2 times.
+        Fallback choosing random token happened 0 times.
+--------------------------------------------------
+--------------------------------------------------
+
+ 
+                  Evaluation. 
+                 Player A| Q = 0.17178121990144843 * activeTokens + 0.4311426714297148 * successfulTokens + 0.6228706867646694 * tokenDistanceToBorder (EV: 43.86666666666667)
+                 Player B| Q = 0.18331567344686608 * activeTokens + 0.47381589670964586 * successfulTokens + 0.5591038415259374 * tokenDistanceToBorder (EV: 6.0)
+                 Player C| Q = 0.1721231276877053 * activeTokens + 0.4255188924028295 * successfulTokens + 0.5389737587622515 * tokenDistanceToBorder (EV: 2.0)
+
+ 
+          Game over. 
+         Player A/ Team 2: 0
+         Player B/ Team 1: 5 <--WINNER ON SERVER within 8 turns
+         Player C/ Team 0: 3
+
+ 
+--------------------------------------------------
+--------------------------------------------------
+Depth report.
+     Team 2:
+        Depth 7 was reached 5 times.
+        Depth 9 was reached 3 times.
+        Depth 10 was reached 0 times.
+        Fallback choosing random token happened 0 times.
+     Team 1:
+        Depth 7 was reached 3 times.
+        Depth 9 was reached 5 times.
+        Depth 10 was reached 1 times.
+        Fallback choosing random token happened 0 times.
+     Team 0:
+        Depth 7 was reached 6 times.
+        Depth 9 was reached 3 times.
+        Depth 10 was reached 0 times.
+        Fallback choosing random token happened 0 times.
+--------------------------------------------------
+--------------------------------------------------
+
+ 
+                  Evaluation. 
+                 Player A| Q = 0.17178121990144843 * activeTokens + 0.4311426714297148 * successfulTokens + 0.6228706867646694 * tokenDistanceToBorder (EV: 1.0)
+                 Player B| Q = 0.18331567344686608 * activeTokens + 0.47381589670964586 * successfulTokens + 0.5591038415259374 * tokenDistanceToBorder (EV: 42.86666666666667)
+                 Player C| Q = 0.1721231276877053 * activeTokens + 0.4255188924028295 * successfulTokens + 0.5389737587622515 * tokenDistanceToBorder (EV: 7.0)
+
+ 
+          Game over. 
+         Player A/ Team 2: 0
+         Player B/ Team 0: 3
+         Player C/ Team 1: 5 <--WINNER ON SERVER within 8 turns
+
+ 
+--------------------------------------------------
+--------------------------------------------------
+Depth report.
+     Team 2:
+        Depth 7 was reached 5 times.
+        Depth 9 was reached 3 times.
+        Depth 10 was reached 0 times.
+        Fallback choosing random token happened 0 times.
+     Team 0:
+        Depth 7 was reached 5 times.
+        Depth 9 was reached 3 times.
+        Depth 10 was reached 1 times.
+        Fallback choosing random token happened 0 times.
+     Team 1:
+        Depth 7 was reached 4 times.
+        Depth 9 was reached 4 times.
+        Depth 10 was reached 1 times.
+        Fallback choosing random token happened 0 times.
+--------------------------------------------------
+--------------------------------------------------
+
+ 
+                  Evaluation. 
+                 Player A| Q = 0.17178121990144843 * activeTokens + 0.4311426714297148 * successfulTokens + 0.6228706867646694 * tokenDistanceToBorder (EV: 1.0)
+                 Player B| Q = 0.18331567344686608 * activeTokens + 0.47381589670964586 * successfulTokens + 0.5591038415259374 * tokenDistanceToBorder (EV: 7.0)
+                 Player C| Q = 0.1721231276877053 * activeTokens + 0.4255188924028295 * successfulTokens + 0.5389737587622515 * tokenDistanceToBorder (EV: 42.86666666666667)
+
+ 
+          Game over. 
+         Player A/ Team 0: 5 <--WINNER ON SERVER within 8 turns
+         Player B/ Team 2: 0
+         Player C/ Team 1: 2
+
+ 
+--------------------------------------------------
+--------------------------------------------------
+Depth report.
+     Team 0:
+        Depth 7 was reached 3 times.
+        Depth 9 was reached 2 times.
+        Depth 10 was reached 3 times.
+        Fallback choosing random token happened 0 times.
+     Team 2:
+        Depth 7 was reached 2 times.
+        Depth 9 was reached 3 times.
+        Depth 10 was reached 2 times.
+        Fallback choosing random token happened 0 times.
+     Team 1:
+        Depth 7 was reached 3 times.
+        Depth 9 was reached 2 times.
+        Depth 10 was reached 2 times.
+        Fallback choosing random token happened 0 times.
+--------------------------------------------------
+--------------------------------------------------
+
+ 
+                  Evaluation. 
+                 Player A| Q = 0.17178121990144843 * activeTokens + 0.4311426714297148 * successfulTokens + 0.6228706867646694 * tokenDistanceToBorder (EV: 43.86666666666667)
+                 Player B| Q = 0.18331567344686608 * activeTokens + 0.47381589670964586 * successfulTokens + 0.5591038415259374 * tokenDistanceToBorder (EV: 2.0)
+                 Player C| Q = 0.1721231276877053 * activeTokens + 0.4255188924028295 * successfulTokens + 0.5389737587622515 * tokenDistanceToBorder (EV: 6.0)
+
+ 
+          Game over. 
+         Player A/ Team 2: 0
+         Player B/ Team 1: 5 <--WINNER ON SERVER within 8 turns
+         Player C/ Team 0: 3
+
+ 
+--------------------------------------------------
+--------------------------------------------------
+Depth report.
+     Team 2:
+        Depth 7 was reached 6 times.
+        Depth 9 was reached 2 times.
+        Depth 10 was reached 0 times.
+        Fallback choosing random token happened 0 times.
+     Team 1:
+        Depth 7 was reached 4 times.
+        Depth 9 was reached 4 times.
+        Depth 10 was reached 1 times.
+        Fallback choosing random token happened 0 times.
+     Team 0:
+        Depth 7 was reached 6 times.
+        Depth 9 was reached 2 times.
+        Depth 10 was reached 1 times.
+        Fallback choosing random token happened 0 times.
+--------------------------------------------------
+--------------------------------------------------
+
+ 
+                  Evaluation. 
+                 Player A| Q = 0.17178121990144843 * activeTokens + 0.4311426714297148 * successfulTokens + 0.6228706867646694 * tokenDistanceToBorder (EV: 1.0)
+                 Player B| Q = 0.18331567344686608 * activeTokens + 0.47381589670964586 * successfulTokens + 0.5591038415259374 * tokenDistanceToBorder (EV: 42.86666666666667)
+                 Player C| Q = 0.1721231276877053 * activeTokens + 0.4255188924028295 * successfulTokens + 0.5389737587622515 * tokenDistanceToBorder (EV: 7.0)
+
+ 
+          Game over. 
+         Player A/ Team 0: 5 <--WINNER ON SERVER within 9 turns
+         Player B/ Team 1: 0
+         Player C/ Team 2: 2
+
+ 
+--------------------------------------------------
+--------------------------------------------------
+Depth report.
+     Team 0:
+        Depth 7 was reached 3 times.
+        Depth 9 was reached 3 times.
+        Depth 10 was reached 3 times.
+        Fallback choosing random token happened 0 times.
+     Team 1:
+        Depth 7 was reached 3 times.
+        Depth 9 was reached 3 times.
+        Depth 10 was reached 2 times.
+        Fallback choosing random token happened 0 times.
+     Team 2:
+        Depth 7 was reached 4 times.
+        Depth 9 was reached 2 times.
+        Depth 10 was reached 2 times.
+        Fallback choosing random token happened 0 times.
+--------------------------------------------------
+--------------------------------------------------
+
+ 
+                  Evaluation. 
+                 Player A| Q = 0.17178121990144843 * activeTokens + 0.4311426714297148 * successfulTokens + 0.6228706867646694 * tokenDistanceToBorder (EV: 43.6)
+                 Player B| Q = 0.18331567344686608 * activeTokens + 0.47381589670964586 * successfulTokens + 0.5591038415259374 * tokenDistanceToBorder (EV: 2.0)
+                 Player C| Q = 0.1721231276877053 * activeTokens + 0.4255188924028295 * successfulTokens + 0.5389737587622515 * tokenDistanceToBorder (EV: 6.0)
+
+ 
+          Game over. 
+         Player A/ Team 0: 5 <--WINNER ON SERVER within 9 turns
+         Player B/ Team 1: 0
+         Player C/ Team 2: 2
+
+ 
+--------------------------------------------------
+--------------------------------------------------
+Depth report.
+     Team 0:
+        Depth 7 was reached 3 times.
+        Depth 9 was reached 3 times.
+        Depth 10 was reached 3 times.
+        Fallback choosing random token happened 0 times.
+     Team 1:
+        Depth 7 was reached 3 times.
+        Depth 9 was reached 3 times.
+        Depth 10 was reached 2 times.
+        Fallback choosing random token happened 0 times.
+     Team 2:
+        Depth 7 was reached 4 times.
+        Depth 9 was reached 2 times.
+        Depth 10 was reached 2 times.
+        Fallback choosing random token happened 0 times.
+--------------------------------------------------
+--------------------------------------------------
+
+ 
+                  Evaluation. 
+                 Player A| Q = 0.17178121990144843 * activeTokens + 0.4311426714297148 * successfulTokens + 0.6228706867646694 * tokenDistanceToBorder (EV: 43.6)
+                 Player B| Q = 0.18331567344686608 * activeTokens + 0.47381589670964586 * successfulTokens + 0.5591038415259374 * tokenDistanceToBorder (EV: 2.0)
+                 Player C| Q = 0.1721231276877053 * activeTokens + 0.4255188924028295 * successfulTokens + 0.5389737587622515 * tokenDistanceToBorder (EV: 6.0)
+
+ 
+          Game over. 
+         Player A/ Team 2: 0
+         Player B/ Team 0: 3
+         Player C/ Team 1: 5 <--WINNER ON SERVER within 8 turns
+
+ 
+--------------------------------------------------
+--------------------------------------------------
+Depth report.
+     Team 2:
+        Depth 7 was reached 6 times.
+        Depth 9 was reached 2 times.
+        Depth 10 was reached 0 times.
+        Fallback choosing random token happened 0 times.
+     Team 0:
+        Depth 7 was reached 7 times.
+        Depth 9 was reached 2 times.
+        Depth 10 was reached 0 times.
+        Fallback choosing random token happened 0 times.
+     Team 1:
+        Depth 7 was reached 4 times.
+        Depth 9 was reached 4 times.
+        Depth 10 was reached 1 times.
+        Fallback choosing random token happened 0 times.
+--------------------------------------------------
+--------------------------------------------------
+
+ 
+                  Evaluation. 
+                 Player A| Q = 0.17178121990144843 * activeTokens + 0.4311426714297148 * successfulTokens + 0.6228706867646694 * tokenDistanceToBorder (EV: 1.0)
+                 Player B| Q = 0.18331567344686608 * activeTokens + 0.47381589670964586 * successfulTokens + 0.5591038415259374 * tokenDistanceToBorder (EV: 7.0)
+                 Player C| Q = 0.1721231276877053 * activeTokens + 0.4255188924028295 * successfulTokens + 0.5389737587622515 * tokenDistanceToBorder (EV: 42.86666666666667)
+
+ 
+!!!!!!!!!!!!!!!!!!!!!!!!!!!ERROR DETECTED!!!!!!!!!!!!!!!!!!!!!!!!!. 
+
+
+You got kicked because your move was invalid!
+
+
+
+ 
+INFO: Team 2 lost prematurely (probably because it had no more tokens to play). 
+
+
+ 
+          Game over. 
+         Player A/ Team 1: 3
+         Player B/ Team 2: 1
+         Player C/ Team 0: 5 <--WINNER ON SERVER within 12 turns
+
+ 
+--------------------------------------------------
+--------------------------------------------------
+Depth report.
+     Team 1:
+        Depth 7 was reached 3 times.
+        Depth 9 was reached 3 times.
+        Depth 10 was reached 6 times.
+        Fallback choosing random token happened 0 times.
+     Team 2:
+        Depth 7 was reached 4 times.
+        Depth 9 was reached 1 times.
+        Depth 10 was reached 5 times.
+        Fallback choosing random token happened 0 times.
+     Team 0:
+        Depth 7 was reached 4 times.
+        Depth 9 was reached 4 times.
+        Depth 10 was reached 5 times.
+        Fallback choosing random token happened 0 times.
+--------------------------------------------------
+--------------------------------------------------
+
+ 
+                  Evaluation. 
+                 Player A| Q = 0.17178121990144843 * activeTokens + 0.4311426714297148 * successfulTokens + 0.6228706867646694 * tokenDistanceToBorder (EV: 6.0)
+                 Player B| Q = 0.18331567344686608 * activeTokens + 0.47381589670964586 * successfulTokens + 0.5591038415259374 * tokenDistanceToBorder (EV: 1.0)
+                 Player C| Q = 0.1721231276877053 * activeTokens + 0.4255188924028295 * successfulTokens + 0.5389737587622515 * tokenDistanceToBorder (EV: 40.8)
+
+ 
+Calculating medium parameter evaluation from 20 games played. 
+[6.0, 1.0, 1.0, 43.6, 43.86666666666667, 6.0, 6.0, 1.0, 43.86666666666667, 43.86666666666667, 39.8, 43.86666666666667, 1.0, 1.0, 43.86666666666667, 1.0, 43.6, 43.6, 1.0, 6.0] ----> Writing medium:Q = 0.17178121990144843 * activeTokens + 0.4311426714297148 * successfulTokens + 0.6228706867646694 * tokenDistanceToBorder (EV: 21.04666666666667)
+[40.8, 7.0, 7.0, 6.0, 2.0, 40.8, 40.8, 42.86666666666667, 2.0, 6.0, 1.0, 6.0, 42.86666666666667, 7.0, 2.0, 42.86666666666667, 2.0, 2.0, 7.0, 1.0] ----> Writing medium:Q = 0.18331567344686608 * activeTokens + 0.47381589670964586 * successfulTokens + 0.5591038415259374 * tokenDistanceToBorder (EV: 15.45)
+[1.0, 42.86666666666667, 42.86666666666667, 2.0, 6.0, 1.0, 1.0, 7.0, 6.0, 2.0, 7.0, 2.0, 7.0, 42.86666666666667, 6.0, 7.0, 6.0, 6.0, 42.86666666666667, 40.8] ----> Writing medium:Q = 0.1721231276877053 * activeTokens + 0.4255188924028295 * successfulTokens + 0.5389737587622515 * tokenDistanceToBorder (EV: 13.963333333333333)
