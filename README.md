@@ -1,3 +1,3 @@
 # Ai_for_games
 
-This repository represents a player client focussing on AI through evolutionary learning.
+This repository represents a player client for a digital board game focussing on AI with depth-first Alpha-Beta-pruning including turn sorting. The AI gets optimized through evolutionary learning with the four phases: evaluation, selection, recombination and mutation.
